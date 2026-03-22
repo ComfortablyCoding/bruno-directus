@@ -1,0 +1,20 @@
+meta {
+  name: delete_version
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{base_url}}/versions/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: version-id
+}
+
+docs {
+  Delete a single content version by its primary key.
+  https://directus.io/docs/api/versions
+}

@@ -1,0 +1,23 @@
+meta {
+  name: update_roles_bulk
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{base_url}}/roles
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "keys": ["id-1", "id-2"],
+    "data": {"icon": "verified_user"}
+  }
+}
+
+docs {
+  Update multiple roles at once.
+  https://directus.io/docs/api/roles
+}

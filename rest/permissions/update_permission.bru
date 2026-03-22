@@ -1,0 +1,26 @@
+meta {
+  name: update_permission
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{base_url}}/permissions/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: permission-id
+}
+
+body:json {
+  {
+    "fields": ["id", "title", "status"]
+  }
+}
+
+docs {
+  Update an existing permission by its primary key.
+  https://directus.io/docs/api/permissions
+}

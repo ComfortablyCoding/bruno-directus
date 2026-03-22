@@ -1,0 +1,23 @@
+meta {
+  name: create_policies_bulk
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/policies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {"name": "Content Editors", "icon": "edit", "description": "Can edit all content", "admin_access": false},
+    {"name": "Content Viewers", "icon": "visibility", "description": "Can view all content", "admin_access": false}
+  ]
+}
+
+docs {
+  Create multiple policies at once.
+  https://directus.io/docs/api/policies
+}

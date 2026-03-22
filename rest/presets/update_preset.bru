@@ -1,0 +1,26 @@
+meta {
+  name: update_preset
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{base_url}}/presets/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: preset-id
+}
+
+body:json {
+  {
+    "layout": "cards"
+  }
+}
+
+docs {
+  Update an existing preset by its primary key.
+  https://directus.io/docs/api/presets
+}

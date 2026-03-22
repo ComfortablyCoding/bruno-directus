@@ -1,0 +1,25 @@
+meta {
+  name: create_version
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/versions
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "collection": "articles",
+    "item": "item-id",
+    "name": "Draft v2",
+    "key": "draft-v2"
+  }
+}
+
+docs {
+  Create a new content version for an item.
+  https://directus.io/docs/api/versions
+}

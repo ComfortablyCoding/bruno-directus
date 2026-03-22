@@ -1,0 +1,24 @@
+meta {
+  name: create_user
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "newuser@example.com",
+    "password": "password123",
+    "role": "role-id"
+  }
+}
+
+docs {
+  Create a new user account.
+  https://directus.io/docs/api/users
+}

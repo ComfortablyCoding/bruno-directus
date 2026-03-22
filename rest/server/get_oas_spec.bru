@@ -1,0 +1,16 @@
+meta {
+  name: get_oas_spec
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/server/specs/oas
+  body: none
+  auth: inherit
+}
+
+docs {
+  Retrieve the OpenAPI specification for this Directus instance.
+  https://directus.io/docs/api/server
+}

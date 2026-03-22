@@ -1,0 +1,10 @@
+meta {
+  name: directus_api
+}
+
+script:pre-request {
+  const token = bru.getEnvVar('access_token');
+  if (token) {
+    req.setHeader('Authorization', `Bearer ${token}`);
+  }
+}

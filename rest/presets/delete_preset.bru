@@ -1,0 +1,20 @@
+meta {
+  name: delete_preset
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{base_url}}/presets/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: preset-id
+}
+
+docs {
+  Delete an existing preset by its primary key.
+  https://directus.io/docs/api/presets
+}

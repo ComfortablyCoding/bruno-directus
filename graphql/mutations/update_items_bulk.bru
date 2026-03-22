@@ -1,0 +1,25 @@
+meta {
+  name: update_items_bulk
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  mutation {
+    update_articles_items(ids: ["1", "2"], data: { status: "published" }) {
+      id
+      status
+    }
+  }
+}
+
+docs {
+  Update multiple items by ID in a collection via GraphQL mutation.
+  https://directus.io/docs/api/graphql
+}

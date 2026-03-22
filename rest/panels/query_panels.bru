@@ -1,0 +1,26 @@
+meta {
+  name: query_panels
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/panels
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~fields: id,title,date_created
+  ~filter: {"status":{"_eq":"published"}}
+  ~sort: -date_created
+  ~limit: 10
+  ~offset: 0
+  ~search: keyword
+  ~meta: total_count,filter_count
+}
+
+docs {
+  Retrieve a list of all Insights dashboard panels in the Directus instance.
+  https://directus.io/docs/api/panels
+}

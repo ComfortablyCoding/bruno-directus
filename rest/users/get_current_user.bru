@@ -1,0 +1,21 @@
+meta {
+  name: get_current_user
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/users/me
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~fields: *
+  ~meta:
+}
+
+docs {
+  Retrieve the profile of the currently authenticated user.
+  https://directus.io/docs/api/users
+}

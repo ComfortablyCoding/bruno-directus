@@ -1,0 +1,20 @@
+meta {
+  name: upload_file
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/files
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(path/to/file.jpg)
+}
+
+docs {
+  Upload a file to Directus using multipart form data.
+  https://directus.io/docs/api/files
+}

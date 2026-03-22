@@ -1,0 +1,20 @@
+meta {
+  name: delete_shares_bulk
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{base_url}}/shares
+  body: json
+  auth: inherit
+}
+
+body:json {
+  ["id-1", "id-2"]
+}
+
+docs {
+  Delete multiple shares by their primary keys.
+  https://directus.io/docs/api/shares
+}

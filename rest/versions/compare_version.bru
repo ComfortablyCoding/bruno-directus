@@ -1,0 +1,20 @@
+meta {
+  name: compare_version
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{base_url}}/versions/:id/compare
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: version-id
+}
+
+docs {
+  Compare a content version against the current state of the main item to see what has changed.
+  https://directus.io/docs/api/versions
+}

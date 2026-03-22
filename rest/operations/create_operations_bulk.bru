@@ -1,0 +1,23 @@
+meta {
+  name: create_operations_bulk
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/operations
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {"name": "Log to Console", "key": "log_output", "type": "log", "flow": "flow-id", "options": {"message": "Hello from flow"}},
+    {"name": "Log to Console 2", "key": "log_output_2", "type": "log", "flow": "flow-id", "options": {"message": "Hello from flow 2"}}
+  ]
+}
+
+docs {
+  Create multiple flow operations in a single request.
+  https://directus.io/docs/api/operations
+}

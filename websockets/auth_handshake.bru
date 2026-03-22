@@ -1,0 +1,30 @@
+meta {
+  name: auth_handshake
+  type: ws
+  seq: 1
+}
+
+ws {
+  url: ws://localhost:8055/websocket
+}
+
+headers {
+  Authorization: Bearer {{access_token}}
+}
+
+body:ws {
+  name: authenticate
+  content: '''
+  {
+    "type": "auth",
+    "access_token": "{{access_token}}"
+  }
+  '''
+}
+
+docs {
+  Authenticate a WebSocket connection using a static access token.
+  Must be sent as the first message after connecting.
+
+  https://directus.io/docs/guides/realtime/subscriptions
+}

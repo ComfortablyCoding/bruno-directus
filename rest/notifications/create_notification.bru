@@ -1,0 +1,24 @@
+meta {
+  name: create_notification
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/notifications
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "recipient": "user-id",
+    "subject": "New assignment",
+    "message": "You have been assigned a new task."
+  }
+}
+
+docs {
+  Create a new notification for a user.
+  https://directus.io/docs/api/notifications
+}

@@ -1,0 +1,23 @@
+meta {
+  name: update_presets_bulk
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{base_url}}/presets
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "keys": ["id-1", "id-2"],
+    "data": {"layout": "cards"}
+  }
+}
+
+docs {
+  Update multiple presets at once.
+  https://directus.io/docs/api/presets
+}

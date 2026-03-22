@@ -1,0 +1,20 @@
+meta {
+  name: delete_translation
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{base_url}}/translations/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: translation-id
+}
+
+docs {
+  Delete a single custom translation string by its primary key.
+  https://directus.io/docs/api/translations
+}

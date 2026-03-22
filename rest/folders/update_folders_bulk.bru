@@ -1,0 +1,23 @@
+meta {
+  name: update_folders_bulk
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{base_url}}/folders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "keys": ["id-1", "id-2"],
+    "data": {"parent": "parent-id"}
+  }
+}
+
+docs {
+  Update multiple folders in a single request.
+  https://directus.io/docs/api/folders
+}

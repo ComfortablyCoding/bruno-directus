@@ -1,0 +1,26 @@
+meta {
+  name: update_operation
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{base_url}}/operations/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: operation-id
+}
+
+body:json {
+  {
+    "options": {"message": "Updated message"}
+  }
+}
+
+docs {
+  Update a single flow operation by its primary key.
+  https://directus.io/docs/api/operations
+}

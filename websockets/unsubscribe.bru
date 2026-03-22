@@ -1,0 +1,25 @@
+meta {
+  name: unsubscribe
+  type: ws
+  seq: 3
+}
+
+ws {
+  url: ws://localhost:8055/websocket
+}
+
+body:ws {
+  name: unsubscribe
+  content: '''
+  {
+    "type": "unsubscribe",
+    "uid": "articles-sub-1"
+  }
+  '''
+}
+
+docs {
+  Unsubscribe from a previous subscription using its UID.
+
+  https://directus.io/docs/guides/realtime/subscriptions
+}

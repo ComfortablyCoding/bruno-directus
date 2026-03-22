@@ -1,0 +1,26 @@
+meta {
+  name: update_notification
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{base_url}}/notifications/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: notification-id
+}
+
+body:json {
+  {
+    "status": "archived"
+  }
+}
+
+docs {
+  Update a single notification by its primary key.
+  https://directus.io/docs/api/notifications
+}

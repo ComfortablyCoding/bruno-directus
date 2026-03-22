@@ -1,0 +1,24 @@
+meta {
+  name: delete_items_bulk
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{base_url}}/items/:collection
+  body: json
+  auth: inherit
+}
+
+params:path {
+  collection: my_collection
+}
+
+body:json {
+  ["id-1", "id-2"]
+}
+
+docs {
+  Delete multiple items from the specified collection by their primary keys.
+  https://directus.io/docs/api/items
+}

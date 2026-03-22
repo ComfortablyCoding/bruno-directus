@@ -1,0 +1,29 @@
+meta {
+  name: create_panel
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/panels
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dashboard": "dashboard-id",
+    "name": "Article Count",
+    "type": "metric",
+    "position_x": 0,
+    "position_y": 0,
+    "width": 8,
+    "height": 6,
+    "options": {}
+  }
+}
+
+docs {
+  Create a new panel on an Insights dashboard.
+  https://directus.io/docs/api/panels
+}

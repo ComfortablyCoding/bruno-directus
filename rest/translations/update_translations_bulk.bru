@@ -1,0 +1,23 @@
+meta {
+  name: update_translations_bulk
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{base_url}}/translations
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "keys": ["id-1", "id-2"],
+    "data": {"value": "Updated welcome message"}
+  }
+}
+
+docs {
+  Update multiple custom translation strings by their primary keys.
+  https://directus.io/docs/api/translations
+}

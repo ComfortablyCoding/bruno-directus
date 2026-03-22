@@ -1,0 +1,25 @@
+meta {
+  name: ping_pong
+  type: ws
+  seq: 4
+}
+
+ws {
+  url: ws://localhost:8055/websocket
+}
+
+body:ws {
+  name: pong
+  content: '''
+  {
+    "type": "pong"
+  }
+  '''
+}
+
+docs {
+  Respond to server ping messages to keep the connection alive.
+  Server sends ping every 30 seconds.
+
+  https://directus.io/docs/guides/realtime/subscriptions
+}

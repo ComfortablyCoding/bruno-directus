@@ -1,0 +1,20 @@
+meta {
+  name: delete_users_bulk
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{base_url}}/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  ["id-1", "id-2"]
+}
+
+docs {
+  Delete multiple user accounts by their IDs in a single request.
+  https://directus.io/docs/api/users
+}

@@ -1,0 +1,16 @@
+meta {
+  name: get_my_permissions
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/permissions/me
+  body: none
+  auth: inherit
+}
+
+docs {
+  Retrieve the permissions for the currently authenticated user.
+  https://directus.io/docs/api/permissions
+}

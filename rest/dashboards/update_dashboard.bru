@@ -1,0 +1,26 @@
+meta {
+  name: update_dashboard
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{base_url}}/dashboards/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: dashboard-id
+}
+
+body:json {
+  {
+    "name": "Analytics v2"
+  }
+}
+
+docs {
+  Update a single Insights dashboard by its primary key.
+  https://directus.io/docs/api/dashboards
+}

@@ -1,0 +1,23 @@
+meta {
+  name: accept_user_invite
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{base_url}}/users/invite/accept
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "token": "invite-token",
+    "password": "password123"
+  }
+}
+
+docs {
+  Accept a user invitation using the token from the invite email and set a password.
+  https://directus.io/docs/api/users
+}

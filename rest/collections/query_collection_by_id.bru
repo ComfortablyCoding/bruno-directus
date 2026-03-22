@@ -1,0 +1,20 @@
+meta {
+  name: query_collection_by_id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/collections/:collection
+  body: none
+  auth: inherit
+}
+
+params:path {
+  collection: my_collection
+}
+
+docs {
+  Retrieve a single collection by its name.
+  https://directus.io/docs/api/collections
+}

@@ -1,0 +1,16 @@
+meta {
+  name: clear_cache
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/utils/cache/clear
+  body: none
+  auth: inherit
+}
+
+docs {
+  Clear the server-side cache. Admin only.
+  https://directus.io/docs/api/utilities
+}

@@ -1,0 +1,21 @@
+meta {
+  name: delete_item
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{base_url}}/items/:collection/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  collection: my_collection
+  id: item-id
+}
+
+docs {
+  Delete a single item from the specified collection by its primary key.
+  https://directus.io/docs/api/items
+}

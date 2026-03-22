@@ -1,0 +1,26 @@
+meta {
+  name: update_share
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{base_url}}/shares/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: share-id
+}
+
+body:json {
+  {
+    "max_uses": 20
+  }
+}
+
+docs {
+  Update a single share by its primary key.
+  https://directus.io/docs/api/shares
+}

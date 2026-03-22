@@ -1,0 +1,16 @@
+meta {
+  name: query_extensions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/extensions
+  body: none
+  auth: inherit
+}
+
+docs {
+  Retrieve a list of all installed extensions and their status.
+  https://directus.io/docs/api/extensions
+}

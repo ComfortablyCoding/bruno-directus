@@ -1,0 +1,26 @@
+meta {
+  name: diff_schema
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/schema/diff
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "version": 1,
+    "directus": "11.0.0",
+    "collections": [],
+    "fields": [],
+    "relations": []
+  }
+}
+
+docs {
+  Retrieve the diff between the current schema and a provided snapshot.
+  https://directus.io/docs/api/schema
+}

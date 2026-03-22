@@ -1,0 +1,24 @@
+meta {
+  name: create_preset
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/presets
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "collection": "articles",
+    "layout": "tabular",
+    "search": null
+  }
+}
+
+docs {
+  Create a new preset in the system.
+  https://directus.io/docs/api/presets
+}

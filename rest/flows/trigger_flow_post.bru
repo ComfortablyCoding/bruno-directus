@@ -1,0 +1,26 @@
+meta {
+  name: trigger_flow_(post)
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{base_url}}/flows/trigger/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: flow-id
+}
+
+body:json {
+  {
+    "key": "value"
+  }
+}
+
+docs {
+  Trigger a manual flow via POST request with an optional payload using the flow's trigger ID.
+  https://directus.io/docs/api/flows
+}

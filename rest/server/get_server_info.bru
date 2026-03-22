@@ -1,0 +1,16 @@
+meta {
+  name: get_server_info
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/server/info
+  body: none
+  auth: inherit
+}
+
+docs {
+  Retrieve general info about the Directus server instance.
+  https://directus.io/docs/api/server
+}

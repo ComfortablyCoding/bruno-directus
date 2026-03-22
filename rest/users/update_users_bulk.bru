@@ -1,0 +1,23 @@
+meta {
+  name: update_users_bulk
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{base_url}}/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "keys": ["id-1", "id-2"],
+    "data": {"role": "role-id"}
+  }
+}
+
+docs {
+  Update multiple user accounts in a single request.
+  https://directus.io/docs/api/users
+}

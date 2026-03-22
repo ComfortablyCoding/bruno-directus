@@ -1,0 +1,30 @@
+meta {
+  name: query_preset_by_id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/presets/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: preset-id
+}
+
+params:query {
+  ~fields: id,title,date_created
+  ~filter: {"status":{"_eq":"published"}}
+  ~sort: -date_created
+  ~limit: 10
+  ~offset: 0
+  ~search: keyword
+  ~meta: total_count,filter_count
+}
+
+docs {
+  Retrieve a single preset by its primary key.
+  https://directus.io/docs/api/presets
+}

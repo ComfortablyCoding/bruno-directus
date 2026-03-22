@@ -1,0 +1,23 @@
+meta {
+  name: create_comments_bulk
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/comments
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {"collection": "articles", "item": "item-id", "comment": "This looks great!"},
+    {"collection": "articles", "item": "item-id-2", "comment": "Needs revision."}
+  ]
+}
+
+docs {
+  Create multiple comments at once.
+  https://directus.io/docs/api/comments
+}

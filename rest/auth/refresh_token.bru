@@ -1,0 +1,22 @@
+meta {
+  name: refresh_token
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/auth/refresh
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "refresh_token": "your-refresh-token"
+  }
+}
+
+docs {
+  Exchange a refresh token for a new access token.
+  https://directus.io/docs/api/authentication
+}

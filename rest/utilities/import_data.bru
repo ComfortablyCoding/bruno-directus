@@ -1,0 +1,24 @@
+meta {
+  name: import_data
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_url}}/utils/import/:collection
+  body: multipartForm
+  auth: inherit
+}
+
+params:path {
+  collection: articles
+}
+
+body:multipart {
+  file: @file(path/to/data.json)
+}
+
+docs {
+  Import data into a collection from a JSON or CSV file.
+  https://directus.io/docs/api/utilities
+}

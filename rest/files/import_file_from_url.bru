@@ -1,0 +1,23 @@
+meta {
+  name: import_file_from_url
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/files/import
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "url": "https://example.com/image.jpg",
+    "data": {"title": "Imported File"}
+  }
+}
+
+docs {
+  Import a file into Directus from an external URL.
+  https://directus.io/docs/api/files
+}

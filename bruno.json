@@ -1,0 +1,6 @@
+{
+  "version": "1",
+  "name": "directus",
+  "type": "collection",
+  "ignore": [".git"]
+}

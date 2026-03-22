@@ -1,0 +1,28 @@
+meta {
+  name: export_data
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/utils/export/:collection
+  body: json
+  auth: inherit
+}
+
+params:path {
+  collection: articles
+}
+
+body:json {
+  {
+    "format": "json",
+    "filter": {},
+    "fields": ["*"]
+  }
+}
+
+docs {
+  Export collection data to a file (json, csv, or xml).
+  https://directus.io/docs/api/utilities
+}

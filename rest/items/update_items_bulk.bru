@@ -1,0 +1,27 @@
+meta {
+  name: update_items_bulk
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{base_url}}/items/:collection
+  body: json
+  auth: inherit
+}
+
+params:path {
+  collection: my_collection
+}
+
+body:json {
+  {
+    "keys": ["id-1", "id-2"],
+    "data": {"status": "published"}
+  }
+}
+
+docs {
+  Update multiple items in the specified collection by their primary keys.
+  https://directus.io/docs/api/items
+}

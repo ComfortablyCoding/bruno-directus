@@ -1,0 +1,26 @@
+meta {
+  name: save_version
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{base_url}}/versions/:id/save
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: version-id
+}
+
+body:json {
+  {
+    "title": "Updated Title"
+  }
+}
+
+docs {
+  Save field changes to a content version without promoting to the main item.
+  https://directus.io/docs/api/versions
+}

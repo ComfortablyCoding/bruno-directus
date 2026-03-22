@@ -1,0 +1,23 @@
+meta {
+  name: create_flows_bulk
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/flows
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {"name": "My Flow", "icon": "bolt", "status": "active", "trigger": "manual"},
+    {"name": "My Flow 2", "icon": "bolt", "status": "active", "trigger": "manual"}
+  ]
+}
+
+docs {
+  Create multiple flows in a single request.
+  https://directus.io/docs/api/flows
+}

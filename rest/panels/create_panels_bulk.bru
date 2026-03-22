@@ -1,0 +1,23 @@
+meta {
+  name: create_panels_bulk
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/panels
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {"dashboard": "dashboard-id", "name": "Article Count", "type": "metric", "position_x": 0, "position_y": 0, "width": 8, "height": 6, "options": {}},
+    {"dashboard": "dashboard-id", "name": "User Count", "type": "metric", "position_x": 8, "position_y": 0, "width": 8, "height": 6, "options": {}}
+  ]
+}
+
+docs {
+  Create multiple Insights dashboard panels in a single request.
+  https://directus.io/docs/api/panels
+}

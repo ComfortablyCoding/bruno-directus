@@ -1,0 +1,25 @@
+meta {
+  name: create_flow
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/flows
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "My Flow",
+    "icon": "bolt",
+    "status": "active",
+    "trigger": "manual"
+  }
+}
+
+docs {
+  Create a new flow in the Directus instance.
+  https://directus.io/docs/api/flows
+}

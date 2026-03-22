@@ -1,0 +1,26 @@
+meta {
+  name: query_permissions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/permissions
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~fields: id,collection,action,policy
+  ~filter: {"status":{"_eq":"published"}}
+  ~sort: -date_created
+  ~limit: 10
+  ~offset: 0
+  ~search: keyword
+  ~meta: total_count,filter_count
+}
+
+docs {
+  Retrieve a list of all permissions in the system.
+  https://directus.io/docs/api/permissions
+}

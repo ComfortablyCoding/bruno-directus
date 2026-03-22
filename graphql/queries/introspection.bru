@@ -1,0 +1,34 @@
+meta {
+  name: introspection
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  query IntrospectionQuery {
+    __schema {
+      types {
+        name
+        kind
+        fields {
+          name
+          type {
+            name
+            kind
+          }
+        }
+      }
+    }
+  }
+}
+
+docs {
+  Introspect the GraphQL schema to discover available types and fields.
+  https://directus.io/docs/api/graphql
+}

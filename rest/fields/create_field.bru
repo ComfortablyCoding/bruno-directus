@@ -1,0 +1,29 @@
+meta {
+  name: create_field
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/fields/:collection
+  body: json
+  auth: inherit
+}
+
+params:path {
+  collection: my_collection
+}
+
+body:json {
+  {
+    "field": "new_field",
+    "type": "string",
+    "meta": {"interface": "input"},
+    "schema": {}
+  }
+}
+
+docs {
+  Create a new field in the specified collection.
+  https://directus.io/docs/api/fields
+}

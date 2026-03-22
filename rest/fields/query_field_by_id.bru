@@ -1,0 +1,21 @@
+meta {
+  name: query_field_by_id
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/fields/:collection/:field
+  body: none
+  auth: inherit
+}
+
+params:path {
+  collection: my_collection
+  field: my_field
+}
+
+docs {
+  Retrieve a single field by its collection name and field name.
+  https://directus.io/docs/api/fields
+}
