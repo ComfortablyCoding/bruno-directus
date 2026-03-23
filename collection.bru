@@ -4,7 +4,8 @@ meta {
 
 script:pre-request {
   const token = bru.getEnvVar('access_token');
-  if (token) {
+  const authHeader = req.getHeader('Authorization');
+  if (token && !authHeader) {
     req.setHeader('Authorization', `Bearer ${token}`);
   }
 }
