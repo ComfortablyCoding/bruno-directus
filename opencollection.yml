@@ -14,7 +14,7 @@ request:
         const isWs = req.getType?.() === 'websocket' || url.includes('/websocket');
         const isAuthRoute = /\/auth\/(login|refresh)/.test(url);
 
-        if (token && mode !== 'none' && !isWs && !isAuthRoute) {
+        if (token && mode === 'none' && !isWs && !isAuthRoute) {
           req.setHeader('Authorization', `Bearer ${token}`);
         }
 
