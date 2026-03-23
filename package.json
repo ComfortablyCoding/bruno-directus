@@ -1,0 +1,21 @@
+{
+  "name": "bruno-directus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Comprehensive Bruno collection covering the entire Directus API surface: REST, GraphQL, and WebSockets.",
+  "keywords": [
+    "bruno",
+    "collection",
+    "directus"
+  ],
+  "license": "MIT",
+  "author": "@ComfortablyCoding",
+  "scripts": {
+    "format": "oxfmt --write",
+    "format:check": "oxfmt --check"
+  },
+  "devDependencies": {
+    "oxfmt": "0.41.0"
+  },
+  "packageManager": "pnpm@10.32.1"
+}
