@@ -6,20 +6,23 @@ meta {
 
 ws {
   url: ws://localhost:8055/websocket
+  body: ws
+  auth: none
 }
 
 body:ws {
   name: pong
+  type: json
   content: '''
-  {
-    "type": "pong"
-  }
+    {
+      "type": "pong"
+    }
   '''
 }
 
 docs {
   Respond to server ping messages to keep the connection alive.
   Server sends ping every 30 seconds.
-
+  
   https://directus.io/docs/guides/realtime/subscriptions
 }
