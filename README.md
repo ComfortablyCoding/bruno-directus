@@ -28,13 +28,13 @@ Comprehensive Bruno collection covering the entire Directus 11+ API surface: RES
 
 ## Authentication
 
-If an `access_token` is defined in the active environment, an `Authorization: Bearer {{access_token}}` header is automatically included via a collection-level pre-request script. The header is **not** added when:
+If an `access_token` is defined in the active environment, an `Authorization: Bearer {{access_token}}` header is automatically included. The header is **not** added under the following conditions:
 
 - The request's auth mode is set to `inherit` or `none`
 - The request is a WebSocket connection
-- The URL targets `/auth/login` or `/auth/refresh`
-
-If the token is empty (such as in the `public` environment), no authorization header is sent.
+- The request endpoint is `/auth/login` or `/auth/refresh`
+- The `access_token` value is empty in the active environment (e.g. `public`)
+- A request level `Authorization` header is set
 
 ## Other Tooling
 
