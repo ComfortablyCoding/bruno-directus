@@ -1,0 +1,26 @@
+info:
+  name: query_items
+  type: graphql
+  seq: 1
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  auth: inherit
+  body:
+    query: |-
+      query {
+        articles(limit: 10, sort: ["-date_created"]) {
+          id
+          title
+          status
+          date_created
+        }
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Query a list of items from a user collection via GraphQL.
+  https://directus.io/docs/api/graphql

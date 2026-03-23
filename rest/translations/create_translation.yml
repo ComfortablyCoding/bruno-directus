@@ -1,0 +1,24 @@
+info:
+  name: create_translation
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/translations"
+  body:
+    type: json
+    data: |-
+      {
+        "key": "welcome_message",
+        "language": "en-US",
+        "value": "Welcome to our app"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new custom translation string.
+  https://directus.io/docs/api/translations

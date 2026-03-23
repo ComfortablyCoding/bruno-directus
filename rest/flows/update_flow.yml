@@ -1,0 +1,26 @@
+info:
+  name: update_flow
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/flows/:id"
+  params:
+    - name: id
+      value: "flow-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "status": "inactive"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update a single flow by its primary key.
+  https://directus.io/docs/api/flows

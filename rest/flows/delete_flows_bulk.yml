@@ -1,0 +1,20 @@
+info:
+  name: delete_flows_bulk
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{base_url}}/flows"
+  body:
+    type: json
+    data: |-
+      ["id-1", "id-2"]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete multiple flows by their primary keys.
+  https://directus.io/docs/api/flows

@@ -1,0 +1,23 @@
+info:
+  name: update_comments_bulk
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/comments"
+  body:
+    type: json
+    data: |-
+      {
+        "keys": ["id-1", "id-2"],
+        "data": {"comment": "Updated comment text"}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update multiple comments at once.
+  https://directus.io/docs/api/comments

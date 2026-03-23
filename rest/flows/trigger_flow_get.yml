@@ -1,0 +1,20 @@
+info:
+  name: trigger_flow_(get)
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/flows/trigger/:id"
+  params:
+    - name: id
+      value: "flow-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Trigger a manual flow via GET request using the flow's trigger ID.
+  https://directus.io/docs/api/flows

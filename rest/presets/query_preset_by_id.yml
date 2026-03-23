@@ -1,0 +1,48 @@
+info:
+  name: query_preset_by_id
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/presets/:id"
+  params:
+    - name: fields
+      value: "id,title,date_created"
+      type: query
+      disabled: true
+    - name: filter
+      value: '{"status":{"_eq":"published"}}'
+      type: query
+      disabled: true
+    - name: sort
+      value: "-date_created"
+      type: query
+      disabled: true
+    - name: limit
+      value: "10"
+      type: query
+      disabled: true
+    - name: offset
+      value: "0"
+      type: query
+      disabled: true
+    - name: search
+      value: "keyword"
+      type: query
+      disabled: true
+    - name: meta
+      value: "total_count,filter_count"
+      type: query
+      disabled: true
+    - name: id
+      value: "preset-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve a single preset by its primary key.
+  https://directus.io/docs/api/presets

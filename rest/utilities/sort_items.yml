@@ -1,0 +1,27 @@
+info:
+  name: sort_items
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/sort/:collection"
+  params:
+    - name: collection
+      value: "articles"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "item": "item-id",
+        "to": "target-id"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Re-sort items in a collection using a manual sort field.
+  https://directus.io/docs/api/utilities

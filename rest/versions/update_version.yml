@@ -1,0 +1,26 @@
+info:
+  name: update_version
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/versions/:id"
+  params:
+    - name: id
+      value: "version-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Draft v3"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update a single content version by its primary key.
+  https://directus.io/docs/api/versions

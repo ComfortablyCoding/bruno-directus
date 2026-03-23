@@ -1,0 +1,23 @@
+info:
+  name: create_roles_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/roles"
+  body:
+    type: json
+    data: |-
+      [
+        {"name": "Editor", "icon": "edit"},
+        {"name": "Viewer", "icon": "visibility"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple roles at once.
+  https://directus.io/docs/api/roles

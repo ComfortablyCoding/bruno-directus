@@ -1,0 +1,31 @@
+info:
+  name: query_item_by_id
+  type: graphql
+  seq: 2
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  auth: inherit
+  body:
+    query: |-
+      query ArticleById($id: ID!) {
+        articles_by_id(id: $id) {
+          id
+          title
+          status
+          body
+          date_created
+        }
+      }
+    variables: |-
+      {
+        "id": "1"
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Query a single item by its primary key via GraphQL.
+  https://directus.io/docs/api/graphql

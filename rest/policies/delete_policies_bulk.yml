@@ -1,0 +1,20 @@
+info:
+  name: delete_policies_bulk
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{base_url}}/policies"
+  body:
+    type: json
+    data: |-
+      ["id-1", "id-2"]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete multiple policies at once.
+  https://directus.io/docs/api/policies

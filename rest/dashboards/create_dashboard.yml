@@ -1,0 +1,24 @@
+info:
+  name: create_dashboard
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/dashboards"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Analytics",
+        "icon": "dashboard",
+        "note": "Main analytics dashboard"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new Insights dashboard.
+  https://directus.io/docs/api/dashboards

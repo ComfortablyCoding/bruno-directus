@@ -1,0 +1,23 @@
+info:
+  name: create_shares_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/shares"
+  body:
+    type: json
+    data: |-
+      [
+        {"collection": "articles", "item": "item-id", "max_uses": 10},
+        {"collection": "articles", "item": "item-id-2", "max_uses": 5}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple share links in a single request.
+  https://directus.io/docs/api/shares

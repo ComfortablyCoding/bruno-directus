@@ -1,0 +1,26 @@
+info:
+  name: update_comment
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/comments/:id"
+  params:
+    - name: id
+      value: "comment-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "comment": "Updated comment text"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update an existing comment by its primary key.
+  https://directus.io/docs/api/comments

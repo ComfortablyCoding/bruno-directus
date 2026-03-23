@@ -1,0 +1,28 @@
+info:
+  name: export_data
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/export/:collection"
+  params:
+    - name: collection
+      value: "articles"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "format": "json",
+        "filter": {},
+        "fields": ["*"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Export collection data to a file (json, csv, or xml).
+  https://directus.io/docs/api/utilities

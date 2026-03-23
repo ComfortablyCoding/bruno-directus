@@ -1,0 +1,28 @@
+info:
+  name: get_singleton_item
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/items/:collection"
+  params:
+    - name: fields
+      value: "*"
+      type: query
+      disabled: true
+    - name: meta
+      value: ""
+      type: query
+      disabled: true
+    - name: collection
+      value: "my_singleton_collection"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the single item of a singleton collection (collections configured to hold exactly one item).
+  https://directus.io/docs/api/items

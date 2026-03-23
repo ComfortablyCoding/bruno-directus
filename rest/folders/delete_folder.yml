@@ -1,0 +1,20 @@
+info:
+  name: delete_folder
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/folders/:id"
+  params:
+    - name: id
+      value: "folder-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete a single folder by its ID.
+  https://directus.io/docs/api/folders

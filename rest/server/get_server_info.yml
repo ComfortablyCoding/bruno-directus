@@ -1,0 +1,16 @@
+info:
+  name: get_server_info
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/server/info"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve general info about the Directus server instance.
+  https://directus.io/docs/api/server

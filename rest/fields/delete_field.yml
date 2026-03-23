@@ -1,0 +1,23 @@
+info:
+  name: delete_field
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/fields/:collection/:field"
+  params:
+    - name: collection
+      value: "my_collection"
+      type: path
+    - name: field
+      value: "my_field"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete a field from the specified collection.
+  https://directus.io/docs/api/fields

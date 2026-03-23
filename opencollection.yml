@@ -1,0 +1,25 @@
+opencollection: 1.0.0
+
+info:
+  name: directus
+bundled: false
+
+request:
+  scripts:
+    - type: before-request
+      code: |-
+        const token = bru.getEnvVar('access_token');
+        const authHeader = req.getHeader('Authorization');
+        if (token && !authHeader) {
+          req.setHeader('Authorization', `Bearer ${token}`);
+        }
+
+extensions:
+  bruno:
+    ignore:
+      - .git
+      - .gitignore
+      - package.json
+      - .oxfmtrc.json
+      - node_modules
+      - pnpm-lock.yaml

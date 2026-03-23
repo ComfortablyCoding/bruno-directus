@@ -1,0 +1,23 @@
+info:
+  name: login_user
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/login"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "admin@example.com",
+        "password": "password"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Authenticate a user with email and password to receive access and refresh tokens.
+  https://directus.io/docs/api/authentication

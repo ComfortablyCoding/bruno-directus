@@ -1,0 +1,26 @@
+info:
+  name: update_folder
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/folders/:id"
+  params:
+    - name: id
+      value: "folder-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Renamed Folder"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update the name or parent of a single folder by its ID.
+  https://directus.io/docs/api/folders

@@ -1,0 +1,31 @@
+info:
+  name: create_collection
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/collections"
+  body:
+    type: json
+    data: |-
+      {
+        "collection": "my_collection",
+        "schema": {},
+        "fields": [
+          {
+            "field": "id",
+            "type": "integer",
+            "meta": {"hidden": true, "interface": "input", "readonly": true},
+            "schema": {"is_primary_key": true, "has_auto_increment": true}
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new collection with an initial schema and fields definition.
+  https://directus.io/docs/api/collections

@@ -1,0 +1,23 @@
+info:
+  name: create_permissions_bulk
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/permissions"
+  body:
+    type: json
+    data: |-
+      [
+        {"collection": "articles", "action": "read", "policy": "policy-id"},
+        {"collection": "articles", "action": "create", "policy": "policy-id"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple permissions at once.
+  https://directus.io/docs/api/permissions

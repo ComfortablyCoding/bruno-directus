@@ -1,0 +1,26 @@
+info:
+  name: update_singleton_item
+  type: http
+  seq: 10
+
+http:
+  method: PATCH
+  url: "{{base_url}}/items/:collection"
+  params:
+    - name: collection
+      value: "my_singleton_collection"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Updated Singleton"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update the single item of a singleton collection.
+  https://directus.io/docs/api/items

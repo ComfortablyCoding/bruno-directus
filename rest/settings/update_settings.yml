@@ -1,0 +1,23 @@
+info:
+  name: update_settings
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{base_url}}/settings"
+  body:
+    type: json
+    data: |-
+      {
+        "project_name": "My Project",
+        "project_color": "#6644FF"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update the global project settings singleton.
+  https://directus.io/docs/api/settings

@@ -1,0 +1,20 @@
+info:
+  name: delete_versions_bulk
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{base_url}}/versions"
+  body:
+    type: json
+    data: |-
+      ["id-1", "id-2"]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete multiple content versions by their primary keys.
+  https://directus.io/docs/api/versions

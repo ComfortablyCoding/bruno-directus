@@ -1,0 +1,26 @@
+info:
+  name: update_relation
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/relations/:id"
+  params:
+    - name: id
+      value: "relation-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "one_allowed_collections": null
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update an existing relation's configuration by its ID.
+  https://directus.io/docs/api/relations

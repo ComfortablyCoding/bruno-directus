@@ -1,0 +1,23 @@
+info:
+  name: invite_user
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{base_url}}/users/invite"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "invite@example.com",
+        "role": "role-id"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Send an invitation email to a new user with a specified role.
+  https://directus.io/docs/api/users

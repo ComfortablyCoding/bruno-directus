@@ -1,0 +1,20 @@
+info:
+  name: delete_policy
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/policies/:id"
+  params:
+    - name: id
+      value: "policy-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete an existing policy by its primary key.
+  https://directus.io/docs/api/policies

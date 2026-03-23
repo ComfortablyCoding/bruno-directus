@@ -1,0 +1,29 @@
+info:
+  name: update_field
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/fields/:collection/:field"
+  params:
+    - name: collection
+      value: "my_collection"
+      type: path
+    - name: field
+      value: "my_field"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "meta": {"note": "Updated field"}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update the metadata or schema configuration of a field.
+  https://directus.io/docs/api/fields

@@ -1,0 +1,20 @@
+info:
+  name: delete_operation
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/operations/:id"
+  params:
+    - name: id
+      value: "operation-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete a single flow operation by its primary key.
+  https://directus.io/docs/api/operations

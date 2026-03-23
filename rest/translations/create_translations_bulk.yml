@@ -1,0 +1,23 @@
+info:
+  name: create_translations_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/translations"
+  body:
+    type: json
+    data: |-
+      [
+        {"key": "welcome_message", "language": "en-US", "value": "Welcome to our app"},
+        {"key": "welcome_message", "language": "fr-FR", "value": "Bienvenue dans notre application"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple custom translation strings in a single request.
+  https://directus.io/docs/api/translations

@@ -1,0 +1,26 @@
+info:
+  name: update_role
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/roles/:id"
+  params:
+    - name: id
+      value: "role-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Senior Editor"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update an existing role by its primary key.
+  https://directus.io/docs/api/roles

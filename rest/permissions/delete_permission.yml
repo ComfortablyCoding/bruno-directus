@@ -1,0 +1,20 @@
+info:
+  name: delete_permission
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{base_url}}/permissions/:id"
+  params:
+    - name: id
+      value: "permission-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete an existing permission by its primary key.
+  https://directus.io/docs/api/permissions

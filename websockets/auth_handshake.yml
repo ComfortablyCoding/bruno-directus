@@ -1,0 +1,23 @@
+info:
+  name: auth_handshake
+  type: websocket
+  seq: 1
+
+websocket:
+  url: "{{base_url}}/websocket"
+  message:
+    type: json
+    data: |-
+      {
+        "type": "auth",
+        "access_token": "{{access_token}}"
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Authenticate a WebSocket connection using a static access token.
+  Must be sent as the first message after connecting.
+
+  https://directus.io/docs/guides/realtime/subscriptions

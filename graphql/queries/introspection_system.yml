@@ -1,0 +1,36 @@
+info:
+  name: introspection_system
+  type: graphql
+  seq: 5
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql/system"
+  body:
+    query: |-
+      query IntrospectionQuery {
+        __schema {
+          types {
+            name
+            kind
+            fields {
+              name
+              type {
+                name
+                kind
+              }
+            }
+          }
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Introspect the GraphQL schema to discover available types and fields.
+  https://directus.io/docs/api/graphql

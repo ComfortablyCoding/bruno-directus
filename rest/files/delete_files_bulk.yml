@@ -1,0 +1,20 @@
+info:
+  name: delete_files_bulk
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{base_url}}/files"
+  body:
+    type: json
+    data: |-
+      ["id-1", "id-2"]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete multiple files by their IDs in a single request.
+  https://directus.io/docs/api/files

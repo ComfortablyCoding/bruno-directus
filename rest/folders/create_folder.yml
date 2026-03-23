@@ -1,0 +1,23 @@
+info:
+  name: create_folder
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/folders"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "My Folder",
+        "parent": null
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new folder for organizing files.
+  https://directus.io/docs/api/folders

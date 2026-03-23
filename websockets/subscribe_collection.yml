@@ -1,0 +1,28 @@
+info:
+  name: subscribe_collection
+  type: websocket
+  seq: 2
+
+websocket:
+  url: "{{base_url}}/websocket"
+  message:
+    type: json
+    data: |-
+      {
+        "type": "subscribe",
+        "collection": "articles",
+        "uid": "articles-sub-1",
+        "query": {
+          "fields": ["id", "title", "status"],
+          "event": "create"
+        }
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Subscribe to real-time changes on a collection.
+  Events: create, update, delete.
+
+  https://directus.io/docs/guides/realtime/subscriptions

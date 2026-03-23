@@ -1,0 +1,26 @@
+info:
+  name: update_collection
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/collections/:collection"
+  params:
+    - name: collection
+      value: "my_collection"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "meta": {"icon": "article", "note": "Updated collection"}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update the metadata of an existing collection by its name.
+  https://directus.io/docs/api/collections

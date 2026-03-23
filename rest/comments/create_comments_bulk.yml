@@ -1,0 +1,23 @@
+info:
+  name: create_comments_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/comments"
+  body:
+    type: json
+    data: |-
+      [
+        {"collection": "articles", "item": "item-id", "comment": "This looks great!"},
+        {"collection": "articles", "item": "item-id-2", "comment": "Needs revision."}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple comments at once.
+  https://directus.io/docs/api/comments

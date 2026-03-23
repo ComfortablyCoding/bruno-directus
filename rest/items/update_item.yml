@@ -1,0 +1,29 @@
+info:
+  name: update_item
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/items/:collection/:id"
+  params:
+    - name: collection
+      value: "my_collection"
+      type: path
+    - name: id
+      value: "item-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Updated Item"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update a single item in the specified collection by its primary key.
+  https://directus.io/docs/api/items

@@ -1,0 +1,23 @@
+info:
+  name: delete_items_bulk
+  type: graphql
+  seq: 6
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  auth: inherit
+  body:
+    query: |-
+      mutation {
+        delete_articles_items(ids: ["1", "2"]) {
+          ids
+        }
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete multiple items by ID from a collection via GraphQL mutation.
+  https://directus.io/docs/api/graphql

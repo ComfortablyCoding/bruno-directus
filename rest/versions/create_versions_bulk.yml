@@ -1,0 +1,23 @@
+info:
+  name: create_versions_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/versions"
+  body:
+    type: json
+    data: |-
+      [
+        {"collection": "articles", "item": "item-id", "name": "Draft v2", "key": "draft-v2"},
+        {"collection": "articles", "item": "item-id-2", "name": "Draft v2", "key": "draft-v2"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple content versions in a single request.
+  https://directus.io/docs/api/versions

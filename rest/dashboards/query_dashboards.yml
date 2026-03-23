@@ -1,0 +1,45 @@
+info:
+  name: query_dashboards
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/dashboards"
+  params:
+    - name: fields
+      value: "id,title,date_created"
+      type: query
+      disabled: true
+    - name: filter
+      value: '{"status":{"_eq":"published"}}'
+      type: query
+      disabled: true
+    - name: sort
+      value: "-date_created"
+      type: query
+      disabled: true
+    - name: limit
+      value: "10"
+      type: query
+      disabled: true
+    - name: offset
+      value: "0"
+      type: query
+      disabled: true
+    - name: search
+      value: "keyword"
+      type: query
+      disabled: true
+    - name: meta
+      value: "total_count,filter_count"
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve a list of all Insights dashboards in the Directus instance.
+  https://directus.io/docs/api/dashboards

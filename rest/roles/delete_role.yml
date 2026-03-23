@@ -1,0 +1,20 @@
+info:
+  name: delete_role
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/roles/:id"
+  params:
+    - name: id
+      value: "role-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete an existing role by its primary key.
+  https://directus.io/docs/api/roles

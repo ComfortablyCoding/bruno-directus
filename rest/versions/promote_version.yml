@@ -1,0 +1,20 @@
+info:
+  name: promote_version
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{base_url}}/versions/:id/promote"
+  params:
+    - name: id
+      value: "version-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Promote a content version by applying its changes to the main item.
+  https://directus.io/docs/api/versions

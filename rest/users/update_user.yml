@@ -1,0 +1,26 @@
+info:
+  name: update_user
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/users/:id"
+  params:
+    - name: id
+      value: "user-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "email": "updated@example.com"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update a user account by their ID.
+  https://directus.io/docs/api/users

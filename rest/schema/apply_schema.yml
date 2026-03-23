@@ -1,0 +1,36 @@
+info:
+  name: apply_schema
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/schema/apply"
+  body:
+    type: json
+    data: |-
+      {
+        "collections": {
+          "create": [],
+          "update": [],
+          "delete": []
+        },
+        "fields": {
+          "create": [],
+          "update": [],
+          "delete": []
+        },
+        "relations": {
+          "create": [],
+          "update": [],
+          "delete": []
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Apply a schema diff to the current instance. Admin only, destructive operation.
+  https://directus.io/docs/api/schema

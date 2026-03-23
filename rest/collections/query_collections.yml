@@ -1,0 +1,16 @@
+info:
+  name: query_collections
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/collections"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve a list of all collections in the Directus project.
+  https://directus.io/docs/api/collections

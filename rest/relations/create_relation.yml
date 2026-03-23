@@ -1,0 +1,24 @@
+info:
+  name: create_relation
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/relations"
+  body:
+    type: json
+    data: |-
+      {
+        "many_collection": "articles",
+        "many_field": "author",
+        "one_collection": "users"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new relation between two collections.
+  https://directus.io/docs/api/relations

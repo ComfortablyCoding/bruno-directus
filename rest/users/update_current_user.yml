@@ -1,0 +1,22 @@
+info:
+  name: update_current_user
+  type: http
+  seq: 7
+
+http:
+  method: PATCH
+  url: "{{base_url}}/users/me"
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Developer"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update the profile of the currently authenticated user.
+  https://directus.io/docs/api/users

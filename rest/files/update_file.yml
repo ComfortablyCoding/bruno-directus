@@ -1,0 +1,26 @@
+info:
+  name: update_file
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/files/:id"
+  params:
+    - name: id
+      value: "file-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Updated File Title"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update the metadata of a single file by its ID.
+  https://directus.io/docs/api/files

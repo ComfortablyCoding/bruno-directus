@@ -1,0 +1,29 @@
+info:
+  name: query_system
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql/system"
+  auth: inherit
+  body:
+    query: |-
+      query {
+        users(limit: 10) {
+          id
+          email
+          first_name
+          last_name
+          role {
+            name
+          }
+        }
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Query system collections (users, roles, etc.) via the GraphQL system endpoint.
+  https://directus.io/docs/api/graphql

@@ -1,0 +1,23 @@
+info:
+  name: create_notifications_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/notifications"
+  body:
+    type: json
+    data: |-
+      [
+        {"recipient": "user-id", "subject": "New assignment", "message": "You have been assigned a new task."},
+        {"recipient": "user-id-2", "subject": "New assignment", "message": "You have been assigned a new task."}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple notifications in a single request.
+  https://directus.io/docs/api/notifications

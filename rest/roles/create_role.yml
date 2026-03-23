@@ -1,0 +1,23 @@
+info:
+  name: create_role
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/roles"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Editor",
+        "icon": "edit"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new role in the system.
+  https://directus.io/docs/api/roles

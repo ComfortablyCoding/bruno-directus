@@ -1,0 +1,22 @@
+info:
+  name: ping_pong
+  type: websocket
+  seq: 4
+
+websocket:
+  url: "{{base_url}}/websocket"
+  message:
+    type: json
+    data: |-
+      {
+        "type": "pong"
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Respond to server ping messages to keep the connection alive.
+  Server sends ping every 30 seconds.
+
+  https://directus.io/docs/guides/realtime/subscriptions

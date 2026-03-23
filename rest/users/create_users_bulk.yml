@@ -1,0 +1,23 @@
+info:
+  name: create_users_bulk
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/users"
+  body:
+    type: json
+    data: |-
+      [
+        {"email": "user1@example.com", "password": "password123", "role": "role-id"},
+        {"email": "user2@example.com", "password": "password123", "role": "role-id"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple user accounts in a single request.
+  https://directus.io/docs/api/users

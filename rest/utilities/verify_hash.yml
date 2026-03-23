@@ -1,0 +1,23 @@
+info:
+  name: verify_hash
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/hash/verify"
+  body:
+    type: json
+    data: |-
+      {
+        "string": "my-secret-string",
+        "hash": "$2b$10$..."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Verify a plain-text string against a bcrypt hash.
+  https://directus.io/docs/api/utilities

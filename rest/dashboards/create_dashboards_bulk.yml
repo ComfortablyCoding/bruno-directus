@@ -1,0 +1,23 @@
+info:
+  name: create_dashboards_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/dashboards"
+  body:
+    type: json
+    data: |-
+      [
+        {"name": "Analytics", "icon": "dashboard", "note": "Main analytics dashboard"},
+        {"name": "Sales", "icon": "point_of_sale", "note": "Sales overview dashboard"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple Insights dashboards in a single request.
+  https://directus.io/docs/api/dashboards

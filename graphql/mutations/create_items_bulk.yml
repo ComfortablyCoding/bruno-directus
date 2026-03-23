@@ -1,0 +1,24 @@
+info:
+  name: create_items_bulk
+  type: graphql
+  seq: 2
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  auth: inherit
+  body:
+    query: |-
+      mutation {
+        create_articles_items(data: [{ title: "Article 1" }, { title: "Article 2" }]) {
+          id
+          title
+        }
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple items in a collection in a single GraphQL mutation.
+  https://directus.io/docs/api/graphql

@@ -1,0 +1,22 @@
+info:
+  name: unsubscribe
+  type: websocket
+  seq: 3
+
+websocket:
+  url: "{{base_url}}/websocket"
+  message:
+    type: json
+    data: |-
+      {
+        "type": "unsubscribe",
+        "uid": "articles-sub-1"
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Unsubscribe from a previous subscription using its UID.
+
+  https://directus.io/docs/guides/realtime/subscriptions

@@ -1,0 +1,27 @@
+info:
+  name: create_items_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/items/:collection"
+  params:
+    - name: collection
+      value: "my_collection"
+      type: path
+  body:
+    type: json
+    data: |-
+      [
+        {"title": "Item 1", "status": "draft"},
+        {"title": "Item 2", "status": "published"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple items in the specified collection in a single request.
+  https://directus.io/docs/api/items

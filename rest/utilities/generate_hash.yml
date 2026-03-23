@@ -1,0 +1,22 @@
+info:
+  name: generate_hash
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/hash/generate"
+  body:
+    type: json
+    data: |-
+      {
+        "string": "my-secret-string"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Generate a bcrypt hash from a plain-text string.
+  https://directus.io/docs/api/utilities

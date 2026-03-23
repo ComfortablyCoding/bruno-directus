@@ -1,0 +1,23 @@
+info:
+  name: update_flows_bulk
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/flows"
+  body:
+    type: json
+    data: |-
+      {
+        "keys": ["id-1", "id-2"],
+        "data": {"status": "inactive"}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update multiple flows by their primary keys.
+  https://directus.io/docs/api/flows

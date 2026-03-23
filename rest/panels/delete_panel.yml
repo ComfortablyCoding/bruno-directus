@@ -1,0 +1,20 @@
+info:
+  name: delete_panel
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/panels/:id"
+  params:
+    - name: id
+      value: "panel-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete a single Insights dashboard panel by its primary key.
+  https://directus.io/docs/api/panels

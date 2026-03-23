@@ -1,0 +1,24 @@
+info:
+  name: create_permission
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/permissions"
+  body:
+    type: json
+    data: |-
+      {
+        "collection": "articles",
+        "action": "read",
+        "policy": "policy-id"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new permission in the system.
+  https://directus.io/docs/api/permissions

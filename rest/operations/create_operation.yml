@@ -1,0 +1,26 @@
+info:
+  name: create_operation
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/operations"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Log to Console",
+        "key": "log_output",
+        "type": "log",
+        "flow": "flow-id",
+        "options": {"message": "Hello from flow"}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create a new flow operation in the Directus instance.
+  https://directus.io/docs/api/operations

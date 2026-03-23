@@ -1,0 +1,16 @@
+info:
+  name: clear_cache
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/cache/clear"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Clear the server-side cache. Admin only.
+  https://directus.io/docs/api/utilities

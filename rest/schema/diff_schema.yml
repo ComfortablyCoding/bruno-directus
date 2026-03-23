@@ -1,0 +1,26 @@
+info:
+  name: diff_schema
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/schema/diff"
+  body:
+    type: json
+    data: |-
+      {
+        "version": 1,
+        "directus": "11.0.0",
+        "collections": [],
+        "fields": [],
+        "relations": []
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the diff between the current schema and a provided snapshot.
+  https://directus.io/docs/api/schema

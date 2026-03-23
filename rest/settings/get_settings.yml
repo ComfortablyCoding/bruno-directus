@@ -1,0 +1,16 @@
+info:
+  name: get_settings
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/settings"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the global project settings singleton.
+  https://directus.io/docs/api/settings

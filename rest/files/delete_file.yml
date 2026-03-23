@@ -1,0 +1,20 @@
+info:
+  name: delete_file
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/files/:id"
+  params:
+    - name: id
+      value: "file-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete a single file by its ID.
+  https://directus.io/docs/api/files

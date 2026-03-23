@@ -1,0 +1,28 @@
+info:
+  name: update_item
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  auth: inherit
+  body:
+    query: |-
+      mutation UpdateArticle($id: ID!) {
+        update_articles_item(id: $id, data: { title: "Updated Article" }) {
+          id
+          title
+        }
+      }
+    variables: |-
+      {
+        "id": "1"
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update a single item in a collection via GraphQL mutation.
+  https://directus.io/docs/api/graphql

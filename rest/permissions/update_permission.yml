@@ -1,0 +1,26 @@
+info:
+  name: update_permission
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/permissions/:id"
+  params:
+    - name: id
+      value: "permission-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "fields": ["id", "title", "status"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update an existing permission by its primary key.
+  https://directus.io/docs/api/permissions

@@ -1,0 +1,6 @@
+name: admin
+variables:
+  - name: base_url
+    value: http://localhost:8055
+  - name: access_token
+    value: "1234"

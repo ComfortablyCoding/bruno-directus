@@ -1,0 +1,23 @@
+info:
+  name: update_operations_bulk
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/operations"
+  body:
+    type: json
+    data: |-
+      {
+        "keys": ["id-1", "id-2"],
+        "data": {"options": {"message": "Updated message"}}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update multiple flow operations by their primary keys.
+  https://directus.io/docs/api/operations

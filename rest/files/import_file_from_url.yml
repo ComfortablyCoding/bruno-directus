@@ -1,0 +1,23 @@
+info:
+  name: import_file_from_url
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/files/import"
+  body:
+    type: json
+    data: |-
+      {
+        "url": "https://example.com/image.jpg",
+        "data": {"title": "Imported File"}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Import a file into Directus from an external URL.
+  https://directus.io/docs/api/files

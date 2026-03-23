@@ -1,0 +1,23 @@
+info:
+  name: auth_share
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{base_url}}/shares/auth"
+  body:
+    type: json
+    data: |-
+      {
+        "share": "share-id",
+        "password": "optional-password"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Authenticate against a password-protected share to obtain access.
+  https://directus.io/docs/api/shares

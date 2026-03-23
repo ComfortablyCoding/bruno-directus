@@ -1,0 +1,16 @@
+info:
+  name: get_graphql_sdl
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/server/specs/graphql"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the GraphQL SDL (Schema Definition Language) for this instance.
+  https://directus.io/docs/api/server

@@ -1,0 +1,12 @@
+info:
+  name: websockets
+  type: folder
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        const url = bru.getEnvVar('base_url');
+        bru.setEnvVar('base_url', url.replace('http','ws'))
+
+        req.deleteHeader('Authorization');

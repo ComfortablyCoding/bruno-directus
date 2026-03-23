@@ -1,0 +1,25 @@
+info:
+  name: import_data
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/import/:collection"
+  params:
+    - name: collection
+      value: "articles"
+      type: path
+  body:
+    type: multipart-form
+    data:
+      - name: file
+        value: "@file(path/to/data.json)"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Import data into a collection from a JSON or CSV file.
+  https://directus.io/docs/api/utilities

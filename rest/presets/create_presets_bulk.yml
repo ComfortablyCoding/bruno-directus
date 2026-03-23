@@ -1,0 +1,23 @@
+info:
+  name: create_presets_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/presets"
+  body:
+    type: json
+    data: |-
+      [
+        {"collection": "articles", "layout": "tabular", "search": null},
+        {"collection": "pages", "layout": "cards", "search": null}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create multiple presets at once.
+  https://directus.io/docs/api/presets

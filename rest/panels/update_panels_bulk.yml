@@ -1,0 +1,23 @@
+info:
+  name: update_panels_bulk
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/panels"
+  body:
+    type: json
+    data: |-
+      {
+        "keys": ["id-1", "id-2"],
+        "data": {"name": "Updated Panel", "width": 12}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update multiple Insights dashboard panels by their primary keys.
+  https://directus.io/docs/api/panels
