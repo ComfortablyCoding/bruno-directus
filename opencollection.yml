@@ -9,8 +9,12 @@ request:
     - type: before-request
       code: |-
         const token = bru.getEnvVar('access_token');
-        const authHeader = req.getHeader('Authorization');
-        if (token && !authHeader) {
+        const mode = req.getAuthMode();
+        const url = req.getUrl();
+        const isWs = req.getType?.() === 'websocket' || url.includes('/websocket');
+        const isAuthRoute = /\/auth\/(login|refresh)/.test(url);
+
+        if (token && mode !== 'inherit' && !isWs && !isAuthRoute) {
           req.setHeader('Authorization', `Bearer ${token}`);
         }
 
