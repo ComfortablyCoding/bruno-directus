@@ -28,9 +28,13 @@ Comprehensive Bruno collection covering the entire Directus 11+ API surface: RES
 
 ## Authentication
 
-Auth is handled by a pre-request script at the collection root. If `access_token` is set in the active environment, requests include `Authorization: Bearer {{access_token}}`. If empty (like the `public` environment), no auth header is sent.
+If an `access_token` is defined in the active environment, an `Authorization: Bearer {{access_token}}` header is automatically included via a collection-level pre-request script. The header is **not** added when:
 
-**Testing with different user tokens:** Override the `Authorization` header on any individual request — set auth to `bearer` and provide the user's token.
+- The request's auth mode is set to `inherit` or `none`
+- The request is a WebSocket connection
+- The URL targets `/auth/login` or `/auth/refresh`
+
+If the token is empty (such as in the `public` environment), no authorization header is sent.
 
 ## Other Tooling
 
