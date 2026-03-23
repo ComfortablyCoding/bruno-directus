@@ -133,13 +133,13 @@ params:path {
 ## WebSocket Requests
 
 - Use `type: ws` in meta block
-- URL format: `ws://localhost:8055/websocket` (adjust manually for your instance)
-- Message payloads go in `body:ws {}` blocks
+- URL format: `{{base_url}}/websocket`
+- Message payloads go in `body:ws {}` blocks with `type: json`
 - No test blocks on WebSocket requests
 
 ## GraphQL Requests
 
-- All use `type: http` with POST method and `body: graphql`
+- Use `type: graphql` with POST method and `body: graphql`
 - User data queries: `{{base_url}}/graphql`
 - System data queries: `{{base_url}}/graphql/system`
 - Use `body:graphql:vars {}` for query variables
