@@ -1,0 +1,23 @@
+info:
+  name: disable_tfa
+  type: http
+  seq: 15
+
+http:
+  method: POST
+  url: "{{base_url}}/users/me/tfa/disable"
+  body:
+    type: json
+    data: |-
+      {
+        "otp": "123456"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Disable two-factor authentication for the current user by submitting a valid
+  one-time password from the authenticator app.
+  https://directus.io/docs/api/users

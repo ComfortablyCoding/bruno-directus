@@ -1,6 +1,6 @@
 # users
 
-Manage Directus users. Includes standard CRUD, bulk operations, current user endpoints, and invite flows.
+Manage Directus users. Includes standard CRUD, bulk operations, current user endpoints, invite flows, two-factor authentication, and public self-registration.
 
 ## Operations
 
@@ -16,6 +16,12 @@ Manage Directus users. Includes standard CRUD, bulk operations, current user end
 - Delete multiple users (bulk)
 - Invite a user by email
 - Accept a user invite
+- Generate a two-factor authentication secret
+- Enable two-factor authentication
+- Disable two-factor authentication
+- Disable another user's two-factor authentication (admin)
+- Register a new user (public self-registration)
+- Verify a registered user's email
 
 ## Docs
 

@@ -1,0 +1,24 @@
+info:
+  name: enable_tfa
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: "{{base_url}}/users/me/tfa/enable"
+  body:
+    type: json
+    data: |-
+      {
+        "secret": "secret-from-generate",
+        "otp": "123456"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Enable two-factor authentication for the current user by submitting the secret
+  from generate_tfa together with a valid one-time password from the authenticator app.
+  https://directus.io/docs/api/users

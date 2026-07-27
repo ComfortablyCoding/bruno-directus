@@ -1,0 +1,21 @@
+info:
+  name: admin_disable_tfa
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: "{{base_url}}/users/:id/tfa/disable"
+  params:
+    - name: id
+      value: "user-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Disable two-factor authentication for another user by ID. Admin only; unlike the
+  self-service `disable_tfa`, no OTP is required.
+  https://directus.io/docs/api/users

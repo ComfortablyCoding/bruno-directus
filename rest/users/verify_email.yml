@@ -1,0 +1,21 @@
+info:
+  name: verify_email
+  type: http
+  seq: 18
+
+http:
+  method: GET
+  url: "{{base_url}}/users/register/verify-email"
+  params:
+    - name: token
+      value: "verification-token"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Verify the email address of a self-registered user using the token from the
+  verification email. On success the API redirects to the Data Studio.
+  https://directus.io/docs/api/users

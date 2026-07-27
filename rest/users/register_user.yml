@@ -1,0 +1,25 @@
+info:
+  name: register_user
+  type: http
+  seq: 17
+
+http:
+  method: POST
+  url: "{{base_url}}/users/register"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "newuser@example.com",
+        "password": "password123"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Public self-registration. Only available when user registration is enabled in
+  project settings. May require email verification (see verify_email) and/or a
+  reCAPTCHA/verification token depending on configuration.
+  https://directus.io/docs/api/users
