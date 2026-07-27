@@ -15,9 +15,24 @@ http:
       }
   auth: inherit
 
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // Auto-save the returned tokens into the active environment so the
+        // collection-level auth script can attach the Bearer token for you.
+        const data = res.getBody()?.data;
+        if (res.getStatus() === 200 && data?.access_token) {
+          bru.setEnvVar('access_token', data.access_token);
+          if (data.refresh_token) bru.setEnvVar('refresh_token', data.refresh_token);
+        }
+
 settings:
   encodeUrl: true
 
 docs: |-
   Authenticate a user with email and password to receive access and refresh tokens.
+
+  On success this request automatically stores `access_token` (and `refresh_token`)
+  into the active environment, so subsequent requests are authenticated for you.
   https://directus.io/docs/api/authentication

@@ -10,13 +10,28 @@ http:
     type: json
     data: |-
       {
-        "refresh_token": "your-refresh-token"
+        "refresh_token": "{{refresh_token}}",
+        "mode": "json"
       }
   auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // Refresh rotates the tokens; persist the new pair back to the environment.
+        const data = res.getBody()?.data;
+        if (res.getStatus() === 200 && data?.access_token) {
+          bru.setEnvVar('access_token', data.access_token);
+          if (data.refresh_token) bru.setEnvVar('refresh_token', data.refresh_token);
+        }
 
 settings:
   encodeUrl: true
 
 docs: |-
   Exchange a refresh token for a new access token.
+
+  Uses the `refresh_token` captured by the login request and re-stores the rotated
+  tokens on success. In `cookie`/`session` mode the token is read from the cookie instead.
   https://directus.io/docs/api/authentication
