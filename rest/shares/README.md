@@ -14,6 +14,7 @@ CRUD operations for Directus Shares. Supports individual and bulk operations as 
 - Delete multiple shares (bulk)
 - Get share info (public)
 - Authenticate with a share
+- Email a share to recipients
 
 ## Docs
 

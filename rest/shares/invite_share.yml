@@ -1,0 +1,23 @@
+info:
+  name: invite_share
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{base_url}}/shares/invite"
+  body:
+    type: json
+    data: |-
+      {
+        "share": "share-id",
+        "emails": ["person@example.com"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Email a share link to one or more recipients.
+  https://directus.io/docs/api/shares
