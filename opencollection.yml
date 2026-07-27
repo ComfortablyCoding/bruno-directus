@@ -23,6 +23,7 @@ extensions:
     ignore:
       - .git
       - .gitignore
+      - .DS_Store
       - package.json
       - .oxfmtrc.json
       - node_modules
