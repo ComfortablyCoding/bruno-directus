@@ -1,0 +1,69 @@
+info:
+  name: get_asset
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/assets/:id"
+  params:
+    - name: id
+      value: "file-id"
+      type: path
+    - name: download
+      value: ""
+      type: query
+      disabled: true
+    - name: key
+      value: "preset-key"
+      type: query
+      disabled: true
+    - name: width
+      value: "300"
+      type: query
+      disabled: true
+    - name: height
+      value: "300"
+      type: query
+      disabled: true
+    - name: fit
+      value: "cover"
+      type: query
+      disabled: true
+    - name: quality
+      value: "80"
+      type: query
+      disabled: true
+    - name: format
+      value: "webp"
+      type: query
+      disabled: true
+    - name: withoutEnlargement
+      value: "true"
+      type: query
+      disabled: true
+    - name: transforms
+      value: '[["blur",5]]'
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve a file asset by its ID. For images, Directus can resize and transform
+  the file on the fly and cache the result.
+
+  Query parameters (all optional):
+  - `download` — force a download (Content-Disposition: attachment).
+  - `key` — use a preconfigured Storage Asset Preset. When set, the individual
+    transform params below are ignored.
+  - `width` / `height` — target dimensions in pixels.
+  - `fit` — `cover` (default), `contain`, `inside`, or `outside`.
+  - `quality` — 1–100 compression level.
+  - `format` — `auto`, `jpg`, `png`, `webp`, `tiff`, or `avif`.
+  - `withoutEnlargement` — `true` to prevent upscaling past the source size.
+  - `transforms` — JSON array of raw Sharp operations, e.g. `[["blur",5],["tint","rgb(255,0,0)"]]`.
+
+  https://directus.io/docs/api/assets

@@ -1,0 +1,21 @@
+info:
+  name: zip_folder
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/assets/folder/:pk"
+  params:
+    - name: pk
+      value: "folder-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Download all files in a folder as a single ZIP archive. Responds with
+  `application/zip` (Content-Disposition: attachment).
+  https://directus.io/docs/api/assets

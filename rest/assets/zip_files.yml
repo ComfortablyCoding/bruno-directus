@@ -1,0 +1,23 @@
+info:
+  name: zip_files
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/assets/files"
+  body:
+    type: json
+    data: |-
+      {
+        "ids": ["file-uuid-1", "file-uuid-2"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Download a set of files (by their IDs) as a single ZIP archive. `ids` must be a
+  non-empty array of file UUIDs. Responds with `application/zip`.
+  https://directus.io/docs/api/assets
