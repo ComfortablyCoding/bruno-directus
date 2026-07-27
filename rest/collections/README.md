@@ -8,6 +8,7 @@ Manage Directus collections (database tables). Used to create, configure, and de
 - Query a single collection by name
 - Create a collection
 - Update a collection's metadata
+- Update multiple collections (bulk)
 - Delete a collection
 
 ## Docs

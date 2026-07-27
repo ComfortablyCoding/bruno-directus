@@ -1,0 +1,34 @@
+info:
+  name: update_fields_bulk
+  type: http
+  seq: 7
+
+http:
+  method: PATCH
+  url: "{{base_url}}/fields/:collection"
+  params:
+    - name: collection
+      value: "my_collection"
+      type: path
+  body:
+    type: json
+    data: |-
+      [
+        {
+          "field": "title",
+          "meta": { "sort": 1 }
+        },
+        {
+          "field": "status",
+          "meta": { "sort": 2 }
+        }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update multiple fields in a collection at once (for example to reorder them).
+  Each array entry must include the `field` key.
+  https://directus.io/docs/api/fields

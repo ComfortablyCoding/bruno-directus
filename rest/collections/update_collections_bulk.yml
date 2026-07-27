@@ -1,0 +1,30 @@
+info:
+  name: update_collections_bulk
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/collections"
+  body:
+    type: json
+    data: |-
+      [
+        {
+          "collection": "articles",
+          "meta": { "sort": 1 }
+        },
+        {
+          "collection": "authors",
+          "meta": { "sort": 2 }
+        }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update multiple collections at once (batch). Each array entry must include the
+  `collection` key. Useful for reordering collections in the Data Studio.
+  https://directus.io/docs/api/collections

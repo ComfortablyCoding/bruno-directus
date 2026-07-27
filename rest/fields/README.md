@@ -9,6 +9,7 @@ Manage fields (columns) within Directus collections. Supports querying across al
 - Query a single field by collection and field name
 - Create a field in a collection
 - Update a field's metadata or schema
+- Update multiple fields in a collection (bulk)
 - Delete a field from a collection
 
 ## Docs
