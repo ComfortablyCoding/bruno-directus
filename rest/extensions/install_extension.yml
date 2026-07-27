@@ -1,0 +1,24 @@
+info:
+  name: install_extension
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/extensions/registry/install"
+  body:
+    type: json
+    data: |-
+      {
+        "extension": "registry-extension-uuid",
+        "version": "version-uuid"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Install an extension from the marketplace registry. Requires both `extension`
+  and `version` IDs. Admin only.
+  https://directus.io/docs/api/extensions

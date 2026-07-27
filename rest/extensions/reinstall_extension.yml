@@ -1,0 +1,23 @@
+info:
+  name: reinstall_extension
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/extensions/registry/reinstall"
+  body:
+    type: json
+    data: |-
+      {
+        "extension": "extension-uuid"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Reinstall an already-installed registry extension (e.g. to restore its files).
+  Requires the `extension` ID. Admin only.
+  https://directus.io/docs/api/extensions

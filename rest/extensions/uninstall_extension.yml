@@ -1,0 +1,21 @@
+info:
+  name: uninstall_extension
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/extensions/registry/uninstall/:pk"
+  params:
+    - name: pk
+      value: "extension-uuid"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Uninstall a registry extension by its ID (UUID). Admin only. Sub-extensions of a
+  bundle cannot be uninstalled separately.
+  https://directus.io/docs/api/extensions

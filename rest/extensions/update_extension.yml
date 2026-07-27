@@ -5,16 +5,18 @@ info:
 
 http:
   method: PATCH
-  url: "{{base_url}}/extensions/:name"
+  url: "{{base_url}}/extensions/:id"
   params:
-    - name: name
-      value: "my-extension"
+    - name: id
+      value: "extension-uuid"
       type: path
   body:
     type: json
     data: |-
       {
-        "enabled": true
+        "meta": {
+          "enabled": true
+        }
       }
   auth: inherit
 
@@ -22,5 +24,6 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Enable or disable an extension by name.
+  Enable or disable an extension by its ID (UUID). Requires a `meta` object in the
+  body. Sub-extensions of a bundle cannot be toggled individually.
   https://directus.io/docs/api/extensions

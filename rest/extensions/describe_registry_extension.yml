@@ -1,0 +1,20 @@
+info:
+  name: describe_registry_extension
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/extensions/registry/extension/:pk"
+  params:
+    - name: pk
+      value: "registry-extension-uuid"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the details of a single extension from the marketplace registry by its ID. Admin only.
+  https://directus.io/docs/api/extensions
