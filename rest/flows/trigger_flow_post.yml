@@ -1,5 +1,5 @@
 info:
-  name: trigger_flow_(post)
+  name: trigger_flow_post
   type: http
   seq: 10
 

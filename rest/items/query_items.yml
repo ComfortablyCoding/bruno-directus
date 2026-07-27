@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/items/:collection"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,status,date_created"
       type: query
       disabled: true
     - name: filter
@@ -16,7 +16,7 @@ http:
       type: query
       disabled: true
     - name: sort
-      value: "-date_created"
+      value: -date_created
       type: query
       disabled: true
     - name: limit
@@ -28,20 +28,23 @@ http:
       type: query
       disabled: true
     - name: search
-      value: "keyword"
+      value: keyword
       type: query
       disabled: true
     - name: meta
-      value: "total_count,filter_count"
+      value: total_count,filter_count
       type: query
       disabled: true
     - name: collection
-      value: "my_collection"
+      value: articles
       type: path
   auth: inherit
 
 settings:
   encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
 
 docs: |-
   Retrieve a list of items from the specified collection with optional filtering, sorting, and pagination.
