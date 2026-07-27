@@ -1,0 +1,28 @@
+info:
+  name: sso_login_redirect
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{base_url}}/auth/login/:provider"
+  params:
+    - name: provider
+      value: "google"
+      type: path
+    - name: redirect
+      value: "http://localhost:8055/admin/login"
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  followRedirects: false
+
+docs: |-
+  Initiate the SSO redirect flow (OAuth2 / OpenID / SAML). In a browser this
+  redirects to the provider's login page; the provider then calls back to
+  `/auth/login/:provider/callback` to complete authentication. Best exercised
+  in a browser rather than an API client — included here for reference.
+  https://directus.io/docs/configuration/auth-sso

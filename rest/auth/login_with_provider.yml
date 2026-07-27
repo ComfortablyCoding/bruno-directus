@@ -1,0 +1,38 @@
+info:
+  name: login_with_provider
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/login/:provider"
+  params:
+    - name: provider
+      value: "local"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "email": "admin@example.com",
+        "password": "password"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const data = res.getBody()?.data;
+        if (res.getStatus() === 200 && data?.access_token) {
+          bru.setEnvVar('access_token', data.access_token);
+          if (data.refresh_token) bru.setEnvVar('refresh_token', data.refresh_token);
+        }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Authenticate against a specific configured provider (e.g. `local`, an LDAP
+  provider, or another non-redirect provider). Tokens are stored on success.
+  https://directus.io/docs/api/authentication

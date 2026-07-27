@@ -1,0 +1,17 @@
+info:
+  name: list_auth_providers
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/auth"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  List all configured authentication providers (name + driver), including any
+  configured SSO providers. Useful for building a dynamic login screen.
+  https://directus.io/docs/api/authentication
