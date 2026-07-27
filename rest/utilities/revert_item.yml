@@ -1,0 +1,20 @@
+info:
+  name: revert_item
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/revert/:revision"
+  params:
+    - name: revision
+      value: "revision-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Revert an item to the state captured in the given revision (by revision primary key).
+  https://directus.io/docs/api/utilities

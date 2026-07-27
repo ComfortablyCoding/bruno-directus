@@ -1,0 +1,23 @@
+info:
+  name: resolve_redirect
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/resolve-redirect"
+  body:
+    type: json
+    data: |-
+      {
+        "redirect": "http://localhost:8055/admin/login"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Validate and resolve a post-login redirect URL. `redirect` is required; an
+  optional `provider` (string) scopes the check to a specific auth provider.
+  https://directus.io/docs/api/utilities

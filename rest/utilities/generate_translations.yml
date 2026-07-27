@@ -1,0 +1,28 @@
+info:
+  name: generate_translations
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/translations/generate"
+  body:
+    type: json
+    data: |-
+      {
+        "collection": "articles",
+        "fields": ["title", "body"],
+        "createLanguagesCollection": true,
+        "seedLanguages": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Scaffold a translations setup for a collection: creates a translations alias field
+  for the given `fields` and (optionally) the languages collection. Admin only.
+  Optional: `translationsCollection`, `languagesCollection`, `parentFkField`,
+  `languageFkField`, `createLanguagesCollection`, `seedLanguages`.
+  https://directus.io/docs/api/utilities

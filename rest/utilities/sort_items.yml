@@ -1,7 +1,7 @@
 info:
   name: sort_items
   type: http
-  seq: 4
+  seq: 2
 
 http:
   method: POST

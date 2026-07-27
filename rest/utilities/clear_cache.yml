@@ -1,7 +1,7 @@
 info:
   name: clear_cache
   type: http
-  seq: 5
+  seq: 3
 
 http:
   method: POST
