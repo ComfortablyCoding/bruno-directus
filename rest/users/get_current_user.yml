@@ -11,10 +11,6 @@ http:
       value: "*"
       type: query
       disabled: true
-    - name: meta
-      value: ""
-      type: query
-      disabled: true
   auth: inherit
 
 settings:

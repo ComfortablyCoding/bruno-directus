@@ -6,15 +6,13 @@ info:
 http:
   method: GET
   url: "{{base_url}}/schema/snapshot"
-  params:
-    - name: export
-      value: "json"
-      type: query
-      disabled: true
   auth: inherit
 
 settings:
   encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
 
 docs: |-
   Retrieve the current schema snapshot of the Directus instance.
