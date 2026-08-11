@@ -12,21 +12,24 @@ A comprehensive [Bruno](https://usebruno.com) collection for the [Directus](http
 4. In the top-right environment dropdown, pick an environment (see [Environments](#environments)).
 5. Set that environment's variables for your Directus instance:
    - `base_url` — your Directus URL (e.g. `http://localhost:8055`).
+   - `ws_url` — the same host with a `ws://`/`wss://` scheme, used by the WebSocket requests.
    - `access_token` — a static token, or leave the placeholder and log in (see below).
-   - `refresh_token` — populated automatically after login; leave blank initially.
+   - `refresh_token` — leave blank; login captures it as a runtime variable.
 6. Run **rest → auth → login_user** with valid credentials to authenticate.
 
 ## Authentication
 
-Auth is handled for you. A collection-level **pre-request script** (see `opencollection.yml`) reads `access_token` from the active environment and attaches it as an `Authorization: Bearer` header on every request — except WebSocket connections and the `/auth/login` and `/auth/refresh` routes, which never receive it. If `access_token` is empty (like the `public` environment), no header is sent.
+Auth is handled for you. A collection-level **pre-request script** (see `opencollection.yml`) resolves `access_token` — preferring a token captured by login over the active environment's static value — and attaches it as an `Authorization: Bearer` header on every request — except WebSocket connections and the `/auth/login` and `/auth/refresh` routes, which never receive it. If `access_token` is empty (like the `public` environment), no header is sent.
 
-The **login** and **refresh** requests each run a post-response script that saves the returned `access_token` and `refresh_token` back into the active environment. So the normal flow is:
+The **login** and **refresh** requests each run a post-response script that stores the returned `access_token` and `refresh_token` as **runtime variables**. Runtime variables last for the session and are never written to disk, so logging in does not leave live credentials in the tracked `environments/*.yml` files. A captured token takes precedence over the environment's static one. So the normal flow is:
 
 1. Run `auth → login_user` (or `login_with_provider`).
 2. Every other request is now authenticated automatically.
 3. When the token expires, run `auth → refresh_token` to refresh.
 
-**Using a static token instead:** set `access_token` in the environment and skip the login step. The `admin` environment ships with `access_token: "1234"` for a typical local dev setup.
+Because the captured tokens are session-scoped, you log in again after restarting Bruno.
+
+**Using a static token instead:** set `access_token` in the environment and skip the login step. The `admin` environment ships with the placeholder `access_token: "1234"` for a typical local dev setup — replace it with your own static token, and note it is committed to the repository, so never put a real token there.
 
 **Testing with a different user's token:** override the auth on any individual request — set its auth to `bearer` and supply that user's token. A request that sets its own `Authorization` header takes precedence over the collection script.
 
@@ -41,11 +44,12 @@ The **login** and **refresh** requests each run a post-response script that save
 
 ### Variables
 
-| Variable        | Description                                                        |
-| --------------- | ------------------------------------------------------------------ |
-| `base_url`      | Directus instance URL (e.g. `http://localhost:8055`).              |
-| `access_token`  | Static token, or captured automatically on login. Empty = no auth. |
-| `refresh_token` | Captured on login; used by `refresh_token` to rotate the pair.     |
+| Variable        | Description                                                                           |
+| --------------- | ------------------------------------------------------------------------------------- |
+| `base_url`      | Directus instance URL for REST and GraphQL (e.g. `http://localhost:8055`).            |
+| `ws_url`        | Same host with a `ws://`/`wss://` scheme, used by the WebSocket requests.             |
+| `access_token`  | Static fallback token. Empty = no auth. Login overrides it with a runtime variable.   |
+| `refresh_token` | Leave blank — captured on login as a runtime variable and rotated by `refresh_token`. |
 
 ## Structure
 
