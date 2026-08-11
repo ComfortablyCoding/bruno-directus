@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Query a list of items from a user collection via GraphQL.
-  https://directus.io/docs/api/graphql
+  https://directus.com/docs/api/graphql

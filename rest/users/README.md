@@ -25,4 +25,4 @@ Manage Directus users. Includes standard CRUD, bulk operations, current user end
 
 ## Docs
 
-https://directus.io/docs/api/users
+https://directus.com/docs/api/users

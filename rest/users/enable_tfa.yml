@@ -21,4 +21,4 @@ settings:
 docs: |-
   Enable two-factor authentication for the current user by submitting the secret
   from generate_tfa together with a valid one-time password from the authenticator app.
-  https://directus.io/docs/api/users
+  https://directus.com/docs/api/users

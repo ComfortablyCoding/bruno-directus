@@ -20,4 +20,4 @@ settings:
 
 docs: |-
   Delete a field from the specified collection.
-  https://directus.io/docs/api/fields
+  https://directus.com/docs/api/fields

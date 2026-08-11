@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all content versions in the Directus instance.
-  https://directus.io/docs/api/versions
+  https://directus.com/docs/api/versions

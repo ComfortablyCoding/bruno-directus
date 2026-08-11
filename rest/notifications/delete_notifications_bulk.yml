@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete multiple notifications by their primary keys.
-  https://directus.io/docs/api/notifications
+  https://directus.com/docs/api/notifications

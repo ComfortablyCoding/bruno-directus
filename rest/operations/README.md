@@ -15,4 +15,4 @@ CRUD operations for Directus Flow Operations. Supports individual and bulk opera
 
 ## Docs
 
-https://directus.io/docs/api/operations
+https://directus.com/docs/api/operations

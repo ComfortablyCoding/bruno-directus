@@ -104,7 +104,7 @@ Every request must include a `docs {}` block with:
 ```
 docs {
   Retrieve a list of items from the specified collection.
-  https://directus.io/docs/api/items
+  https://directus.com/docs/api/items
 }
 ```
 

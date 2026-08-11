@@ -20,4 +20,4 @@ settings:
 
 docs: |-
   Invalidate a refresh token to log the user out.
-  https://directus.io/docs/api/authentication
+  https://directus.com/docs/api/authentication

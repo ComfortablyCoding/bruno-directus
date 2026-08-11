@@ -13,4 +13,4 @@ settings:
 
 docs: |-
   Retrieve a list of all collections in the Directus project.
-  https://directus.io/docs/api/collections
+  https://directus.com/docs/api/collections

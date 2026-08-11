@@ -25,4 +25,4 @@ docs: |-
   for the given `fields` and (optionally) the languages collection. Admin only.
   Optional: `translationsCollection`, `languagesCollection`, `parentFkField`,
   `languageFkField`, `createLanguagesCollection`, `seedLanguages`.
-  https://directus.io/docs/api/utilities
+  https://directus.com/docs/api/utilities

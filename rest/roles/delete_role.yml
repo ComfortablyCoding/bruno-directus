@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete an existing role by its primary key.
-  https://directus.io/docs/api/roles
+  https://directus.com/docs/api/roles

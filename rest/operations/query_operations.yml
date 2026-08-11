@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all flow operations configured in the Directus instance.
-  https://directus.io/docs/api/operations
+  https://directus.com/docs/api/operations

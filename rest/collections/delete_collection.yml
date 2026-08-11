@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete an existing collection and all its data by name.
-  https://directus.io/docs/api/collections
+  https://directus.com/docs/api/collections

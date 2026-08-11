@@ -27,4 +27,4 @@ settings:
 docs: |-
   Update multiple collections at once (batch). Each array entry must include the
   `collection` key. Useful for reordering collections in the Data Studio.
-  https://directus.io/docs/api/collections
+  https://directus.com/docs/api/collections

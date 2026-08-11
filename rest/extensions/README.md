@@ -14,4 +14,4 @@ Operations for managing Directus extensions.
 
 ## Docs
 
-https://directus.io/docs/api/extensions
+https://directus.com/docs/api/extensions

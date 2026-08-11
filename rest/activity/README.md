@@ -9,4 +9,4 @@ Read-only access to the Directus activity log. Activity records all actions perf
 
 ## Docs
 
-https://directus.io/docs/api/activity
+https://directus.com/docs/api/activity

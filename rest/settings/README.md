@@ -9,4 +9,4 @@ Get and update the Directus project settings singleton. Admin access only — th
 
 ## Docs
 
-https://directus.io/docs/api/settings
+https://directus.com/docs/api/settings

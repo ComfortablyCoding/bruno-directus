@@ -14,4 +14,4 @@ Pass query parameters to transform images on the fly (`width`, `height`, `fit`, 
 
 ## Docs
 
-https://directus.io/docs/api/assets
+https://directus.com/docs/api/assets

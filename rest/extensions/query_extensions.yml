@@ -13,4 +13,4 @@ settings:
 
 docs: |-
   Retrieve a list of all installed extensions and their status.
-  https://directus.io/docs/api/extensions
+  https://directus.com/docs/api/extensions

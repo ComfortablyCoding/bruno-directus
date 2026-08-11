@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Compare a content version against the current state of the main item to see what has changed.
-  https://directus.io/docs/api/versions
+  https://directus.com/docs/api/versions

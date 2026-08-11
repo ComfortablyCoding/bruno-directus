@@ -17,4 +17,4 @@ CRUD operations for Directus collection items. Supports individual and bulk oper
 
 ## Docs
 
-https://directus.io/docs/api/items
+https://directus.com/docs/api/items

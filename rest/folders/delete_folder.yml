@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete a single folder by its ID.
-  https://directus.io/docs/api/folders
+  https://directus.com/docs/api/folders

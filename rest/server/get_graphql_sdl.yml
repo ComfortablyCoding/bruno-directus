@@ -13,4 +13,4 @@ settings:
 
 docs: |-
   Retrieve the GraphQL SDL (Schema Definition Language) for this instance.
-  https://directus.io/docs/api/server
+  https://directus.com/docs/api/server

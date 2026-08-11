@@ -26,4 +26,4 @@ settings:
 docs: |-
   Enable or disable an extension by its ID (UUID). Requires a `meta` object in the
   body. Sub-extensions of a bundle cannot be toggled individually.
-  https://directus.io/docs/api/extensions
+  https://directus.com/docs/api/extensions

@@ -36,4 +36,4 @@ docs: |-
   Search the extensions marketplace registry. Admin only. Supports `search`,
   `limit`, `offset`, `sort` (`popular` | `recent` | `downloads`), and `filter`
   (`by` and `type` via `_eq`, where `type` is a valid extension type).
-  https://directus.io/docs/api/extensions
+  https://directus.com/docs/api/extensions

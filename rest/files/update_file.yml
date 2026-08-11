@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update the metadata of a single file by its ID.
-  https://directus.io/docs/api/files
+  https://directus.com/docs/api/files

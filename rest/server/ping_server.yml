@@ -13,4 +13,4 @@ settings:
 
 docs: |-
   Ping the server to verify it is reachable. Returns "pong".
-  https://directus.io/docs/api/server
+  https://directus.com/docs/api/server

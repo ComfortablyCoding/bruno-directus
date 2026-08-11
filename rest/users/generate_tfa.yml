@@ -21,4 +21,4 @@ docs: |-
   Generate a two-factor authentication secret and `otpauth` URL for the current
   user. Scan the returned URL/QR with an authenticator app, then call enable_tfa
   with a generated OTP to activate it.
-  https://directus.io/docs/api/users
+  https://directus.com/docs/api/users

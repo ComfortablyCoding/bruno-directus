@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of files with optional filtering, sorting, and pagination.
-  https://directus.io/docs/api/files
+  https://directus.com/docs/api/files

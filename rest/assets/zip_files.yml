@@ -20,4 +20,4 @@ settings:
 docs: |-
   Download a set of files (by their IDs) as a single ZIP archive. `ids` must be a
   non-empty array of file UUIDs. Responds with `application/zip`.
-  https://directus.io/docs/api/assets
+  https://directus.com/docs/api/assets

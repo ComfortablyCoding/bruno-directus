@@ -18,4 +18,4 @@ settings:
 docs: |-
   Disable two-factor authentication for another user by ID. Admin only; unlike the
   self-service `disable_tfa`, no OTP is required.
-  https://directus.io/docs/api/users
+  https://directus.com/docs/api/users

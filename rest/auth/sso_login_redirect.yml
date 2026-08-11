@@ -25,4 +25,4 @@ docs: |-
   redirects to the provider's login page; the provider then calls back to
   `/auth/login/:provider/callback` to complete authentication. Best exercised
   in a browser rather than an API client — included here for reference.
-  https://directus.io/docs/configuration/auth-sso
+  https://directus.com/docs/configuration/auth-sso

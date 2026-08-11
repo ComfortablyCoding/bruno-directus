@@ -24,4 +24,4 @@ settings:
 
 docs: |-
   Update a single Insights dashboard panel by its primary key.
-  https://directus.io/docs/api/panels
+  https://directus.com/docs/api/panels

@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all permissions in the system.
-  https://directus.io/docs/api/permissions
+  https://directus.com/docs/api/permissions

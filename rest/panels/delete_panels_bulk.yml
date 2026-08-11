@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete multiple Insights dashboard panels by their primary keys.
-  https://directus.io/docs/api/panels
+  https://directus.com/docs/api/panels

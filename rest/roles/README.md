@@ -15,4 +15,4 @@ CRUD operations for Directus roles. Roles group users and assign policies for ac
 
 ## Docs
 
-https://directus.io/docs/api/roles
+https://directus.com/docs/api/roles

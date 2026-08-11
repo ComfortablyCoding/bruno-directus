@@ -17,4 +17,4 @@ On a successful `login` (or `login_with_provider`), the returned tokens are auto
 
 ## Docs
 
-https://directus.io/docs/api/authentication
+https://directus.com/docs/api/authentication

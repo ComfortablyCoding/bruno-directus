@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all presets in the system.
-  https://directus.io/docs/api/presets
+  https://directus.com/docs/api/presets

@@ -24,4 +24,4 @@ settings:
 
 docs: |-
   Delete a single item from a collection via GraphQL mutation.
-  https://directus.io/docs/api/graphql
+  https://directus.com/docs/api/graphql

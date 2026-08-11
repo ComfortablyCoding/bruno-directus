@@ -35,4 +35,4 @@ settings:
 docs: |-
   Authenticate against a specific configured provider (e.g. `local`, an LDAP
   provider, or another non-redirect provider). Tokens are stored on success.
-  https://directus.io/docs/api/authentication
+  https://directus.com/docs/api/authentication

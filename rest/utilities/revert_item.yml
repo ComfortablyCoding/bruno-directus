@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Revert an item to the state captured in the given revision (by revision primary key).
-  https://directus.io/docs/api/utilities
+  https://directus.com/docs/api/utilities

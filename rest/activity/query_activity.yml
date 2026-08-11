@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all activity records in the system.
-  https://directus.io/docs/api/activity
+  https://directus.com/docs/api/activity

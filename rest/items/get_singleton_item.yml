@@ -25,4 +25,4 @@ settings:
 
 docs: |-
   Retrieve the single item of a singleton collection (collections configured to hold exactly one item).
-  https://directus.io/docs/api/items
+  https://directus.com/docs/api/items

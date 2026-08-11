@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Retrieve the details of a single extension from the marketplace registry by its ID. Admin only.
-  https://directus.io/docs/api/extensions
+  https://directus.com/docs/api/extensions

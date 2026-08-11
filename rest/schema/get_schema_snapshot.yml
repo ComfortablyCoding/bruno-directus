@@ -16,4 +16,4 @@ settings:
 
 docs: |-
   Retrieve the current schema snapshot of the Directus instance.
-  https://directus.io/docs/api/schema
+  https://directus.com/docs/api/schema

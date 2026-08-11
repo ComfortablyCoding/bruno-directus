@@ -21,4 +21,4 @@ settings:
 
 docs: |-
   Delete multiple items from the specified collection by their primary keys.
-  https://directus.io/docs/api/items
+  https://directus.com/docs/api/items

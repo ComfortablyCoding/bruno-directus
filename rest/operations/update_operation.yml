@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update a single flow operation by its primary key.
-  https://directus.io/docs/api/operations
+  https://directus.com/docs/api/operations

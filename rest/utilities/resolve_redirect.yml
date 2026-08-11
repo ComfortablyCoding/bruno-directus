@@ -20,4 +20,4 @@ settings:
 docs: |-
   Validate and resolve a post-login redirect URL. `redirect` is required; an
   optional `provider` (string) scopes the check to a specific auth provider.
-  https://directus.io/docs/api/utilities
+  https://directus.com/docs/api/utilities

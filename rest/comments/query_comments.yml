@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all comments in the system.
-  https://directus.io/docs/api/comments
+  https://directus.com/docs/api/comments

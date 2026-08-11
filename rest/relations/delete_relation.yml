@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete a relation by its ID.
-  https://directus.io/docs/api/relations
+  https://directus.com/docs/api/relations

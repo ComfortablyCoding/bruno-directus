@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Promote a content version by applying its changes to the main item.
-  https://directus.io/docs/api/versions
+  https://directus.com/docs/api/versions

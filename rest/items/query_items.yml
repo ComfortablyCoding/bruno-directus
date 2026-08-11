@@ -48,4 +48,4 @@ settings:
 
 docs: |-
   Retrieve a list of items from the specified collection with optional filtering, sorting, and pagination.
-  https://directus.io/docs/api/items
+  https://directus.com/docs/api/items

@@ -18,4 +18,4 @@ All requests inherit the collection-level Bearer token via `auth: inherit`.
 
 ## Docs
 
-https://directus.io/docs/api/graphql
+https://directus.com/docs/api/graphql

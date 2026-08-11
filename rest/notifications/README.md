@@ -15,4 +15,4 @@ CRUD operations for Directus Notifications. Supports individual and bulk operati
 
 ## Docs
 
-https://directus.io/docs/api/notifications
+https://directus.com/docs/api/notifications

@@ -10,4 +10,4 @@ Endpoints for managing database schema via snapshots and migrations.
 
 ## Docs
 
-https://directus.io/docs/api/schema
+https://directus.com/docs/api/schema

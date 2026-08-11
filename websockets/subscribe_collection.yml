@@ -25,4 +25,4 @@ docs: |-
   Subscribe to real-time changes on a collection.
   Events: create, update, delete.
 
-  https://directus.io/docs/guides/realtime/subscriptions
+  https://directus.com/docs/guides/realtime/subscriptions

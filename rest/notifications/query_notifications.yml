@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all notifications for the current user.
-  https://directus.io/docs/api/notifications
+  https://directus.com/docs/api/notifications

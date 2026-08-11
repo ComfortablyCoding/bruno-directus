@@ -14,4 +14,4 @@ Manage fields (columns) within Directus collections. Supports querying across al
 
 ## Docs
 
-https://directus.io/docs/api/fields
+https://directus.com/docs/api/fields

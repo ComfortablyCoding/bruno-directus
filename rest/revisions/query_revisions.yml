@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all revisions in the system.
-  https://directus.io/docs/api/revisions
+  https://directus.com/docs/api/revisions

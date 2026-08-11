@@ -9,4 +9,4 @@ Read-only access to Directus item revisions. Revisions track the full change his
 
 ## Docs
 
-https://directus.io/docs/api/revisions
+https://directus.com/docs/api/revisions

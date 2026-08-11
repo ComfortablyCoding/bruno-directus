@@ -17,4 +17,4 @@ The `{{base_url}}` environment variable uses `http://` or `https://`. For WebSoc
 
 ## Docs
 
-https://directus.io/docs/guides/realtime/subscriptions
+https://directus.com/docs/guides/realtime/subscriptions

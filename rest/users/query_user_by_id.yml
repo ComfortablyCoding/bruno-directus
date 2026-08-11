@@ -21,4 +21,4 @@ settings:
 
 docs: |-
   Retrieve a single user by their ID.
-  https://directus.io/docs/api/users
+  https://directus.com/docs/api/users

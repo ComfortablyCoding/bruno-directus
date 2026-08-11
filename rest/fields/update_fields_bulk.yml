@@ -31,4 +31,4 @@ settings:
 docs: |-
   Update multiple fields in a collection at once (for example to reorder them).
   Each array entry must include the `field` key.
-  https://directus.io/docs/api/fields
+  https://directus.com/docs/api/fields

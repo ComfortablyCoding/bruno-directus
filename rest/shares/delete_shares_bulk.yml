@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete multiple shares by their primary keys.
-  https://directus.io/docs/api/shares
+  https://directus.com/docs/api/shares

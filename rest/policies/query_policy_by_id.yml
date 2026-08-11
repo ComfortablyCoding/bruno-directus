@@ -21,4 +21,4 @@ settings:
 
 docs: |-
   Retrieve a single policy by its primary key.
-  https://directus.io/docs/api/policies
+  https://directus.com/docs/api/policies

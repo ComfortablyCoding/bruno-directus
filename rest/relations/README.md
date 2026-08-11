@@ -12,4 +12,4 @@ Manage relationships between Directus collections (M2O, O2M, M2M, etc.).
 
 ## Docs
 
-https://directus.io/docs/api/relations
+https://directus.com/docs/api/relations

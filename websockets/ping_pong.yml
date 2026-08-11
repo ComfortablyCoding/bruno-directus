@@ -19,4 +19,4 @@ docs: |-
   Respond to server ping messages to keep the connection alive.
   Server sends ping every 30 seconds.
 
-  https://directus.io/docs/guides/realtime/subscriptions
+  https://directus.com/docs/guides/realtime/subscriptions

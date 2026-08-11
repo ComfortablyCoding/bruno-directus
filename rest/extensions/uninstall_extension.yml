@@ -18,4 +18,4 @@ settings:
 docs: |-
   Uninstall a registry extension by its ID (UUID). Admin only. Sub-extensions of a
   bundle cannot be uninstalled separately.
-  https://directus.io/docs/api/extensions
+  https://directus.com/docs/api/extensions

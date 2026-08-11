@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete multiple custom translation strings by their primary keys.
-  https://directus.io/docs/api/translations
+  https://directus.com/docs/api/translations

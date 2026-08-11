@@ -26,4 +26,4 @@ settings:
 
 docs: |-
   Update the metadata or schema configuration of a field.
-  https://directus.io/docs/api/fields
+  https://directus.com/docs/api/fields

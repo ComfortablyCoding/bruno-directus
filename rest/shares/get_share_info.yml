@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Retrieve public metadata for a share without authentication.
-  https://directus.io/docs/api/shares
+  https://directus.com/docs/api/shares

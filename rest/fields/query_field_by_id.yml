@@ -20,4 +20,4 @@ settings:
 
 docs: |-
   Retrieve a single field by its collection name and field name.
-  https://directus.io/docs/api/fields
+  https://directus.com/docs/api/fields

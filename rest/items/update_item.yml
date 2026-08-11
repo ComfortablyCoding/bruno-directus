@@ -26,4 +26,4 @@ settings:
 
 docs: |-
   Update a single item in the specified collection by its primary key.
-  https://directus.io/docs/api/items
+  https://directus.com/docs/api/items

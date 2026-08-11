@@ -21,4 +21,4 @@ settings:
 
 docs: |-
   Retrieve a single activity record by its primary key.
-  https://directus.io/docs/api/activity
+  https://directus.com/docs/api/activity

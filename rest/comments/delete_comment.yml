@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete an existing comment by its primary key.
-  https://directus.io/docs/api/comments
+  https://directus.com/docs/api/comments

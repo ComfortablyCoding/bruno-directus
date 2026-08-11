@@ -21,4 +21,4 @@ settings:
 docs: |-
   Install an extension from the marketplace registry. Requires both `extension`
   and `version` IDs. Admin only.
-  https://directus.io/docs/api/extensions
+  https://directus.com/docs/api/extensions

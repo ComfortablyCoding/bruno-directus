@@ -24,4 +24,4 @@ settings:
 
 docs: |-
   Update multiple items in the specified collection by their primary keys.
-  https://directus.io/docs/api/items
+  https://directus.com/docs/api/items

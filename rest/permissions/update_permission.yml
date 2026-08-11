@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update an existing permission by its primary key.
-  https://directus.io/docs/api/permissions
+  https://directus.com/docs/api/permissions

@@ -18,4 +18,4 @@ settings:
 
 docs: |-
   Upload a file to Directus using multipart form data.
-  https://directus.io/docs/api/files
+  https://directus.com/docs/api/files

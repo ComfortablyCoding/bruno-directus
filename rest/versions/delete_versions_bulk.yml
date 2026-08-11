@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Delete multiple content versions by their primary keys.
-  https://directus.io/docs/api/versions
+  https://directus.com/docs/api/versions

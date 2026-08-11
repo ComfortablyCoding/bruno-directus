@@ -13,4 +13,4 @@ settings:
 
 docs: |-
   Retrieve the permissions for the currently authenticated user.
-  https://directus.io/docs/api/permissions
+  https://directus.com/docs/api/permissions

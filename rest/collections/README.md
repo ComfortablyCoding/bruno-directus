@@ -13,4 +13,4 @@ Manage Directus collections (database tables). Used to create, configure, and de
 
 ## Docs
 
-https://directus.io/docs/api/collections
+https://directus.com/docs/api/collections

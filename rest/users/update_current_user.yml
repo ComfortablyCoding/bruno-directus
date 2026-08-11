@@ -19,4 +19,4 @@ settings:
 
 docs: |-
   Update the profile of the currently authenticated user.
-  https://directus.io/docs/api/users
+  https://directus.com/docs/api/users

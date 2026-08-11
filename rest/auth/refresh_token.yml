@@ -34,4 +34,4 @@ docs: |-
 
   Uses the `refresh_token` captured by the login request and re-stores the rotated
   tokens on success. In `cookie`/`session` mode the token is read from the cookie instead.
-  https://directus.io/docs/api/authentication
+  https://directus.com/docs/api/authentication

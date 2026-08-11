@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update the metadata of an existing collection by its name.
-  https://directus.io/docs/api/collections
+  https://directus.com/docs/api/collections

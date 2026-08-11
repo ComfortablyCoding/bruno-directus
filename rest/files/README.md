@@ -15,4 +15,4 @@ Manage files stored in Directus. Supports upload, import from URL, metadata upda
 
 ## Docs
 
-https://directus.io/docs/api/files
+https://directus.com/docs/api/files

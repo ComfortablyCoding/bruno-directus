@@ -28,4 +28,4 @@ settings:
 
 docs: |-
   Query a single item by its primary key via GraphQL.
-  https://directus.io/docs/api/graphql
+  https://directus.com/docs/api/graphql

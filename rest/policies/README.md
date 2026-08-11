@@ -15,4 +15,4 @@ CRUD operations for Directus policies. Policies are new in Directus 11, used for
 
 ## Docs
 
-https://directus.io/docs/api/policies
+https://directus.com/docs/api/policies

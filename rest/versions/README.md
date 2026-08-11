@@ -18,4 +18,4 @@ CRUD operations for Directus Content Versions. Supports individual and bulk oper
 
 ## Docs
 
-https://directus.io/docs/api/versions
+https://directus.com/docs/api/versions

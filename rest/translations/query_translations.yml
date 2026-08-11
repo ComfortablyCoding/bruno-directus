@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all custom translation strings in the Directus instance.
-  https://directus.io/docs/api/translations
+  https://directus.com/docs/api/translations

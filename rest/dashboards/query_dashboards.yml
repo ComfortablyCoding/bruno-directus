@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all Insights dashboards in the Directus instance.
-  https://directus.io/docs/api/dashboards
+  https://directus.com/docs/api/dashboards

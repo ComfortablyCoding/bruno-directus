@@ -17,4 +17,4 @@ CRUD operations for Directus Flows. Supports individual and bulk operations as w
 
 ## Docs
 
-https://directus.io/docs/api/flows
+https://directus.com/docs/api/flows

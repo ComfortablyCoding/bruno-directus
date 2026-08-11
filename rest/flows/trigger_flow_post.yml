@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Trigger a manual flow via POST request with an optional payload using the flow's trigger ID.
-  https://directus.io/docs/api/flows
+  https://directus.com/docs/api/flows

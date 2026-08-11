@@ -66,4 +66,4 @@ docs: |-
   - `withoutEnlargement` — `true` to prevent upscaling past the source size.
   - `transforms` — JSON array of raw Sharp operations, e.g. `[["blur",5],["tint","rgb(255,0,0)"]]`.
 
-  https://directus.io/docs/api/assets
+  https://directus.com/docs/api/assets

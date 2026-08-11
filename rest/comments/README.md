@@ -15,4 +15,4 @@ CRUD operations for Directus comments. Comments are a dedicated collection in Di
 
 ## Docs
 
-https://directus.io/docs/api/comments
+https://directus.com/docs/api/comments

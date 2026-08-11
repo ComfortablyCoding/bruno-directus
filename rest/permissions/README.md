@@ -16,4 +16,4 @@ CRUD operations for Directus permissions. Permissions define what actions a poli
 
 ## Docs
 
-https://directus.io/docs/api/permissions
+https://directus.com/docs/api/permissions

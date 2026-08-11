@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all roles in the system.
-  https://directus.io/docs/api/roles
+  https://directus.com/docs/api/roles

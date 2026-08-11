@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update a single custom translation string by its primary key.
-  https://directus.io/docs/api/translations
+  https://directus.com/docs/api/translations

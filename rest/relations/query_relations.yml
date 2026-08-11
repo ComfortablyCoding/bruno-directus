@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of all relations defined in the Directus project.
-  https://directus.io/docs/api/relations
+  https://directus.com/docs/api/relations

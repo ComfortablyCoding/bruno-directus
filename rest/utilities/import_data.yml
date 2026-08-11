@@ -22,4 +22,4 @@ settings:
 
 docs: |-
   Import data into a collection from a JSON or CSV file.
-  https://directus.io/docs/api/utilities
+  https://directus.com/docs/api/utilities

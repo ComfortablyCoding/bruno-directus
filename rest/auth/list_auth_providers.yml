@@ -14,4 +14,4 @@ settings:
 docs: |-
   List all configured authentication providers (name + driver), including any
   configured SSO providers. Useful for building a dynamic login screen.
-  https://directus.io/docs/api/authentication
+  https://directus.com/docs/api/authentication

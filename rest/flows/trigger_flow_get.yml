@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Trigger a manual flow via GET request using the flow's trigger ID.
-  https://directus.io/docs/api/flows
+  https://directus.com/docs/api/flows

@@ -15,4 +15,4 @@ Manage file folders in Directus for organizing uploaded files into a hierarchy.
 
 ## Docs
 
-https://directus.io/docs/api/folders
+https://directus.com/docs/api/folders

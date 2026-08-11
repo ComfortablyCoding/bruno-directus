@@ -15,4 +15,4 @@ CRUD operations for Directus presets. Presets store saved collection view config
 
 ## Docs
 
-https://directus.io/docs/api/presets
+https://directus.com/docs/api/presets

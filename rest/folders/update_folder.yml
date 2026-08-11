@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update the name or parent of a single folder by its ID.
-  https://directus.io/docs/api/folders
+  https://directus.com/docs/api/folders

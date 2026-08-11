@@ -35,4 +35,4 @@ docs: |-
 
   On success this request automatically stores `access_token` (and `refresh_token`)
   into the active environment, so subsequent requests are authenticated for you.
-  https://directus.io/docs/api/authentication
+  https://directus.com/docs/api/authentication

@@ -12,4 +12,4 @@ Endpoints for checking server status, health, and retrieving API specifications.
 
 ## Docs
 
-https://directus.io/docs/api/server
+https://directus.com/docs/api/server

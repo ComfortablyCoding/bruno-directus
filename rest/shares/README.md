@@ -18,4 +18,4 @@ CRUD operations for Directus Shares. Supports individual and bulk operations as 
 
 ## Docs
 
-https://directus.io/docs/api/shares
+https://directus.com/docs/api/shares

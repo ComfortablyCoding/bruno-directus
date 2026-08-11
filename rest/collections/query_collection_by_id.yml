@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Retrieve a single collection by its name.
-  https://directus.io/docs/api/collections
+  https://directus.com/docs/api/collections

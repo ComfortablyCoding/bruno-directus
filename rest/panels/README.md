@@ -15,4 +15,4 @@ CRUD operations for Directus Insights Dashboard Panels. Supports individual and 
 
 ## Docs
 
-https://directus.io/docs/api/panels
+https://directus.com/docs/api/panels

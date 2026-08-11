@@ -15,4 +15,4 @@ Utility endpoints for random string generation, sorting, cache, data import/expo
 
 ## Docs
 
-https://directus.io/docs/api/utilities
+https://directus.com/docs/api/utilities

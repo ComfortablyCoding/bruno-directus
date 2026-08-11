@@ -15,4 +15,4 @@ CRUD operations for Directus custom Translations. Supports individual and bulk o
 
 ## Docs
 
-https://directus.io/docs/api/translations
+https://directus.com/docs/api/translations

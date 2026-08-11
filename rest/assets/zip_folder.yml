@@ -18,4 +18,4 @@ settings:
 docs: |-
   Download all files in a folder as a single ZIP archive. Responds with
   `application/zip` (Content-Disposition: attachment).
-  https://directus.io/docs/api/assets
+  https://directus.com/docs/api/assets

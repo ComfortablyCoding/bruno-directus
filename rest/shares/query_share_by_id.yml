@@ -21,4 +21,4 @@ settings:
 
 docs: |-
   Retrieve a single share by its primary key.
-  https://directus.io/docs/api/shares
+  https://directus.com/docs/api/shares

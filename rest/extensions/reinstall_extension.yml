@@ -20,4 +20,4 @@ settings:
 docs: |-
   Reinstall an already-installed registry extension (e.g. to restore its files).
   Requires the `extension` ID. Admin only.
-  https://directus.io/docs/api/extensions
+  https://directus.com/docs/api/extensions

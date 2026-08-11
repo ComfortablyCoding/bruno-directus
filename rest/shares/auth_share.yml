@@ -20,4 +20,4 @@ settings:
 
 docs: |-
   Authenticate against a password-protected share to obtain access.
-  https://directus.io/docs/api/shares
+  https://directus.com/docs/api/shares

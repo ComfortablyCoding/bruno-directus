@@ -15,4 +15,4 @@ CRUD operations for Directus Insights Dashboards. Supports individual and bulk o
 
 ## Docs
 
-https://directus.io/docs/api/dashboards
+https://directus.com/docs/api/dashboards

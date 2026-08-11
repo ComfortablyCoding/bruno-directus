@@ -17,4 +17,4 @@ settings:
 
 docs: |-
   Retrieve all fields belonging to a specific collection.
-  https://directus.io/docs/api/fields
+  https://directus.com/docs/api/fields

@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update a single notification by its primary key.
-  https://directus.io/docs/api/notifications
+  https://directus.com/docs/api/notifications

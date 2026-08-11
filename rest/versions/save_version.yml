@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Save field changes to a content version without promoting to the main item.
-  https://directus.io/docs/api/versions
+  https://directus.com/docs/api/versions

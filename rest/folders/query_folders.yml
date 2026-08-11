@@ -42,4 +42,4 @@ settings:
 
 docs: |-
   Retrieve a list of folders with optional filtering, sorting, and pagination.
-  https://directus.io/docs/api/folders
+  https://directus.com/docs/api/folders

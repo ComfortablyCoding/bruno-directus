@@ -23,4 +23,4 @@ settings:
 
 docs: |-
   Update a user account by their ID.
-  https://directus.io/docs/api/users
+  https://directus.com/docs/api/users

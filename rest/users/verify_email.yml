@@ -18,4 +18,4 @@ settings:
 docs: |-
   Verify the email address of a self-registered user using the token from the
   verification email. On success the API redirects to the Data Studio.
-  https://directus.io/docs/api/users
+  https://directus.com/docs/api/users
