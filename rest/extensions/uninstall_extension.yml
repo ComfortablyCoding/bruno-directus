@@ -1,7 +1,7 @@
 info:
   name: uninstall_extension
   type: http
-  seq: 7
+  seq: 9
 
 http:
   method: DELETE

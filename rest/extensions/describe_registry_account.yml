@@ -1,0 +1,21 @@
+info:
+  name: describe_registry_account
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/extensions/registry/account/:pk"
+  params:
+    - name: pk
+      value: "registry-account-uuid"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the details of a marketplace registry account (the publisher of an extension)
+  by its ID. Admin only.
+  https://directus.com/docs/api/extensions

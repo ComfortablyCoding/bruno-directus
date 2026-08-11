@@ -1,7 +1,7 @@
 info:
   name: reinstall_extension
   type: http
-  seq: 6
+  seq: 8
 
 http:
   method: POST

@@ -1,0 +1,37 @@
+info:
+  name: import_data_bulk
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/import"
+  body:
+    type: json
+    data: |-
+      [
+        {
+          "collection": "articles",
+          "items": [
+            {"title": "Item 1", "status": "draft"},
+            {"title": "Item 2", "status": "published"}
+          ]
+        },
+        {
+          "collection": "authors",
+          "items": [
+            {"name": "Ada Lovelace"}
+          ]
+        }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Import items into several collections in one request. The body is an array of
+  `{ "collection": ..., "items": [...] }` objects, so the target collection is named in the
+  payload rather than in the URL. Use `import_data` to upload a JSON or CSV file into a
+  single collection instead.
+  https://directus.com/docs/api/utilities

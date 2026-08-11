@@ -1,0 +1,20 @@
+info:
+  name: delete_extension
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{base_url}}/extensions/:id"
+  params:
+    - name: id
+      value: "extension-uuid"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete an installed extension by its unique identifier. Admin only.
+  https://directus.com/docs/api/extensions

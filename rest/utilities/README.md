@@ -8,7 +8,8 @@ Utility endpoints for random string generation, sorting, cache, data import/expo
 - Sort items in a collection
 - Clear the server cache (admin only)
 - Export collection data to file
-- Import data into a collection
+- Import data into a collection from a file
+- Import items into several collections in one request
 - Revert an item to a revision
 - Resolve a post-login redirect URL
 - Generate a translations setup for a collection (admin only)
