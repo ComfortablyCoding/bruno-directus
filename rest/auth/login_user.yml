@@ -19,12 +19,13 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        // Auto-save the returned tokens into the active environment so the
-        // collection-level auth script can attach the Bearer token for you.
+        // Save the returned tokens as runtime variables so the collection-level auth
+        // script can attach the Bearer token. Runtime vars are not written to disk,
+        // so live credentials never end up in environments/*.yml.
         const data = res.getBody()?.data;
         if (res.getStatus() === 200 && data?.access_token) {
-          bru.setEnvVar('access_token', data.access_token);
-          if (data.refresh_token) bru.setEnvVar('refresh_token', data.refresh_token);
+          bru.setVar('access_token', data.access_token);
+          if (data.refresh_token) bru.setVar('refresh_token', data.refresh_token);
         }
 
 settings:
@@ -34,5 +35,6 @@ docs: |-
   Authenticate a user with email and password to receive access and refresh tokens.
 
   On success this request automatically stores `access_token` (and `refresh_token`)
-  into the active environment, so subsequent requests are authenticated for you.
+  as runtime variables, so subsequent requests are authenticated for you. Runtime
+  variables live for the session only and are never written to the environment files.
   https://directus.com/docs/api/authentication

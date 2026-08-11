@@ -23,10 +23,11 @@ runtime:
   scripts:
     - type: after-response
       code: |-
+        // Store tokens as runtime variables (never written to disk).
         const data = res.getBody()?.data;
         if (res.getStatus() === 200 && data?.access_token) {
-          bru.setEnvVar('access_token', data.access_token);
-          if (data.refresh_token) bru.setEnvVar('refresh_token', data.refresh_token);
+          bru.setVar('access_token', data.access_token);
+          if (data.refresh_token) bru.setVar('refresh_token', data.refresh_token);
         }
 
 settings:

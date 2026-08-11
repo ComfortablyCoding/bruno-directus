@@ -19,11 +19,11 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        // Refresh rotates the tokens; persist the new pair back to the environment.
+        // Refresh rotates the tokens; store the new pair as runtime variables.
         const data = res.getBody()?.data;
         if (res.getStatus() === 200 && data?.access_token) {
-          bru.setEnvVar('access_token', data.access_token);
-          if (data.refresh_token) bru.setEnvVar('refresh_token', data.refresh_token);
+          bru.setVar('access_token', data.access_token);
+          if (data.refresh_token) bru.setVar('refresh_token', data.refresh_token);
         }
 
 settings:

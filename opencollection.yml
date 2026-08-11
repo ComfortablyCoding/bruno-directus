@@ -8,7 +8,9 @@ request:
   scripts:
     - type: before-request
       code: |-
-        const token = bru.getEnvVar('access_token');
+        // Prefer the runtime token captured by login/refresh over the environment's
+        // static token, so logging in never writes credentials to environments/*.yml.
+        const token = bru.getVar('access_token') || bru.getEnvVar('access_token');
         const mode = req.getAuthMode();
         const url = req.getUrl();
         const isWs = req.getType?.() === 'websocket' || url.includes('/websocket');
