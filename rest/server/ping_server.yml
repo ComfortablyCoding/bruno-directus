@@ -8,9 +8,21 @@ http:
   url: "{{base_url}}/server/ping"
   auth: inherit
 
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
+    - expression: res.body
+      operator: contains
+      value: pong
+
 settings:
   encodeUrl: true
 
 docs: |-
   Ping the server to verify it is reachable. Returns "pong".
+
+  This request is unauthenticated and safe against any instance, so it carries assertions as a
+  worked example of the convention in CONTRIBUTING.md.
   https://directus.com/docs/api/server
