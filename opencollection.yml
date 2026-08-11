@@ -24,6 +24,7 @@ extensions:
   bruno:
     ignore:
       - .git
+      - .github
       - .gitignore
       - .DS_Store
       - package.json
