@@ -2,6 +2,8 @@ name: production
 variables:
   - name: base_url
     value: https://your-directus-instance.com
+  - name: ws_url
+    value: wss://your-directus-instance.com
   - name: access_token
     value: your-access-token-here
   - name: refresh_token

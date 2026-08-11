@@ -4,7 +4,7 @@ info:
   seq: 1
 
 websocket:
-  url: "{{base_url}}/websocket"
+  url: "{{ws_url}}/websocket"
   message:
     type: json
     data: |-
@@ -12,9 +12,6 @@ websocket:
         "type": "auth",
         "access_token": "{{access_token}}"
       }
-
-settings:
-  encodeUrl: true
 
 docs: |-
   Authenticate a WebSocket connection using a static access token.

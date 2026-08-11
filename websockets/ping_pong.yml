@@ -4,16 +4,13 @@ info:
   seq: 4
 
 websocket:
-  url: "{{base_url}}/websocket"
+  url: "{{ws_url}}/websocket"
   message:
     type: json
     data: |-
       {
         "type": "pong"
       }
-
-settings:
-  encodeUrl: true
 
 docs: |-
   Respond to server ping messages to keep the connection alive.

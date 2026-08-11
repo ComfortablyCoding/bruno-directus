@@ -13,7 +13,12 @@ Real-time WebSocket API for subscribing to Directus collection events.
 
 ## URL Note
 
-The `{{base_url}}` environment variable uses `http://` or `https://`. For WebSocket requests you must use `ws://` or `wss://` manually (e.g. `ws://localhost:8055/websocket`).
+WebSocket requests use `{{ws_url}}`, not `{{base_url}}` — the WebSocket protocol needs a `ws://`
+or `wss://` scheme. Each environment defines both: `base_url` for REST and GraphQL, `ws_url` for
+these requests. If you point `base_url` at a different instance, update `ws_url` to match.
+
+Authentication is the `auth` handshake message below, not an `Authorization` header, so these
+requests intentionally do not receive the collection's Bearer token.
 
 ## Docs
 

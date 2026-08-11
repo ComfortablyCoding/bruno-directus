@@ -4,7 +4,7 @@ info:
   seq: 2
 
 websocket:
-  url: "{{base_url}}/websocket"
+  url: "{{ws_url}}/websocket"
   message:
     type: json
     data: |-
@@ -17,9 +17,6 @@ websocket:
           "event": "create"
         }
       }
-
-settings:
-  encodeUrl: true
 
 docs: |-
   Subscribe to real-time changes on a collection.

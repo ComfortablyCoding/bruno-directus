@@ -4,7 +4,7 @@ info:
   seq: 3
 
 websocket:
-  url: "{{base_url}}/websocket"
+  url: "{{ws_url}}/websocket"
   message:
     type: json
     data: |-
@@ -12,9 +12,6 @@ websocket:
         "type": "unsubscribe",
         "uid": "articles-sub-1"
       }
-
-settings:
-  encodeUrl: true
 
 docs: |-
   Unsubscribe from a previous subscription using its UID.
