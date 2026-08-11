@@ -14,7 +14,8 @@ http:
     type: multipart-form
     data:
       - name: file
-        value: "@file(path/to/data.json)"
+        type: file
+        value: path/to/data.json
   auth: inherit
 
 settings:

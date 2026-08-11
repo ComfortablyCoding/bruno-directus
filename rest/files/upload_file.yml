@@ -10,7 +10,8 @@ http:
     type: multipart-form
     data:
       - name: file
-        value: "@file(path/to/file.jpg)"
+        type: file
+        value: path/to/file.jpg
   auth: inherit
 
 settings:
