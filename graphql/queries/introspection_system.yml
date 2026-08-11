@@ -29,5 +29,6 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Introspect the GraphQL schema to discover available types and fields.
+  Introspect the system GraphQL schema to discover the types and fields for system
+  collections (users, roles, files, …). Use `introspection` for your own collections.
   https://directus.com/docs/api/graphql

@@ -2,7 +2,62 @@ opencollection: 1.0.0
 
 info:
   name: directus
+  summary: "Comprehensive collection covering the Directus API: REST, GraphQL, and WebSockets."
+  version: 1.0.0
 bundled: false
+
+docs:
+  content: |-
+    # Directus API
+
+    A comprehensive collection for the [Directus](https://directus.com) API, covering the REST
+    API, GraphQL, and the real-time WebSocket API. Requests are aligned to **Directus v12.x**.
+
+    ## Getting started
+
+    1. Pick an environment from the dropdown (top right): `local`, `admin`, `public`, or
+       `production`.
+    2. Set `base_url` to your Directus URL, and `ws_url` to the same host with a `ws://` or
+       `wss://` scheme.
+    3. Run **rest → auth → login_user** with valid credentials.
+
+    Everything else is then authenticated automatically.
+
+    ## Authentication
+
+    A collection-level pre-request script resolves an access token — preferring one captured by
+    login over the active environment's static `access_token` — and attaches it as an
+    `Authorization: Bearer` header. WebSocket connections and the `/auth/login` and
+    `/auth/refresh` routes never receive it.
+
+    `login_user`, `login_with_provider`, and `refresh_token` store their tokens as **runtime
+    variables**, which last for the session and are never written to disk — so logging in does
+    not put live credentials into the tracked `environments/*.yml` files. Log in again after
+    restarting Bruno.
+
+    To use a static token instead, set `access_token` in the environment and skip the login
+    step. To test as another user, set an individual request's auth to `bearer` with that
+    user's token; a request's own `Authorization` header takes precedence over the script.
+
+    ## Structure
+
+    - **rest/** — the REST API, one folder per resource. Most resources expose
+      query / query-by-id / create / update / delete plus bulk variants.
+    - **graphql/** — queries, mutations, and introspection (user data via `/graphql`, system
+      data via `/graphql/system`).
+    - **websockets/** — the real-time API: auth handshake, subscribe, ping/pong, unsubscribe.
+
+    Many requests carry extra query parameters that are **disabled by default** — enable them to
+    shape the response. The set is endpoint-specific: list endpoints accept the full query
+    system (`fields`, `filter`, `sort`, `limit`, `offset`, `search`, `meta`), while single-item
+    reads only accept what the API actually honors.
+
+    ## Links
+
+    - [Directus API reference](https://directus.com/docs/api)
+    - Directus serves its own OpenAPI spec at `/server/specs/oas` — see
+      **rest → server → get_oas_spec**
+  type: text/markdown
 
 request:
   scripts:
