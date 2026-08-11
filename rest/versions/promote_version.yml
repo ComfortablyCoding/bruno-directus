@@ -10,6 +10,12 @@ http:
     - name: id
       value: "version-id"
       type: path
+  body:
+    type: json
+    data: |-
+      {
+        "mainHash": "{{main_hash}}"
+      }
   auth: inherit
 
 settings:
@@ -17,4 +23,10 @@ settings:
 
 docs: |-
   Promote a content version by applying its changes to the main item.
+
+  `mainHash` is required — it proves you are promoting against the version of the main item
+  you last compared. Run `compare_version` first: it stores `mainHash` in the `main_hash`
+  runtime variable used here. A stale hash is rejected with a version-mismatch error.
+
+  Optionally add a `fields` array to promote only selected fields.
   https://directus.com/docs/api/versions

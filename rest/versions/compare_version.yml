@@ -12,9 +12,23 @@ http:
       type: path
   auth: inherit
 
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // Capture `mainHash` so promote_version can send it. Promote rejects a stale
+        // hash, so always re-run this compare right before promoting.
+        const data = res.getBody()?.data;
+        if (res.getStatus() === 200 && data?.mainHash) {
+          bru.setVar('main_hash', data.mainHash);
+        }
+
 settings:
   encodeUrl: true
 
 docs: |-
   Compare a content version against the current state of the main item to see what has changed.
+
+  Returns `outdated`, `mainHash`, `current` (the version's changes) and `main`. This request
+  stores `mainHash` as a runtime variable for `promote_version` to use.
   https://directus.com/docs/api/versions
