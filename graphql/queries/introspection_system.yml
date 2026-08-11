@@ -27,9 +27,6 @@ graphql:
 
 settings:
   encodeUrl: true
-  timeout: 0
-  followRedirects: true
-  maxRedirects: 5
 
 docs: |-
   Introspect the GraphQL schema to discover available types and fields.

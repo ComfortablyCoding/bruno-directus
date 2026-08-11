@@ -42,9 +42,6 @@ http:
 
 settings:
   encodeUrl: true
-  timeout: 0
-  followRedirects: true
-  maxRedirects: 5
 
 docs: |-
   Retrieve a list of items from the specified collection with optional filtering, sorting, and pagination.
