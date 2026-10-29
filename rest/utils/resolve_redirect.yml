@@ -10,7 +10,7 @@ http:
     type: json
     data: |-
       {
-        "redirect": "http://localhost:8055/admin/login"
+        "redirect": "{{base_url}}/admin/login"
       }
   auth: inherit
 

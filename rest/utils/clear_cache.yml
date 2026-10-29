@@ -6,11 +6,17 @@ info:
 http:
   method: POST
   url: "{{base_url}}/utils/cache/clear"
+  params:
+    - name: system
+      value: ""
+      type: query
+      disabled: true
   auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Clear the server-side cache. Admin only.
+  Clear the data cache. Add `system` to also clear the system cache (schema and permissions).
+  Admin only.
   https://directus.com/docs/api/utilities

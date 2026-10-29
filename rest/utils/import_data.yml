@@ -10,17 +10,23 @@ http:
     - name: collection
       value: "articles"
       type: path
+    - name: background
+      value: "true"
+      type: query
+      disabled: true
   body:
     type: multipart-form
     data:
       - name: file
         type: file
-        value: path/to/data.json
+        value:
+          - path/to/data.json
   auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Import data into a collection from a JSON or CSV file.
+  Import data into a collection from a JSON or CSV file. With `background`, the import continues
+  after the response and the user is notified when it finishes.
   https://directus.com/docs/api/utilities

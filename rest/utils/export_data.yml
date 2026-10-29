@@ -1,0 +1,37 @@
+info:
+  name: export_data
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/utils/export/:collection"
+  params:
+    - name: collection
+      value: "articles"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "format": "csv",
+        "query": {
+          "fields": ["id", "title", "status"],
+          "filter": {"status": {"_eq": "published"}},
+          "limit": -1
+        },
+        "file": {
+          "title": "Published articles export"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Export collection data to a file in the file library. `format` (`csv`, `csv_utf8`, `json`,
+  `xml`, `yaml`) and `query` are required; `file` sets metadata on the created file. The export
+  runs in the background: the response returns immediately and the user is notified when the
+  file is ready.
+  https://directus.com/docs/api/utilities

@@ -6,6 +6,19 @@ info:
 http:
   method: POST
   url: "{{base_url}}/utils/import"
+  params:
+    - name: mode
+      value: merge
+      type: query
+      disabled: true
+    - name: dryRun
+      value: "true"
+      type: query
+      disabled: true
+    - name: dangerouslyAllowDelete
+      value: "true"
+      type: query
+      disabled: true
   body:
     type: json
     data: |-
@@ -34,4 +47,9 @@ docs: |-
   `{ "collection": ..., "items": [...] }` objects, so the target collection is named in the
   payload rather than in the URL. Use `import_data` to upload a JSON or CSV file into a
   single collection instead.
+
+  Query flags: `mode` is `add` (default, insert only) or `merge` (upsert by primary key);
+  `dryRun` runs the import in a transaction that is rolled back, reporting what would change;
+  `dangerouslyAllowDelete` (merge mode only) mirrors the payload by deleting every existing
+  record in each listed collection that isn't in the import.
   https://directus.com/docs/api/utilities
