@@ -1,0 +1,23 @@
+info:
+  name: update_access_bulk
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/access"
+  body:
+    type: json
+    data: |-
+      {
+        "keys": ["id-1", "id-2"],
+        "data": {"policy": "policy-id"}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update multiple access records by their primary keys.
+  https://directus.com/docs/api/access

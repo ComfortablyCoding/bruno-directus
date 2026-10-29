@@ -1,0 +1,28 @@
+info:
+  name: access
+  type: folder
+  seq: 10
+
+docs:
+  content: |-
+    # access
+
+    Manage `directus_access`, the junction that attaches policies to roles and users. Since Directus 11, a policy grants nothing until an access record links it to a role (and so to every user in that role) or directly to a single user. Each record has a `policy` plus either a `role` or a `user`; `sort` orders the policies shown for a role or user.
+
+    You can also attach policies while creating or updating a role or user (for example `"policies": {"create": [{"policy": "policy-id"}]}`), which writes these records for you.
+
+    ## Operations
+
+    - Query all access records
+    - Query a single access record by ID
+    - Create a single access record
+    - Create multiple access records (bulk)
+    - Update a single access record
+    - Update multiple access records (bulk)
+    - Delete a single access record
+    - Delete multiple access records (bulk)
+
+    ## Docs
+
+    https://directus.com/docs/api/access
+  type: text/markdown

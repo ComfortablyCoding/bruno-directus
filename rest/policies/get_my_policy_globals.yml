@@ -1,0 +1,17 @@
+info:
+  name: get_my_policy_globals
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/policies/me/globals"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the global access flags the current user's policies resolve to: `app_access`,
+  `admin_access`, and `enforce_tfa`.
+  https://directus.com/docs/api/policies

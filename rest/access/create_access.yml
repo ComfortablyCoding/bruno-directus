@@ -1,0 +1,24 @@
+info:
+  name: create_access
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/access"
+  body:
+    type: json
+    data: |-
+      {
+        "role": "role-id",
+        "policy": "policy-id"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Attach a policy to a role. To attach it to a single user instead, send `user` in place of
+  `role`.
+  https://directus.com/docs/api/access

@@ -1,0 +1,23 @@
+info:
+  name: create_access_bulk
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/access"
+  body:
+    type: json
+    data: |-
+      [
+        {"role": "role-id", "policy": "policy-id"},
+        {"user": "user-id", "policy": "policy-id-2"}
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Create several access records at once — here, one policy for a role and one for a user.
+  https://directus.com/docs/api/access

@@ -1,0 +1,26 @@
+info:
+  name: update_access
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/access/:id"
+  params:
+    - name: id
+      value: "access-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "sort": 1
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update a single access record by its primary key, e.g. to reorder a role's policies.
+  https://directus.com/docs/api/access

@@ -1,0 +1,20 @@
+info:
+  name: delete_access_bulk
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{base_url}}/access"
+  body:
+    type: json
+    data: |-
+      ["id-1", "id-2"]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Delete multiple access records by their primary keys.
+  https://directus.com/docs/api/access

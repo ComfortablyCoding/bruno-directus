@@ -1,0 +1,22 @@
+info:
+  name: get_my_roles
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/roles/me"
+  params:
+    - name: fields
+      value: "id,name,icon,parent"
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve the current user's roles, including roles inherited through parent roles. If the
+  user can't read `directus_roles`, only the role IDs are returned.
+  https://directus.com/docs/api/roles

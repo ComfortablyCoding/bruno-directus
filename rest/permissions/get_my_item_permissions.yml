@@ -1,0 +1,24 @@
+info:
+  name: get_my_item_permissions
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{base_url}}/permissions/me/:collection/:id"
+  params:
+    - name: collection
+      value: articles
+      type: path
+    - name: id
+      value: item-id
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Check what the current user may do with one item: returns `update`, `delete`, and `share`,
+  each with an `access` boolean. For a singleton collection, drop `/:id` from the URL.
+  https://directus.com/docs/api/permissions

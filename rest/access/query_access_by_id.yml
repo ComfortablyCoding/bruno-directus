@@ -1,0 +1,24 @@
+info:
+  name: query_access_by_id
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/access/:id"
+  params:
+    - name: fields
+      value: "id,role,user,policy,sort"
+      type: query
+      disabled: true
+    - name: id
+      value: "access-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve a single access record by its primary key.
+  https://directus.com/docs/api/access

@@ -1,0 +1,20 @@
+info:
+  name: delete_access
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/access/:id"
+  params:
+    - name: id
+      value: "access-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Detach a policy from a role or user by deleting the access record.
+  https://directus.com/docs/api/access
