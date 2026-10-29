@@ -1,25 +1,71 @@
 info:
   name: subscribe_collection
   type: websocket
-  seq: 2
+  seq: 1
 
 websocket:
   url: "{{ws_url}}/websocket"
   message:
-    type: json
-    data: |-
-      {
-        "type": "subscribe",
-        "collection": "articles",
-        "uid": "articles-sub-1",
-        "query": {
-          "fields": ["id", "title", "status"],
-          "event": "create"
-        }
-      }
+    - title: 1. auth (access token)
+      selected: true
+      message:
+        type: json
+        data: |-
+          {
+            "type": "auth",
+            "access_token": "{{access_token}}"
+          }
+    - title: 1. auth (email and password)
+      message:
+        type: json
+        data: |-
+          {
+            "type": "auth",
+            "email": "admin@example.com",
+            "password": "password"
+          }
+    - title: 1. auth (refresh token)
+      message:
+        type: json
+        data: |-
+          {
+            "type": "auth",
+            "refresh_token": "{{refresh_token}}"
+          }
+    - title: 2. subscribe
+      message:
+        type: json
+        data: |-
+          {
+            "type": "subscribe",
+            "collection": "articles",
+            "event": "create",
+            "query": {
+              "fields": ["id", "title", "status"]
+            },
+            "uid": "articles-sub-1"
+          }
+    - title: 3. pong (reply to a server ping)
+      message:
+        type: json
+        data: |-
+          {
+            "type": "pong"
+          }
+    - title: 4. unsubscribe
+      message:
+        type: json
+        data: |-
+          {
+            "type": "unsubscribe",
+            "uid": "articles-sub-1"
+          }
 
 docs: |-
-  Subscribe to real-time changes on a collection.
-  Events: create, update, delete.
-
+  One connection to the realtime endpoint. Connect, send one of the `1. auth` messages
+  first, then `2. subscribe`. The server pushes an `init` message followed by one message per
+  matching event. `event` (`create`, `update`, or `delete`) is optional — omit it to receive
+  all three; `item` narrows the subscription to one item. Reply to each server `ping` with
+  `3. pong` to keep the connection open, and send `4. unsubscribe` with the same `uid` when
+  done.
   https://directus.com/docs/guides/realtime/subscriptions

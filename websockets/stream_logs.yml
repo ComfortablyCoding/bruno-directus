@@ -1,0 +1,30 @@
+info:
+  name: stream_logs
+  type: websocket
+  seq: 4
+
+websocket:
+  url: "{{ws_url}}/websocket/logs?access_token={{access_token}}"
+  message:
+    - title: 1. subscribe
+      selected: true
+      message:
+        type: json
+        data: |-
+          {
+            "type": "subscribe",
+            "log_level": "info"
+          }
+    - title: 2. unsubscribe
+      message:
+        type: json
+        data: |-
+          {
+            "type": "unsubscribe"
+          }
+
+docs: |-
+  Stream the server's logs in real time. Admin only. This endpoint uses strict auth, so the
+  token goes in the connection URL rather than in a message. `log_level` is the minimum level
+  to receive (`trace`, `debug`, `info`, `warn`, `error`, `fatal`).
+  https://directus.com/docs/configuration/realtime

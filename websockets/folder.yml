@@ -2,3 +2,34 @@ info:
   name: websockets
   type: folder
   seq: 3
+
+docs:
+  content: |-
+    # websockets
+
+    Real-time WebSocket API: collection subscriptions, item actions, GraphQL subscriptions, and the logs stream.
+
+    WebSockets are **off by default** — the server needs `WEBSOCKETS_ENABLED=true`.
+
+    ## One connection per request
+
+    Bruno opens a separate connection for each request in this folder, so each request is a complete session: its messages are listed in order (`1. auth`, `2. subscribe`, …). Connect, send the first message, then pick and send the next ones from the message list. Messages sent from a different request go over a different, unauthenticated connection.
+
+    ## Connection flow
+
+    1. **Connect** to `{{ws_url}}/websocket`
+    2. **Authenticate** — send an `auth` message (access token, email/password, or refresh token)
+    3. **Subscribe** or send **items** actions
+    4. **Keep alive** — reply to each server `ping` with a `pong`
+    5. **Unsubscribe** with the subscription `uid` when done
+
+    ## URL note
+
+    These requests use `{{ws_url}}`, not `{{base_url}}` — the WebSocket protocol needs a `ws://` or `wss://` scheme. Each environment defines both. If you point `base_url` at a different instance, update `ws_url` to match.
+
+    Authentication is the `auth` message (or `connection_init` for GraphQL, or the URL token for logs), not an `Authorization` header, so these requests set no auth.
+
+    ## Docs
+
+    https://directus.com/docs/guides/realtime/subscriptions
+  type: text/markdown

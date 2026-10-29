@@ -1,0 +1,68 @@
+info:
+  name: manage_items
+  type: websocket
+  seq: 2
+
+websocket:
+  url: "{{ws_url}}/websocket"
+  message:
+    - title: 1. auth
+      selected: true
+      message:
+        type: json
+        data: |-
+          {
+            "type": "auth",
+            "access_token": "{{access_token}}"
+          }
+    - title: 2. create
+      message:
+        type: json
+        data: |-
+          {
+            "type": "items",
+            "collection": "articles",
+            "action": "create",
+            "data": {"title": "Created over WebSocket", "status": "draft"},
+            "uid": "create-1"
+          }
+    - title: 3. read
+      message:
+        type: json
+        data: |-
+          {
+            "type": "items",
+            "collection": "articles",
+            "action": "read",
+            "query": {"fields": ["id", "title"], "limit": 10},
+            "uid": "read-1"
+          }
+    - title: 4. update
+      message:
+        type: json
+        data: |-
+          {
+            "type": "items",
+            "collection": "articles",
+            "action": "update",
+            "id": "1",
+            "data": {"status": "published"},
+            "uid": "update-1"
+          }
+    - title: 5. delete
+      message:
+        type: json
+        data: |-
+          {
+            "type": "items",
+            "collection": "articles",
+            "action": "delete",
+            "ids": ["1", "2"],
+            "uid": "delete-1"
+          }
+
+docs: |-
+  Create, read, update, and delete items over one realtime connection. Send `1. auth` first;
+  each response echoes the `uid` you sent. `read`, `update`, and `delete` take a single `id`,
+  a list of `ids`, or a `query`.
+  https://directus.com/docs/guides/realtime/actions

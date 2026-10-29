@@ -1,0 +1,53 @@
+info:
+  name: subscribe_graphql
+  type: websocket
+  seq: 3
+
+websocket:
+  url: "{{ws_url}}/graphql"
+  headers:
+    - name: Sec-WebSocket-Protocol
+      value: graphql-transport-ws
+  message:
+    - title: 1. connection_init
+      selected: true
+      message:
+        type: json
+        data: |-
+          {
+            "type": "connection_init",
+            "payload": {"access_token": "{{access_token}}"}
+          }
+    - title: 2. subscribe
+      message:
+        type: json
+        data: |-
+          {
+            "id": "articles-1",
+            "type": "subscribe",
+            "payload": {
+              "query": "subscription { articles_mutated(event: create) { key event data { id title status } } }"
+            }
+          }
+    - title: 3. pong
+      message:
+        type: json
+        data: |-
+          {
+            "type": "pong"
+          }
+    - title: 4. complete
+      message:
+        type: json
+        data: |-
+          {
+            "id": "articles-1",
+            "type": "complete"
+          }
+
+docs: |-
+  GraphQL subscriptions over the `graphql-transport-ws` protocol (the subprotocol header is
+  required). Send `1. connection_init` with the access token, wait for `connection_ack`, then
+  `2. subscribe`. Each collection has a `<collection>_mutated` subscription returning `key`,
+  `event`, and `data`. Send `4. complete` with the same `id` to stop.
+  https://directus.com/docs/guides/realtime/subscriptions
