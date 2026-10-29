@@ -10,8 +10,8 @@ http:
     type: json
     data: |-
       [
-        {"name": "My Flow", "icon": "bolt", "status": "active", "trigger": "manual"},
-        {"name": "My Flow 2", "icon": "bolt", "status": "active", "trigger": "manual"}
+        {"name": "Publish Articles", "icon": "bolt", "status": "active", "trigger": "manual", "options": {"collections": ["articles"]}},
+        {"name": "Incoming Webhook", "icon": "webhook", "status": "active", "trigger": "webhook", "options": {"method": "POST", "async": false}}
       ]
   auth: inherit
 

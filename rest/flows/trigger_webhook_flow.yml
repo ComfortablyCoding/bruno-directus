@@ -1,0 +1,23 @@
+info:
+  name: trigger_webhook_flow
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/flows/trigger/:id"
+  params:
+    - name: id
+      value: "00000000-0000-0000-0000-000000000000"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Trigger a webhook flow. The HTTP method must match the flow's configured method (`GET` by
+  default) — switch this request to `POST` and add a body for a POST webhook flow. Responds
+  with the flow's `$last` value unless the flow runs async. `:id` must be the flow's UUID; any
+  other value is a 404.
+  https://directus.com/docs/api/flows

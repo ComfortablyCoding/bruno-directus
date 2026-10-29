@@ -1,0 +1,30 @@
+info:
+  name: trigger_manual_flow
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{base_url}}/flows/trigger/:id"
+  params:
+    - name: id
+      value: "00000000-0000-0000-0000-000000000000"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "collection": "articles",
+        "keys": ["1", "2"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Trigger a manual flow, as the Data Studio's flow button does. Manual flows only accept
+  `POST`. `collection` must be one of the flow's configured collections, and `keys` (the
+  selected items) is required unless the flow sets `requireSelection: false`; otherwise the
+  request is rejected with 403. `:id` must be the flow's UUID.
+  https://directus.com/docs/api/flows

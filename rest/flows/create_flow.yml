@@ -13,7 +13,11 @@ http:
         "name": "My Flow",
         "icon": "bolt",
         "status": "active",
-        "trigger": "manual"
+        "trigger": "manual",
+        "options": {
+          "collections": ["articles"],
+          "requireSelection": true
+        }
       }
   auth: inherit
 
@@ -21,5 +25,5 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Create a new flow in the Directus instance.
+  Create a manual flow that can be run on `articles` items (see `trigger_manual_flow`).
   https://directus.com/docs/api/flows
