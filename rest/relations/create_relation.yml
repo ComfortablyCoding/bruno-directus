@@ -1,7 +1,7 @@
 info:
   name: create_relation
   type: http
-  seq: 3
+  seq: 4
 
 http:
   method: POST
@@ -10,9 +10,12 @@ http:
     type: json
     data: |-
       {
-        "many_collection": "articles",
-        "many_field": "author",
-        "one_collection": "users"
+        "collection": "articles",
+        "field": "author",
+        "related_collection": "directus_users",
+        "schema": {
+          "on_delete": "SET NULL"
+        }
       }
   auth: inherit
 
@@ -20,5 +23,7 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Create a new relation between two collections.
+  Create a relation on an existing field. `collection` and `field` identify the foreign key
+  field; `related_collection` is the collection it points to (omit it for a many-to-any
+  relation). Admin only. The example links the `author` field that `create_collection` adds.
   https://directus.com/docs/api/relations

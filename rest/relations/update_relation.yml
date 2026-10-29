@@ -1,20 +1,28 @@
 info:
   name: update_relation
   type: http
-  seq: 4
+  seq: 5
 
 http:
   method: PATCH
-  url: "{{base_url}}/relations/:id"
+  url: "{{base_url}}/relations/:collection/:field"
   params:
-    - name: id
-      value: "relation-id"
+    - name: collection
+      value: articles
+      type: path
+    - name: field
+      value: author
       type: path
   body:
     type: json
     data: |-
       {
-        "one_allowed_collections": null
+        "schema": {
+          "on_delete": "CASCADE"
+        },
+        "meta": {
+          "one_deselect_action": "delete"
+        }
       }
   auth: inherit
 
@@ -22,5 +30,6 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Update an existing relation's configuration by its ID.
+  Update the database constraint (`schema`) or Directus metadata (`meta`) of the relation on
+  a field. Admin only.
   https://directus.com/docs/api/relations

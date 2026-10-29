@@ -1,0 +1,20 @@
+info:
+  name: query_relations_by_collection
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/relations/:collection"
+  params:
+    - name: collection
+      value: articles
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Retrieve all relations that involve the given collection.
+  https://directus.com/docs/api/relations

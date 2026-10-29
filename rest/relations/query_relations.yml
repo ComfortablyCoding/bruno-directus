@@ -6,40 +6,12 @@ info:
 http:
   method: GET
   url: "{{base_url}}/relations"
-  params:
-    - name: fields
-      value: "id,title,date_created"
-      type: query
-      disabled: true
-    - name: filter
-      value: '{"status":{"_eq":"published"}}'
-      type: query
-      disabled: true
-    - name: sort
-      value: "-date_created"
-      type: query
-      disabled: true
-    - name: limit
-      value: "10"
-      type: query
-      disabled: true
-    - name: offset
-      value: "0"
-      type: query
-      disabled: true
-    - name: search
-      value: "keyword"
-      type: query
-      disabled: true
-    - name: meta
-      value: "total_count,filter_count"
-      type: query
-      disabled: true
   auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Retrieve a list of all relations defined in the Directus project.
+  Retrieve every relation defined in the project. This endpoint does not accept query
+  parameters.
   https://directus.com/docs/api/relations

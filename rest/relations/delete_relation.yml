@@ -1,14 +1,17 @@
 info:
   name: delete_relation
   type: http
-  seq: 5
+  seq: 6
 
 http:
   method: DELETE
-  url: "{{base_url}}/relations/:id"
+  url: "{{base_url}}/relations/:collection/:field"
   params:
-    - name: id
-      value: "relation-id"
+    - name: collection
+      value: articles
+      type: path
+    - name: field
+      value: author
       type: path
   auth: inherit
 
@@ -16,5 +19,5 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Delete a relation by its ID.
+  Delete the relation on a field. The field itself is kept. Admin only.
   https://directus.com/docs/api/relations
