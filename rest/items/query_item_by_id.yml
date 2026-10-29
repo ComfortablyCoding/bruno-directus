@@ -11,12 +11,16 @@ http:
       value: "id,title,date_created"
       type: query
       disabled: true
+    - name: deep
+      value: '{"comments":{"_limit":5}}'
+      type: query
+      disabled: true
     - name: version
       value: "draft"
       type: query
       disabled: true
     - name: collection
-      value: "my_collection"
+      value: "articles"
       type: path
     - name: id
       value: "item-id"

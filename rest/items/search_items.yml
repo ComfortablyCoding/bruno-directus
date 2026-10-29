@@ -1,0 +1,33 @@
+info:
+  name: search_items
+  type: http
+  seq: 11
+
+http:
+  method: SEARCH
+  url: "{{base_url}}/items/:collection"
+  params:
+    - name: collection
+      value: articles
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "query": {
+          "fields": ["id", "title", "status"],
+          "filter": {"status": {"_eq": "published"}},
+          "sort": ["-id"],
+          "limit": 10
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Query items with the query in the request body instead of the URL, using the `SEARCH`
+  method. Useful when a filter is too long for a query string. Every list endpoint
+  (`/users`, `/files`, `/roles`, …) accepts `SEARCH` the same way.
+  https://directus.com/docs/api/items

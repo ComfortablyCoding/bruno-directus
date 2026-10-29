@@ -35,6 +35,34 @@ http:
       value: total_count,filter_count
       type: query
       disabled: true
+    - name: deep
+      value: '{"comments":{"_limit":5,"_sort":["-date_created"]}}'
+      type: query
+      disabled: true
+    - name: aggregate
+      value: '{"count":"*"}'
+      type: query
+      disabled: true
+    - name: groupBy
+      value: status
+      type: query
+      disabled: true
+    - name: alias
+      value: '{"headline":"title"}'
+      type: query
+      disabled: true
+    - name: page
+      value: "2"
+      type: query
+      disabled: true
+    - name: backlink
+      value: "false"
+      type: query
+      disabled: true
+    - name: export
+      value: csv
+      type: query
+      disabled: true
     - name: collection
       value: articles
       type: path
@@ -45,4 +73,7 @@ settings:
 
 docs: |-
   Retrieve a list of items from the specified collection with optional filtering, sorting, and pagination.
+  `aggregate` + `groupBy` return grouped counts/sums instead of items; `page` is an alternative to
+  `offset`; `deep` shapes a nested o2m/m2m field (the example assumes a `comments` relation);
+  `export` returns the result as a downloadable `csv`, `csv_utf8`, `json`, `xml`, or `yaml` file.
   https://directus.com/docs/api/items
