@@ -10,14 +10,45 @@ http:
     type: json
     data: |-
       {
-        "collection": "my_collection",
+        "collection": "articles",
         "schema": {},
+        "meta": {"icon": "article"},
         "fields": [
           {
             "field": "id",
             "type": "integer",
             "meta": {"hidden": true, "interface": "input", "readonly": true},
             "schema": {"is_primary_key": true, "has_auto_increment": true}
+          },
+          {
+            "field": "status",
+            "type": "string",
+            "meta": {"interface": "select-dropdown", "options": {"choices": [{"text": "Draft", "value": "draft"}, {"text": "Published", "value": "published"}]}},
+            "schema": {"default_value": "draft"}
+          },
+          {
+            "field": "title",
+            "type": "string",
+            "meta": {"interface": "input"},
+            "schema": {}
+          },
+          {
+            "field": "body",
+            "type": "text",
+            "meta": {"interface": "input-rich-text-md"},
+            "schema": {}
+          },
+          {
+            "field": "author",
+            "type": "uuid",
+            "meta": {"interface": "select-dropdown-m2o", "special": ["m2o"]},
+            "schema": {}
+          },
+          {
+            "field": "date_created",
+            "type": "timestamp",
+            "meta": {"special": ["date-created"], "interface": "datetime", "readonly": true},
+            "schema": {}
           }
         ]
       }
@@ -27,5 +58,6 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Create a new collection with an initial schema and fields definition.
+  Create a collection with its fields in one request. This creates the `articles` collection
+  (with `id`, `status`, `title`, `body`, `author`, and `date_created`) that the items, fields, and GraphQL examples use.
   https://directus.com/docs/api/collections

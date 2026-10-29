@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/fields/:collection"
   params:
     - name: collection
-      value: "my_collection"
+      value: "articles"
       type: path
   auth: inherit
 

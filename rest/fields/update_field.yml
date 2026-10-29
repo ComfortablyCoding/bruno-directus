@@ -8,10 +8,10 @@ http:
   url: "{{base_url}}/fields/:collection/:field"
   params:
     - name: collection
-      value: "my_collection"
+      value: "articles"
       type: path
     - name: field
-      value: "my_field"
+      value: "title"
       type: path
   body:
     type: json

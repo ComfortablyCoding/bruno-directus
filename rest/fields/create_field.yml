@@ -8,13 +8,13 @@ http:
   url: "{{base_url}}/fields/:collection"
   params:
     - name: collection
-      value: "my_collection"
+      value: "articles"
       type: path
   body:
     type: json
     data: |-
       {
-        "field": "new_field",
+        "field": "subtitle",
         "type": "string",
         "meta": {"interface": "input"},
         "schema": {}

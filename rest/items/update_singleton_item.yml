@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/items/:collection"
   params:
     - name: collection
-      value: "my_singleton_collection"
+      value: "homepage"
       type: path
   body:
     type: json

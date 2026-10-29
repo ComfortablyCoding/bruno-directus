@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/items/:collection/:id"
   params:
     - name: collection
-      value: "my_collection"
+      value: "articles"
       type: path
     - name: id
       value: "item-id"

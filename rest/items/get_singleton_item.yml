@@ -16,7 +16,7 @@ http:
       type: query
       disabled: true
     - name: collection
-      value: "my_singleton_collection"
+      value: "homepage"
       type: path
   auth: inherit
 
