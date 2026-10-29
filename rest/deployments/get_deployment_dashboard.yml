@@ -1,0 +1,26 @@
+info:
+  name: get_deployment_dashboard
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/deployments/:provider/dashboard"
+  params:
+    - name: range
+      value: "7d"
+      type: query
+      disabled: true
+    - name: provider
+      value: vercel
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Get the selected projects with their latest run, the number of builds in progress, and the
+  successful and failed build counts over `range` (`<number><ms|s|m|h|d|w|y>`, default `1d`).
+  Any other query parameter is rejected.
+  https://directus.com/docs/api/deployments

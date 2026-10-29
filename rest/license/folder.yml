@@ -1,0 +1,36 @@
+info:
+  name: license
+  type: folder
+  seq: 29
+
+docs:
+  content: |-
+    # license
+
+    Read and manage this instance's Directus license: status, entitlements, and usage; activating,
+    replacing, or deactivating a key; add-ons and the billing portal; and resolving resources that
+    exceed the plan's limits. Every request is admin-only, except `preview_license`, which is public
+    until setup is complete. Key management is on by default (`LICENSE_KEY_MANAGEMENT_ENABLED`) but is
+    disabled whenever `LICENSE_KEY` or `LICENSE_TOKEN` is set in the environment. `get_license`
+    reports this as `editable`. Activation contacts the licensing service and requires `PUBLIC_URL`
+    to be an absolute URL. Add-ons and the billing portal need an active key-based license; they
+    are unavailable on the core tier and with token-only (offline) licenses.
+
+    ## Operations
+
+    - Get the license, status, entitlements, and usage
+    - Activate a license key
+    - Replace the license key
+    - Deactivate the license (downgrade to core)
+    - Preview a license key without activating it
+    - Get the billing portal redirect
+    - List available add-ons
+    - Update an add-on quantity
+    - Remove an add-on
+    - Get pending resolutions for a license change
+    - Apply a resolution
+
+    ## Docs
+
+    https://directus.com/docs/licensing/overview
+  type: text/markdown

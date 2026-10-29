@@ -1,0 +1,23 @@
+info:
+  name: cancel_deployment_run
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: "{{base_url}}/deployments/:provider/runs/:id/cancel"
+  params:
+    - name: provider
+      value: vercel
+      type: path
+    - name: id
+      value: "run-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Cancel an in-progress run on the provider and return the run with its updated status.
+  https://directus.com/docs/api/deployments

@@ -1,0 +1,22 @@
+info:
+  name: get_deployment_projects
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/deployments/:provider/projects"
+  params:
+    - name: provider
+      value: vercel
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  List every project on the provider account, merged with the Directus selection. Selected
+  projects carry their Directus `id`; unselected ones have `id: null` and must be selected with
+  `update_deployment_projects` before they can be deployed.
+  https://directus.com/docs/api/deployments

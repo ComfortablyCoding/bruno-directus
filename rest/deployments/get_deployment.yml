@@ -1,0 +1,24 @@
+info:
+  name: get_deployment
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/deployments/:provider"
+  params:
+    - name: fields
+      value: "id,provider,options,last_synced_at"
+      type: query
+      disabled: true
+    - name: provider
+      value: vercel
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Get the deployment config for one provider (`vercel` or `netlify`). `credentials` is returned masked.
+  https://directus.com/docs/api/deployments

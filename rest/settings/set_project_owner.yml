@@ -1,0 +1,27 @@
+info:
+  name: set_project_owner
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/settings/owner"
+  body:
+    type: json
+    data: |-
+      {
+        "project_owner": "admin@example.com",
+        "project_usage": "commercial",
+        "org_name": "Acme Inc",
+        "product_updates": false
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Set the project owner details on the settings singleton (`project_owner`, `project_usage` of
+  `personal`, `commercial` or `community`, `org_name`, `product_updates`) and report them to
+  Directus unless `PROJECT_OWNER_ENABLED=false`. Needs update access to `directus_settings`.
+  https://directus.com/docs/api/settings

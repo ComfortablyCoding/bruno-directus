@@ -1,0 +1,27 @@
+info:
+  name: apply_license_resolution
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{base_url}}/license/resolve"
+  body:
+    type: json
+    data: |-
+      {
+        "collections": ["articles"],
+        "seats": ["user-id"],
+        "flows": ["flow-id"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Bring the instance within its license limits by deactivating the listed collections (by name),
+  users, and flows (by ID); nothing is deleted. To disable SSO users, add `"sso_enabled": true`, or
+  `{"admin": {"email": "...", "password": "..."}}` to also switch the current admin to
+  email/password login. Every key is optional. Admin only.
+  https://directus.com/docs/licensing/overview

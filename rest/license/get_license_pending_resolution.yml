@@ -1,0 +1,25 @@
+info:
+  name: get_license_pending_resolution
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{base_url}}/license/pending-resolution"
+  body:
+    type: json
+    data: |-
+      {
+        "license_key": "DXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  List what would exceed a license's limits: seats, collections, and flows over their limit (with
+  candidates to deactivate), plus gated features in use (SSO, custom LLMs, custom permission rules).
+  Checks against `license_key` when given, the core tier when it is `null`, or the current license
+  when it is omitted. Changes nothing. Admin only.
+  https://directus.com/docs/licensing/overview

@@ -1,0 +1,36 @@
+info:
+  name: upload_tus_chunk
+  type: http
+  seq: 10
+
+http:
+  method: PATCH
+  url: "{{base_url}}/files/tus/:id"
+  params:
+    - name: id
+      value: "{{tus_upload_id}}"
+      type: path
+  headers:
+    - name: Tus-Resumable
+      value: 1.0.0
+    - name: Upload-Offset
+      value: "0"
+    - name: Content-Type
+      value: application/offset+octet-stream
+  body:
+    type: file
+    data:
+      - filePath: path/to/file.jpg
+        contentType: application/offset+octet-stream
+        selected: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Send file bytes to a TUS upload, starting at `Upload-Offset`. Run `create_tus_upload` first; it
+  sets `tus_upload_id`. Sending the whole file at offset `0` completes the upload in one request.
+  For chunked uploads, set `Upload-Offset` to the `Upload-Offset` returned by the previous chunk.
+  When the last byte arrives, the file is finalized and its ID is returned in the `Directus-File-Id` header.
+  https://directus.com/docs/configuration/files

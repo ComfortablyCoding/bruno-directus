@@ -1,0 +1,31 @@
+info:
+  name: update_deployment_projects
+  type: http
+  seq: 8
+
+http:
+  method: PATCH
+  url: "{{base_url}}/deployments/:provider/projects"
+  params:
+    - name: provider
+      value: vercel
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "create": [
+          { "external_id": "prj_a1b2c3d4e5", "name": "marketing-site" }
+        ],
+        "delete": ["project-id"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Select or deselect provider projects. `create` takes provider projects by `external_id` and
+  `name` (each must be deployable); `delete` takes Directus project IDs. Both default to `[]`.
+  Returns the updated selection and re-syncs the provider webhook.
+  https://directus.com/docs/api/deployments

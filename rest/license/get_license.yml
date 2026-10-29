@@ -1,0 +1,17 @@
+info:
+  name: get_license
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/license"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Get the current license: plan name, status, source, whether it is `editable`, expiry and renewal
+  dates, entitlements, and seat, collection, and flow usage. Admin only.
+  https://directus.com/docs/licensing/overview

@@ -1,0 +1,18 @@
+info:
+  name: deactivate_license
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: "{{base_url}}/license"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Deactivate the stored license key with the licensing service and drop the instance to the core
+  tier. Admin only. Run `get_license_pending_resolution` with `"license_key": null` first to see
+  what exceeds core limits.
+  https://directus.com/docs/licensing/overview

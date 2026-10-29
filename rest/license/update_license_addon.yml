@@ -1,0 +1,27 @@
+info:
+  name: update_license_addon
+  type: http
+  seq: 8
+
+http:
+  method: PATCH
+  url: "{{base_url}}/license/addons/:id"
+  params:
+    - name: id
+      value: "addon-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "quantity": 2
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Purchase or change the quantity of an add-on. `quantity` must be a number. Admin only, and needs
+  a key-based license.
+  https://directus.com/docs/licensing/overview

@@ -1,0 +1,44 @@
+info:
+  name: deployments
+  type: folder
+  seq: 26
+
+docs:
+  content: |-
+    # deployments
+
+    Connect Directus to a hosting provider (`vercel` or `netlify`), choose which of the
+    provider's projects Directus manages, then trigger, monitor, and cancel builds. No env var or
+    license entitlement gates this module; access follows permissions on `directus_deployments`,
+    `directus_deployment_projects`, and `directus_deployment_runs` (admin-only unless granted).
+    Credentials are tested against the provider before they are saved, stored encrypted, and
+    returned masked. Provider API responses are cached for `CACHE_DEPLOYMENT_TTL` (default `5s`).
+
+    When projects are selected, Directus registers a webhook on the provider pointing at
+    `POST /deployments/webhooks/:provider` (built from `PUBLIC_URL`), which keeps run statuses up to
+    date. The provider calls that endpoint unauthenticated and signature-verified, so it is not
+    included here.
+
+    The `:id` in project and run URLs is the Directus ID, not the provider's `external_id`.
+
+    ## Operations
+
+    - Query deployment configs
+    - Get the config for a provider
+    - Create a provider config
+    - Update a provider config
+    - Delete a provider config
+    - List the provider's projects, with selection state
+    - Get a selected project's details
+    - Select and deselect projects
+    - Get the provider dashboard
+    - Deploy a project
+    - List a project's runs
+    - Get a project's run stats
+    - Get a run with its build logs
+    - Cancel a run
+
+    ## Docs
+
+    https://directus.com/docs/api/deployments
+  type: text/markdown

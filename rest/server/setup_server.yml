@@ -1,0 +1,35 @@
+info:
+  name: setup_server
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/server/setup"
+  body:
+    type: json
+    data: |-
+      {
+        "admin": {
+          "email": "admin@example.com",
+          "password": "password",
+          "first_name": "Admin",
+          "last_name": "User"
+        },
+        "owner": {
+          "project_owner": "admin@example.com",
+          "project_usage": "commercial",
+          "org_name": "Acme Inc",
+          "product_updates": false
+        }
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Complete first-run onboarding by creating the first admin user. Public, but only works while the
+  instance has no users. After that, and on any instance bootstrapped with `ADMIN_EMAIL` and
+  `ADMIN_PASSWORD`, it returns 403. `admin.email` and `admin.password` are required. `owner` is
+  optional, and an optional `license_key` is activated before the admin is created.
+  https://directus.com/docs/api/server

@@ -1,0 +1,28 @@
+info:
+  name: get_deployment_run_stats
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{base_url}}/deployments/:provider/projects/:id/runs/stats"
+  params:
+    - name: range
+      value: "30d"
+      type: query
+      disabled: true
+    - name: provider
+      value: vercel
+      type: path
+    - name: id
+      value: "project-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Get a project's total deployments, successful and failed builds, and average build time over
+  `range` (`<number><ms|s|m|h|d|w|y>`, default `7d`). Any other query parameter is rejected.
+  https://directus.com/docs/api/deployments

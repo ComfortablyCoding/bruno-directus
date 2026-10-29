@@ -1,0 +1,32 @@
+info:
+  name: update_deployment
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/deployments/:provider"
+  params:
+    - name: provider
+      value: vercel
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "credentials": {
+          "access_token": "your-new-vercel-access-token"
+        },
+        "options": {
+          "team_id": "team_a1b2c3d4e5"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Update a provider's config. Only `credentials` (merged into the stored values) and `options`
+  (replaced, and must not be empty) are read, and the connection is re-tested before saving.
+  https://directus.com/docs/api/deployments

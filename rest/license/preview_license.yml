@@ -1,0 +1,23 @@
+info:
+  name: preview_license
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/license/preview"
+  body:
+    type: json
+    data: |-
+      {
+        "license_key": "DXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Look up a key's plan name, expiry and renewal dates, and whether it enables production use,
+  without activating it. Public until setup is complete, admin only afterwards.
+  https://directus.com/docs/licensing/overview

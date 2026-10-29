@@ -1,0 +1,23 @@
+info:
+  name: activate_license
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/license"
+  body:
+    type: json
+    data: |-
+      {
+        "license_key": "DXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Activate a license key for this project. Admin only, and only when the license is `editable`.
+  `PUBLIC_URL` must be an absolute URL.
+  https://directus.com/docs/licensing/overview

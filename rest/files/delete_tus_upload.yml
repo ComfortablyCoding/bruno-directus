@@ -1,0 +1,24 @@
+info:
+  name: delete_tus_upload
+  type: http
+  seq: 11
+
+http:
+  method: DELETE
+  url: "{{base_url}}/files/tus/:id"
+  params:
+    - name: id
+      value: "{{tus_upload_id}}"
+      type: path
+  headers:
+    - name: Tus-Resumable
+      value: 1.0.0
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Cancel an unfinished TUS upload, removing its partial data and placeholder file record.
+  Unfinished uploads also expire after `TUS_UPLOAD_EXPIRATION` (default `10m`).
+  https://directus.com/docs/configuration/files

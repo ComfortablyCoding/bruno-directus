@@ -1,0 +1,24 @@
+info:
+  name: metrics
+  type: folder
+  seq: 32
+
+docs:
+  content: |-
+    # metrics
+
+    Prometheus metrics for the services Directus depends on (database, cache, Redis, storage).
+    The route only exists when `METRICS_ENABLED=true`; otherwise it returns 404. Choose what is
+    measured with `METRICS_SERVICES` (default `database,cache,redis,storage`) and how often with
+    `METRICS_SCHEDULE`. Admin users can read it with their normal Bearer token. Scrapers can use
+    `Authorization: Metrics <token>`, where the token is one of the comma-separated `METRICS_TOKENS`.
+
+    ## Operations
+
+    - Get metrics (Prometheus text format)
+
+    ## Docs
+
+    https://directus.com/docs/api/metrics
+    https://directus.com/docs/configuration/metrics
+  type: text/markdown

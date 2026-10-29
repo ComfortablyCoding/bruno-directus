@@ -1,0 +1,40 @@
+info:
+  name: get_deployment_runs
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: "{{base_url}}/deployments/:provider/projects/:id/runs"
+  params:
+    - name: limit
+      value: "10"
+      type: query
+      disabled: true
+    - name: offset
+      value: "0"
+      type: query
+      disabled: true
+    - name: search
+      value: "production"
+      type: query
+      disabled: true
+    - name: meta
+      value: "total_count,filter_count"
+      type: query
+      disabled: true
+    - name: provider
+      value: vercel
+      type: path
+    - name: id
+      value: "project-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  List a project's runs, newest first, with the triggering user's name and email. The server fixes
+  `filter`, `sort`, and `fields`; only `limit` (default `10`), `offset`, `search`, and `meta` apply.
+  https://directus.com/docs/api/deployments

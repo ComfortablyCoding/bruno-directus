@@ -1,0 +1,39 @@
+info:
+  name: create_tus_upload
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{base_url}}/files/tus"
+  headers:
+    - name: Tus-Resumable
+      value: 1.0.0
+    - name: Upload-Length
+      value: "102400"
+    - name: Upload-Metadata
+      value: filename_download cGhvdG8uanBn,type aW1hZ2UvanBlZw==
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // The new upload's URL is in the Location header (.../files/tus/<id>). Store the ID
+        // so upload_tus_chunk and delete_tus_upload target this upload.
+        const location = res.getHeader('location');
+        if (res.getStatus() === 201 && location) {
+          bru.setVar('tus_upload_id', location.split('/').pop());
+        }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Start a resumable (TUS) upload. Requires `TUS_ENABLED=true` and create access to `directus_files`.
+  `Upload-Length` must be the file's exact size in bytes. `Upload-Metadata` is comma-separated
+  `key base64value` pairs: `filename_download` is required, `type` defaults to
+  `application/octet-stream`, and any other `directus_files` field (such as `title` or `folder`) can
+  be set. Add `id` to replace an existing file. The example encodes `photo.jpg` and `image/jpeg`.
+  Stores the upload ID in the `tus_upload_id` runtime variable.
+  https://directus.com/docs/configuration/files

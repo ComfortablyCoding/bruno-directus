@@ -1,0 +1,23 @@
+info:
+  name: update_license
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{base_url}}/license"
+  body:
+    type: json
+    data: |-
+      {
+        "license_key": "DXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Replace the active license key with a new one. Admin only, and fails when no key is currently
+  stored or the license is not `editable`.
+  https://directus.com/docs/licensing/overview

@@ -1,0 +1,30 @@
+info:
+  name: create_deployment
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/deployments"
+  body:
+    type: json
+    data: |-
+      {
+        "provider": "vercel",
+        "credentials": {
+          "access_token": "your-vercel-access-token"
+        },
+        "options": {
+          "team_id": "team_a1b2c3d4e5"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Connect a provider. `provider` (`vercel` or `netlify`) and `credentials.access_token` are required,
+  and the connection is tested before saving. `options` is optional: `team_id` for Vercel,
+  `account_slug` for Netlify. Only one config per provider is allowed.
+  https://directus.com/docs/api/deployments

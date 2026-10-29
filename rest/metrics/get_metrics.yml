@@ -1,0 +1,22 @@
+info:
+  name: get_metrics
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/metrics"
+  headers:
+    - name: Authorization
+      value: Metrics your-metrics-token
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Get Prometheus metrics as `text/plain`. Requires `METRICS_ENABLED=true`. Works with an admin
+  token as is. To use a `METRICS_TOKENS` token instead, set this request's auth to none and enable
+  the `Authorization: Metrics ...` header, so it doesn't clash with the inherited Bearer header.
+  https://directus.com/docs/api/metrics

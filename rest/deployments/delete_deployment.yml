@@ -1,0 +1,21 @@
+info:
+  name: delete_deployment
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/deployments/:provider"
+  params:
+    - name: provider
+      value: vercel
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Disconnect a provider. Its selected projects and their runs are deleted with it, and its
+  provider webhooks are unregistered.
+  https://directus.com/docs/api/deployments

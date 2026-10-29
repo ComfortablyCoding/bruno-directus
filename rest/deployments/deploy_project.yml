@@ -1,0 +1,31 @@
+info:
+  name: deploy_project
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{base_url}}/deployments/:provider/projects/:id/deploy"
+  params:
+    - name: provider
+      value: vercel
+      type: path
+    - name: id
+      value: "project-id"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "preview": false,
+        "clear_cache": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Trigger a build for a selected project and record it as a run. `preview: true` creates a
+  preview deployment instead of production (default `false`); `clear_cache` defaults to `true`.
+  https://directus.com/docs/api/deployments

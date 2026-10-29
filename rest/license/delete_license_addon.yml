@@ -1,0 +1,20 @@
+info:
+  name: delete_license_addon
+  type: http
+  seq: 9
+
+http:
+  method: DELETE
+  url: "{{base_url}}/license/addons/:id"
+  params:
+    - name: id
+      value: "addon-id"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Remove an add-on from the active license. Admin only, and needs a key-based license.
+  https://directus.com/docs/licensing/overview
