@@ -2,3 +2,26 @@ info:
   name: policies
   type: folder
   seq: 8
+
+docs:
+  content: |-
+    # policies
+
+    CRUD operations for Directus policies. Policies hold permissions and global flags (`admin_access`, `app_access`, `enforce_tfa`, `ip_access`). A policy grants nothing until it is attached to a role or directly to a user through an `access` record (see the `access` folder).
+
+    ## Operations
+
+    - Query all policies
+    - Query a single policy by ID
+    - Create a single policy
+    - Create multiple policies (bulk)
+    - Update a single policy
+    - Update multiple policies (bulk)
+    - Delete a single policy
+    - Delete multiple policies (bulk)
+    - Get the current user's global policy flags
+
+    ## Docs
+
+    https://directus.com/docs/api/policies
+  type: text/markdown

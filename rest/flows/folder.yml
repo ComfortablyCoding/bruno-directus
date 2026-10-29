@@ -1,4 +1,28 @@
 info:
   name: flows
   type: folder
-  seq: 23
+  seq: 24
+
+docs:
+  content: |-
+    # flows
+
+    CRUD operations for Directus Flows, plus the trigger endpoint for webhook and manual flows.
+
+    ## Operations
+
+    - Query all flows
+    - Query a single flow by ID
+    - Create a single flow
+    - Create multiple flows (bulk)
+    - Update a single flow
+    - Update multiple flows (bulk)
+    - Delete a single flow
+    - Delete multiple flows (bulk)
+    - Trigger a webhook flow (method must match the flow's configured method)
+    - Trigger a manual flow (`POST` with `collection` and `keys`)
+
+    ## Docs
+
+    https://directus.com/docs/api/flows
+  type: text/markdown

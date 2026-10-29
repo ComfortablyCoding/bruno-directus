@@ -1,4 +1,23 @@
 info:
   name: settings
   type: folder
-  seq: 26
+  seq: 28
+
+docs:
+  content: |-
+    # settings
+
+    Get and update the Directus project settings singleton. Admin access only — these settings control global project configuration such as project name, color, logo, and default behaviors.
+
+    ## Operations
+
+    - Get settings
+    - Update settings
+    - Set project owner details
+
+    `set_project_owner` reports the owner details to Directus unless `PROJECT_OWNER_ENABLED=false`.
+
+    ## Docs
+
+    https://directus.com/docs/api/settings
+  type: text/markdown

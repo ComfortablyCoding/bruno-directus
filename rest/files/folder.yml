@@ -2,3 +2,32 @@ info:
   name: files
   type: folder
   seq: 3
+
+docs:
+  content: |-
+    # files
+
+    Manage files stored in Directus. Supports upload, import from URL, metadata updates, and deletion.
+
+    ## Operations
+
+    - Query all files
+    - Query a single file by ID
+    - Upload a file (multipart form)
+    - Import a file from a URL
+    - Update file metadata
+    - Update multiple files (bulk)
+    - Delete a single file
+    - Delete multiple files (bulk)
+    - Start a resumable (TUS) upload
+    - Upload a TUS chunk
+    - Cancel a TUS upload
+
+    `upload_file` sends metadata parts before the `file` part, which Directus requires.
+
+    The TUS requests need `TUS_ENABLED=true` and are mounted at `/files/tus`. `create_tus_upload` stores the new upload's ID in the `tus_upload_id` runtime variable for the other two. See https://directus.com/docs/configuration/files
+
+    ## Docs
+
+    https://directus.com/docs/api/files
+  type: text/markdown

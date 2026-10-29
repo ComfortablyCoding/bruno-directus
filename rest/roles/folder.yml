@@ -2,3 +2,26 @@ info:
   name: roles
   type: folder
   seq: 7
+
+docs:
+  content: |-
+    # roles
+
+    CRUD operations for Directus roles. Roles group users; policies are attached to a role through `access` records (see the `access` folder), and a role inherits the policies of its parent role.
+
+    ## Operations
+
+    - Query all roles
+    - Query a single role by ID
+    - Create a single role
+    - Create multiple roles (bulk)
+    - Update a single role
+    - Update multiple roles (bulk)
+    - Delete a single role
+    - Delete multiple roles (bulk)
+    - Get the current user's roles
+
+    ## Docs
+
+    https://directus.com/docs/api/roles
+  type: text/markdown

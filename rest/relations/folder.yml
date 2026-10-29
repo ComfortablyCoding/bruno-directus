@@ -1,4 +1,28 @@
 info:
   name: relations
   type: folder
-  seq: 12
+  seq: 13
+
+docs:
+  content: |-
+    # relations
+
+    Manage relationships between Directus collections (M2O, O2M, M2M, etc.).
+
+    ## Operations
+
+    - Query all relations
+    - Query the relations of one collection
+    - Get the relation on a field
+    - Create a relation
+    - Update a relation
+    - Delete a relation
+
+    Relations have no ID of their own: a single relation is addressed by the collection and
+    field that hold the foreign key (`/relations/:collection/:field`). The relations endpoints
+    don't accept query parameters.
+
+    ## Docs
+
+    https://directus.com/docs/api/relations
+  type: text/markdown

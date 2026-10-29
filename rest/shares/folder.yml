@@ -1,4 +1,31 @@
 info:
   name: shares
   type: folder
-  seq: 18
+  seq: 19
+
+docs:
+  content: |-
+    # shares
+
+    CRUD operations for Directus Shares. Supports individual and bulk operations as well as share info and authentication.
+
+    ## Operations
+
+    - Query all shares
+    - Query a single share by ID
+    - Create a single share
+    - Create multiple shares (bulk)
+    - Update a single share
+    - Update multiple shares (bulk)
+    - Delete a single share
+    - Delete multiple shares (bulk)
+    - Get share info (public)
+    - Authenticate with a share
+    - Email a share to recipients
+
+    `get_share_info` and `auth_share` are public and send no token.
+
+    ## Docs
+
+    https://directus.com/docs/api/shares
+  type: text/markdown

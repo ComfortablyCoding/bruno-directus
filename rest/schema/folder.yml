@@ -1,4 +1,31 @@
 info:
   name: schema
   type: folder
-  seq: 27
+  seq: 30
+
+docs:
+  content: |-
+    # schema
+
+    Endpoints for managing database schema via snapshots and migrations.
+
+    ## Operations
+
+    - Get current schema snapshot
+    - Diff a schema against the current state
+    - Apply a schema diff (admin only, destructive)
+
+    ## Migrating schema between instances
+
+    The three requests are chained through runtime variables:
+
+    1. With the **source** environment active, run `get_schema_snapshot` — stored as `schema_snapshot`.
+    2. Switch to the **target** environment (and log in there), then run `diff_schema` — the `{ hash, diff }` result is stored as `schema_diff`.
+    3. Review the diff, then run `apply_schema`.
+
+    Captured login tokens are dropped when `base_url` changes, but the schema variables are not, so they carry across environments.
+
+    ## Docs
+
+    https://directus.com/docs/api/schema
+  type: text/markdown

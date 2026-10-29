@@ -13,51 +13,56 @@ A comprehensive [Bruno](https://usebruno.com) collection for the [Directus](http
 5. Set that environment's variables for your Directus instance:
    - `base_url` — your Directus URL (e.g. `http://localhost:8055`).
    - `ws_url` — the same host with a `ws://`/`wss://` scheme, used by the WebSocket requests.
-   - `access_token` — a static token, or leave the placeholder and log in (see below).
-   - `refresh_token` — leave blank; login captures it as a runtime variable.
+   - `access_token` — leave empty and log in, or set a static token (see below).
+   - `refresh_token` — leave empty; login captures it as a runtime variable.
 6. Run **rest → auth → login_user** with valid credentials to authenticate.
 
 ## Authentication
 
-Auth is handled for you. A collection-level **pre-request script** (see `opencollection.yml`) resolves `access_token` — preferring a token captured by login over the active environment's static value — and attaches it as an `Authorization: Bearer` header on every request — except WebSocket connections and the `/auth/login` and `/auth/refresh` routes, which never receive it. If `access_token` is empty (like the `public` environment), no header is sent.
+The collection uses **Bearer auth** with `{{access_token}}`, and every request that needs a token inherits it. Requests that are public by design — login, refresh, logout, password reset, registration, invite acceptance, share access, first-run setup — set no auth. Directus rejects any request that carries an expired token, so sending one to those routes would break logout and password reset exactly when you need them.
 
-The **login** and **refresh** requests each run a post-response script that stores the returned `access_token` and `refresh_token` as **runtime variables**. Runtime variables last for the session and are never written to disk, so logging in does not leave live credentials in the tracked `environments/*.yml` files. A captured token takes precedence over the environment's static one. So the normal flow is:
+The REST login and refresh requests (and the GraphQL `auth_login` / `auth_refresh` mutations) are picked up by a collection-level after-response script that stores the returned `access_token` and `refresh_token` as **runtime variables**. Runtime variables last for the session, are never written to disk, and take precedence over environment variables — so logging in does not leave live credentials in the tracked `environments/*.yml` files. The normal flow is:
 
 1. Run `auth → login_user` (or `login_with_provider`).
 2. Every other request is now authenticated automatically.
 3. When the token expires, run `auth → refresh_token` to refresh.
+4. Run `auth → logout_user` to invalidate the refresh token and clear the captured tokens.
 
-Because the captured tokens are session-scoped, you log in again after restarting Bruno.
+Captured tokens are **bound to the `base_url` that issued them**: switch to an environment with a different `base_url` and they are dropped before the next request, so a token is never sent to a server that didn't issue it. Because they are session-scoped, you log in again after restarting Bruno.
 
-**Using a static token instead:** set `access_token` in the environment and skip the login step. The `admin` environment ships with the placeholder `access_token: "1234"` for a typical local dev setup — replace it with your own static token, and note it is committed to the repository, so never put a real token there.
+**Using a static token instead:** set `access_token` in the environment and skip the login step. If your instance sets `ADMIN_TOKEN`, use that value. The environment files are committed to the repository, so never commit a real token.
 
-**Testing with a different user's token:** override the auth on any individual request — set its auth to `bearer` and supply that user's token. A request that sets its own `Authorization` header takes precedence over the collection script.
+**Testing as another user or as the public:** change that request's auth — `bearer` with the other user's token, or no auth to make an unauthenticated request.
 
 ## Environments
 
-| Name         | base_url                             | Intended use                        |
-| ------------ | ------------------------------------ | ----------------------------------- |
-| `local`      | `http://localhost:8055`              | Local dev; log in to get a token    |
-| `admin`      | `http://localhost:8055`              | Local dev with a static admin token |
-| `public`     | `http://localhost:8055`              | Unauthenticated / public requests   |
-| `production` | `https://your-directus-instance.com` | Point at a real instance            |
+| Name         | base_url                             | Intended use             |
+| ------------ | ------------------------------------ | ------------------------ |
+| `local`      | `http://localhost:8055`              | A local Directus         |
+| `production` | `https://your-directus-instance.com` | Point at a real instance |
+
+Both start with an empty `access_token`, which Directus treats as unauthenticated. Add an environment per instance you work with; the schema migration requests in `rest/schema` move a schema from one environment's instance to another's.
 
 ### Variables
 
-| Variable        | Description                                                                           |
-| --------------- | ------------------------------------------------------------------------------------- |
-| `base_url`      | Directus instance URL for REST and GraphQL (e.g. `http://localhost:8055`).            |
-| `ws_url`        | Same host with a `ws://`/`wss://` scheme, used by the WebSocket requests.             |
-| `access_token`  | Static fallback token. Empty = no auth. Login overrides it with a runtime variable.   |
-| `refresh_token` | Leave blank — captured on login as a runtime variable and rotated by `refresh_token`. |
+| Variable        | Description                                                                         |
+| --------------- | ----------------------------------------------------------------------------------- |
+| `base_url`      | Directus instance URL for REST and GraphQL (e.g. `http://localhost:8055`).          |
+| `ws_url`        | Same host with a `ws://`/`wss://` scheme, used by the WebSocket requests.           |
+| `access_token`  | Static fallback token. Empty = no auth. Login overrides it with a runtime variable. |
+| `refresh_token` | Leave blank — captured on login as a runtime variable and rotated on refresh.       |
+
+Some requests also capture runtime variables for the next step of a workflow: `compare_version` → `promote_version` (`main_hash`), `get_schema_snapshot` → `diff_schema` → `apply_schema` (`schema_snapshot`, `schema_diff`), and `create_tus_upload` → `upload_tus_chunk` (`tus_upload_id`).
 
 ## Structure
 
-- **rest/** — the REST API, grouped by resource (items, files, users, collections, fields, flows, …). Most resources expose query / query-by-id / create / update / delete plus bulk variants.
-- **graphql/** — GraphQL queries, mutations, and introspection (user data via `/graphql`, system data via `/graphql/system`). See [`graphql/README.md`](graphql/README.md).
-- **websockets/** — the real-time API (auth handshake, subscribe, ping/pong, unsubscribe). See [`websockets/README.md`](websockets/README.md).
+- **rest/** — the REST API, one folder per resource (items, files, users, access, collections, fields, flows, deployments, …). Most resources expose query / query-by-id / create / update / delete plus bulk variants.
+- **graphql/** — GraphQL queries, mutations, auth, and introspection (user data via `/graphql`, system data via `/graphql/system`).
+- **websockets/** — the real-time API: collection subscriptions, item actions, GraphQL subscriptions, and the logs stream. Each request is one connection with its messages listed in order.
 
-Many requests include extra query parameters that are **disabled by default** — enable them in Bruno to shape the response. The set is endpoint-specific: list endpoints accept the full query system (`fields`, `filter`, `sort`, `limit`, `offset`, `search`, `meta`), while single-item reads only accept what the API actually honors (`fields`, and `version` for items). Each request's params reflect what its endpoint truly supports.
+Each folder's documentation (its **Docs** tab in Bruno) describes its requests and any setup they need. The examples use an `articles` collection, which **rest → collections → create_collection** creates.
+
+Many requests include extra query parameters that are **disabled by default** — enable them in Bruno to shape the response. The set is endpoint-specific: list endpoints accept the query system (`fields`, `filter`, `sort`, `limit`, `offset`, `search`, `meta`, and on items also `deep`, `aggregate`, `groupBy`, `alias`, `page`, `backlink`, `export`), while single-item reads only accept what the API actually honors. Each request's params reflect what its endpoint truly supports, and every example value names fields that exist on that collection.
 
 ## Other tooling
 

@@ -2,3 +2,31 @@ info:
   name: graphql
   type: folder
   seq: 2
+
+docs:
+  content: |-
+    # graphql
+
+    GraphQL API requests for Directus.
+
+    ## Endpoints
+
+    - **User data**: `POST {{base_url}}/graphql` — access collections defined by your data model
+    - **System data**: `POST {{base_url}}/graphql/system` — access system collections (users, roles, files, etc.)
+
+    ## Structure
+
+    - `queries/` — read operations, aggregation, and introspection
+    - `mutations/` — write operations (create, update, delete)
+    - `auth/` — `auth_login` and `auth_refresh` system mutations
+
+    The examples query the `articles` collection created by **rest → collections → create_collection**. For subscriptions, see **websockets → subscribe_graphql**.
+
+    ## Authentication
+
+    Queries and mutations inherit the collection-level Bearer token via `auth: inherit`; the `auth/` requests send none.
+
+    ## Docs
+
+    https://directus.com/docs/api/graphql
+  type: text/markdown

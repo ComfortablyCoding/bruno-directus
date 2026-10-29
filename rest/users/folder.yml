@@ -2,3 +2,37 @@ info:
   name: users
   type: folder
   seq: 6
+
+docs:
+  content: |-
+    # users
+
+    Manage Directus users. Includes standard CRUD, bulk operations, current user endpoints, invite flows, two-factor authentication, and public self-registration.
+
+    ## Operations
+
+    - Query all users
+    - Query a single user by ID
+    - Get the current authenticated user
+    - Create a user
+    - Create multiple users (bulk)
+    - Update a user
+    - Update the current authenticated user
+    - Update multiple users (bulk)
+    - Delete a user
+    - Delete multiple users (bulk)
+    - Invite a user by email
+    - Accept a user invite
+    - Generate a two-factor authentication secret
+    - Enable two-factor authentication
+    - Disable two-factor authentication
+    - Disable another user's two-factor authentication (admin)
+    - Register a new user (public self-registration)
+    - Verify a registered user's email
+
+    `register_user`, `verify_email`, and `accept_user_invite` are public and send no token.
+
+    ## Docs
+
+    https://directus.com/docs/api/users
+  type: text/markdown

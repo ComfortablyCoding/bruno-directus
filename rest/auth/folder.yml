@@ -2,3 +2,29 @@ info:
   name: auth
   type: folder
   seq: 1
+
+docs:
+  content: |-
+    # auth
+
+    Authentication endpoints for Directus. Handles login, token refresh, logout, password reset, and SSO provider flows.
+
+    A successful `login_user`, `login_with_provider`, or `refresh_token` stores the returned `access_token` and `refresh_token` as **runtime variables** (via the collection's after-response script). They last for the session, are never written to the environment files, and are bound to the `base_url` that issued them. `logout_user` clears them.
+
+    Every request in this folder sends no access token: they are public routes, and Directus rejects any request carrying an expired token — so sending one would break logout and password reset exactly when you need them.
+
+    ## Operations
+
+    - Login with email/password
+    - Refresh access token
+    - Logout (invalidate refresh token)
+    - Request password reset email
+    - Reset password with token
+    - Get configured authentication providers (incl. SSO)
+    - Login against a named provider (e.g. LDAP)
+    - Initiate an SSO redirect login (OAuth2 / OpenID / SAML)
+
+    ## Docs
+
+    https://directus.com/docs/api/authentication
+  type: text/markdown

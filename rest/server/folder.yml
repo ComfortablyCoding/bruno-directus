@@ -1,4 +1,26 @@
 info:
   name: server
   type: folder
-  seq: 28
+  seq: 31
+
+docs:
+  content: |-
+    # server
+
+    Endpoints for checking server status, health, and retrieving API specifications.
+
+    ## Operations
+
+    - Get server info
+    - Get server health
+    - Ping the server
+    - Get OpenAPI specification
+    - Get GraphQL SDL (items or system scope)
+    - Complete first-run setup (create the first admin)
+
+    `setup_server` is public, and only works while the instance has no users; afterwards it returns 403.
+
+    ## Docs
+
+    https://directus.com/docs/api/server
+  type: text/markdown
