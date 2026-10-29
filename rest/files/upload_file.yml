@@ -9,14 +9,24 @@ http:
   body:
     type: multipart-form
     data:
+      - name: title
+        type: text
+        value: Example image
+      - name: folder
+        type: text
+        value: folder-id
+        disabled: true
       - name: file
         type: file
-        value: path/to/file.jpg
+        value:
+          - path/to/file.jpg
   auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Upload a file to Directus using multipart form data.
+  Upload a file to Directus using multipart form data. Metadata parts (`title`, `folder`, …) must
+  come before the `file` part — Directus ignores fields that arrive after the file. Relative
+  file paths resolve from the collection root.
   https://directus.com/docs/api/files
