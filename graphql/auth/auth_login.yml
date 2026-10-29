@@ -1,0 +1,30 @@
+info:
+  name: auth_login
+  type: graphql
+  seq: 1
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql/system"
+  body:
+    query: |-
+      mutation Login($email: String!, $password: String!) {
+        auth_login(email: $email, password: $password) {
+          access_token
+          refresh_token
+          expires
+        }
+      }
+    variables: |-
+      {
+        "email": "admin@example.com",
+        "password": "password"
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Log in with email and password via GraphQL. Add `otp` for two-factor users. Tokens are
+  stored as runtime variables on success.
+  https://directus.com/docs/api/authentication

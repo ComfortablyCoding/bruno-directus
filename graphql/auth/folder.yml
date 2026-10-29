@@ -1,0 +1,20 @@
+info:
+  name: auth
+  type: folder
+  seq: 3
+
+docs:
+  content: |-
+    # auth
+
+    Log in and refresh through the GraphQL system endpoint (`/graphql/system`). These requests send no token. On success the collection stores the returned `access_token` and `refresh_token` as runtime variables, exactly like the REST login.
+
+    ## Operations
+
+    - Log in with email and password
+    - Refresh the access token
+
+    ## Docs
+
+    https://directus.com/docs/api/authentication
+  type: text/markdown

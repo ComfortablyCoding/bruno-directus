@@ -1,11 +1,12 @@
 info:
   name: introspection_system
   type: graphql
-  seq: 5
+  seq: 6
 
 graphql:
   method: POST
   url: "{{base_url}}/graphql/system"
+  auth: inherit
   body:
     query: |-
       query IntrospectionQuery {
@@ -23,7 +24,6 @@ graphql:
           }
         }
       }
-  auth: inherit
 
 settings:
   encodeUrl: true

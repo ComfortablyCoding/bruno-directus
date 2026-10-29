@@ -1,0 +1,29 @@
+info:
+  name: auth_refresh
+  type: graphql
+  seq: 2
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql/system"
+  body:
+    query: |-
+      mutation Refresh($refresh_token: String!) {
+        auth_refresh(refresh_token: $refresh_token, mode: json) {
+          access_token
+          refresh_token
+          expires
+        }
+      }
+    variables: |-
+      {
+        "refresh_token": "{{refresh_token}}"
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Exchange the captured refresh token for a new token pair via GraphQL. The rotated tokens are
+  stored as runtime variables on success.
+  https://directus.com/docs/api/authentication

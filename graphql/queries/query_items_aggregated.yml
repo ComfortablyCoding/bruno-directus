@@ -1,0 +1,27 @@
+info:
+  name: query_items_aggregated
+  type: graphql
+  seq: 3
+
+graphql:
+  method: POST
+  url: "{{base_url}}/graphql"
+  auth: inherit
+  body:
+    query: |-
+      query {
+        articles_aggregated(groupBy: ["status"]) {
+          group
+          count {
+            id
+          }
+        }
+      }
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  Aggregate a collection via its `<collection>_aggregated` query — here, the number of
+  articles per status. Also supports `countDistinct`, `sum`, `avg`, `min`, `max`, and `filter`.
+  https://directus.com/docs/api/graphql
