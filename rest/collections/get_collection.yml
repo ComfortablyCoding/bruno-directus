@@ -1,5 +1,5 @@
 info:
-  name: query_collection_by_id
+  name: get_collection
   type: http
   seq: 2
 
@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/collections/:collection"
   params:
     - name: collection
-      value: "my_collection"
+      value: "articles"
       type: path
   auth: inherit
 

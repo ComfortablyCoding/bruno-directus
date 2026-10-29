@@ -5,9 +5,9 @@ info:
 
 http:
   method: DELETE
-  url: "{{base_url}}/extensions/registry/uninstall/:pk"
+  url: "{{base_url}}/extensions/registry/uninstall/:id"
   params:
-    - name: pk
+    - name: id
       value: "extension-uuid"
       type: path
   auth: inherit

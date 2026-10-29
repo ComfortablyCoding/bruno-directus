@@ -5,9 +5,9 @@ info:
 
 http:
   method: POST
-  url: "{{base_url}}/assets/folder/:pk"
+  url: "{{base_url}}/assets/folder/:id"
   params:
-    - name: pk
+    - name: id
       value: "folder-id"
       type: path
   auth: inherit
