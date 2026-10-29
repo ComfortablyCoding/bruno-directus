@@ -13,7 +13,6 @@ http:
         "token": "invite-token",
         "password": "password123"
       }
-  auth: inherit
 
 settings:
   encodeUrl: true

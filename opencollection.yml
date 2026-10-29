@@ -15,8 +15,7 @@ docs:
 
     ## Getting started
 
-    1. Pick an environment from the dropdown (top right): `local`, `admin`, `public`, or
-       `production`.
+    1. Pick an environment from the dropdown (top right): `local` or `production`.
     2. Set `base_url` to your Directus URL, and `ws_url` to the same host with a `ws://` or
        `wss://` scheme.
     3. Run **rest → auth → login_user** with valid credentials.
@@ -25,32 +24,37 @@ docs:
 
     ## Authentication
 
-    A collection-level pre-request script resolves an access token — preferring one captured by
-    login over the active environment's static `access_token` — and attaches it as an
-    `Authorization: Bearer` header. WebSocket connections and the `/auth/login` and
-    `/auth/refresh` routes never receive it.
+    The collection uses Bearer auth with `{{access_token}}`, and every request that needs a
+    token inherits it. Requests that are public by design — login, refresh, logout, password
+    reset, registration, share access — set no auth, so an expired token can't make them fail.
 
-    `login_user`, `login_with_provider`, and `refresh_token` store their tokens as **runtime
-    variables**, which last for the session and are never written to disk — so logging in does
-    not put live credentials into the tracked `environments/*.yml` files. Log in again after
-    restarting Bruno.
+    Logging in (REST `login_user` / `login_with_provider`, or GraphQL `auth_login`) stores the
+    returned `access_token` and `refresh_token` as **runtime variables**. They last for the
+    session, are never written to disk, and take precedence over the environment's own
+    `access_token`. They are tied to the `base_url` they were issued for: switch to an
+    environment with a different `base_url` and they are dropped, so a token is never sent to a
+    server that didn't issue it. `logout_user` clears them.
 
     To use a static token instead, set `access_token` in the environment and skip the login
-    step. To test as another user, set an individual request's auth to `bearer` with that
-    user's token; a request's own `Authorization` header takes precedence over the script.
+    step. To test as another user, set that request's auth to `bearer` with their token; to
+    test as the public, set it to no auth.
 
     ## Structure
 
     - **rest/** — the REST API, one folder per resource. Most resources expose
       query / query-by-id / create / update / delete plus bulk variants.
-    - **graphql/** — queries, mutations, and introspection (user data via `/graphql`, system
-      data via `/graphql/system`).
-    - **websockets/** — the real-time API: auth handshake, subscribe, ping/pong, unsubscribe.
+    - **graphql/** — queries, mutations, auth, and introspection (user data via `/graphql`,
+      system data via `/graphql/system`).
+    - **websockets/** — the real-time API: subscriptions, item actions, GraphQL subscriptions,
+      and the logs stream.
 
     Many requests carry extra query parameters that are **disabled by default** — enable them to
-    shape the response. The set is endpoint-specific: list endpoints accept the full query
-    system (`fields`, `filter`, `sort`, `limit`, `offset`, `search`, `meta`), while single-item
-    reads only accept what the API actually honors.
+    shape the response. The set is endpoint-specific: list endpoints accept the query system
+    (`fields`, `filter`, `sort`, `limit`, `offset`, `search`, `meta`; `query_items` also shows
+    `deep`, `aggregate`, `groupBy`, `alias`, `page`, `backlink`, and `export`), while
+    single-item reads only accept what the API actually honors. Every list endpoint also
+    accepts the `SEARCH` method with the query in the body — see **rest → items →
+    search_items**.
 
     ## Links
 
@@ -60,19 +64,39 @@ docs:
   type: text/markdown
 
 request:
+  auth:
+    type: bearer
+    token: "{{access_token}}"
   scripts:
     - type: before-request
       code: |-
-        // Prefer the runtime token captured by login/refresh over the environment's
-        // static token, so logging in never writes credentials to environments/*.yml.
-        const token = bru.getVar('access_token') || bru.getEnvVar('access_token');
-        const mode = req.getAuthMode();
+        // Captured tokens are bound to the base_url that issued them. If it has changed
+        // (another environment, or an edited URL), drop them so {{access_token}} falls back
+        // to the active environment's own value.
+        const issuer = bru.getVar('token_base_url');
+        if (issuer !== undefined && issuer !== (bru.getEnvVar('base_url') ?? '')) {
+          for (const name of ['access_token', 'refresh_token', 'token_base_url']) bru.deleteVar(name);
+        }
+    - type: after-response
+      code: |-
+        // Capture tokens from REST and GraphQL login/refresh as runtime variables, which live
+        // for the session only and are never written to environments/*.yml.
         const url = req.getUrl();
-        const isWs = req.getType?.() === 'websocket' || url.includes('/websocket');
-        const isAuthRoute = /\/auth\/(login|refresh)/.test(url);
+        const status = res.getStatus();
+        const body = res.getBody();
 
-        if (token && mode === 'none' && !isWs && !isAuthRoute) {
-          req.setHeader('Authorization', `Bearer ${token}`);
+        if (/\/auth\/logout\b/.test(url) && status < 300) {
+          for (const name of ['access_token', 'refresh_token', 'token_base_url']) bru.deleteVar(name);
+        }
+
+        let tokens;
+        if (/\/auth\/(login|refresh)\b/.test(url)) tokens = body?.data;
+        else if (/\/graphql\/system\b/.test(url)) tokens = body?.data?.auth_login ?? body?.data?.auth_refresh;
+
+        if (status === 200 && tokens?.access_token) {
+          bru.setVar('access_token', tokens.access_token);
+          if (tokens.refresh_token) bru.setVar('refresh_token', tokens.refresh_token);
+          bru.setVar('token_base_url', bru.getEnvVar('base_url') ?? '');
         }
 
 extensions:

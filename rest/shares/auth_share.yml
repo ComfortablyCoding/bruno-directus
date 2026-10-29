@@ -13,11 +13,12 @@ http:
         "share": "share-id",
         "password": "optional-password"
       }
-  auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Authenticate against a password-protected share to obtain access.
+  Authenticate against a share (with its password, if it has one) to get an access token scoped
+  to the shared item. Public — sends no user token. The share token is not captured; use it
+  by setting a request's auth to `bearer`.
   https://directus.com/docs/api/shares

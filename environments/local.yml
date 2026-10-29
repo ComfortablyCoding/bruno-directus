@@ -5,6 +5,6 @@ variables:
   - name: ws_url
     value: ws://localhost:8055
   - name: access_token
-    value: your-access-token-here
+    value: ""
   - name: refresh_token
     value: ""

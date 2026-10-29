@@ -1,0 +1,22 @@
+info:
+  name: get_auth_providers
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/auth"
+  params:
+    - name: sessionOnly
+      value: "true"
+      type: query
+      disabled: true
+
+settings:
+  encodeUrl: true
+
+docs: |-
+  List the configured authentication providers (name + driver), including SSO providers.
+  Useful for building a dynamic login screen. `sessionOnly` hides OAuth2/OpenID/SAML providers
+  whose `AUTH_<PROVIDER>_MODE` is not `session`.
+  https://directus.com/docs/api/authentication

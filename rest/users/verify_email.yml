@@ -10,7 +10,6 @@ http:
     - name: token
       value: "verification-token"
       type: query
-  auth: inherit
 
 settings:
   encodeUrl: true

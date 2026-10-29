@@ -13,28 +13,15 @@ http:
         "email": "admin@example.com",
         "password": "password"
       }
-  auth: inherit
-
-runtime:
-  scripts:
-    - type: after-response
-      code: |-
-        // Save the returned tokens as runtime variables so the collection-level auth
-        // script can attach the Bearer token. Runtime vars are not written to disk,
-        // so live credentials never end up in environments/*.yml.
-        const data = res.getBody()?.data;
-        if (res.getStatus() === 200 && data?.access_token) {
-          bru.setVar('access_token', data.access_token);
-          if (data.refresh_token) bru.setVar('refresh_token', data.refresh_token);
-        }
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Authenticate a user with email and password to receive access and refresh tokens.
+  Authenticate with email and password against the default local provider. Add `"otp"` if the
+  user has two-factor auth enabled.
 
-  On success this request automatically stores `access_token` (and `refresh_token`)
-  as runtime variables, so subsequent requests are authenticated for you. Runtime
-  variables live for the session only and are never written to the environment files.
+  On success the collection stores `access_token` and `refresh_token` as runtime variables,
+  so every other request is authenticated for you. Runtime variables last for the session
+  only and are never written to the environment files.
   https://directus.com/docs/api/authentication

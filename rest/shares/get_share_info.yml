@@ -10,7 +10,6 @@ http:
     - name: id
       value: "share-id"
       type: path
-  auth: inherit
 
 settings:
   encodeUrl: true

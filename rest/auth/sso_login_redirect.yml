@@ -8,13 +8,12 @@ http:
   url: "{{base_url}}/auth/login/:provider"
   params:
     - name: provider
-      value: "google"
+      value: google
       type: path
     - name: redirect
-      value: "http://localhost:8055/admin/login"
+      value: "{{base_url}}/admin/login"
       type: query
       disabled: true
-  auth: inherit
 
 settings:
   encodeUrl: true

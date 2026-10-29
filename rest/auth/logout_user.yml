@@ -13,11 +13,11 @@ http:
         "refresh_token": "{{refresh_token}}",
         "mode": "json"
       }
-  auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Invalidate a refresh token to log the user out.
+  Invalidate a refresh token to log the user out, and clear the captured tokens from the
+  session. Sends no access token, so it works after the access token has expired.
   https://directus.com/docs/api/authentication

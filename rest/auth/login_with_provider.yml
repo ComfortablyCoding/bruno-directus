@@ -8,32 +8,22 @@ http:
   url: "{{base_url}}/auth/login/:provider"
   params:
     - name: provider
-      value: "local"
+      value: ldap
       type: path
   body:
     type: json
     data: |-
       {
-        "email": "admin@example.com",
+        "identifier": "jdoe",
         "password": "password"
       }
-  auth: inherit
-
-runtime:
-  scripts:
-    - type: after-response
-      code: |-
-        // Store tokens as runtime variables (never written to disk).
-        const data = res.getBody()?.data;
-        if (res.getStatus() === 200 && data?.access_token) {
-          bru.setVar('access_token', data.access_token);
-          if (data.refresh_token) bru.setVar('refresh_token', data.refresh_token);
-        }
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Authenticate against a specific configured provider (e.g. `local`, an LDAP
-  provider, or another non-redirect provider). Tokens are stored on success.
+  Authenticate against a configured non-redirect provider by its name in `AUTH_PROVIDERS`.
+  LDAP providers take `identifier` (the LDAP username); `local`-driver providers take
+  `email` instead. The default local login is `login_user` (`/auth/login`), not
+  `/auth/login/local`. Tokens are stored on success, as with `login_user`.
   https://directus.com/docs/api/authentication

@@ -5,6 +5,6 @@ variables:
   - name: ws_url
     value: wss://your-directus-instance.com
   - name: access_token
-    value: your-access-token-here
+    value: ""
   - name: refresh_token
     value: ""
