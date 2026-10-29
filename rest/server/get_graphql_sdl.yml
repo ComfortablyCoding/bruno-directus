@@ -5,12 +5,17 @@ info:
 
 http:
   method: GET
-  url: "{{base_url}}/server/specs/graphql"
+  url: "{{base_url}}/server/specs/graphql/:scope"
+  params:
+    - name: scope
+      value: items
+      type: path
   auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Retrieve the GraphQL SDL (Schema Definition Language) for this instance.
+  Download the GraphQL SDL (Schema Definition Language) for this instance. `scope` is `items`
+  (your collections, `/graphql`) or `system` (system collections, `/graphql/system`).
   https://directus.com/docs/api/server
