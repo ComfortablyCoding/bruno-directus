@@ -8,11 +8,11 @@ http:
   url: "{{base_url}}/panels"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,type,dashboard"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"type":{"_eq":"metric"}}'
       type: query
       disabled: true
     - name: sort

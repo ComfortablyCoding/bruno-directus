@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/activity/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,action,collection,item,user,timestamp"
       type: query
       disabled: true
     - name: id

@@ -8,15 +8,15 @@ http:
   url: "{{base_url}}/users"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,email,first_name,last_name,status,last_access"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"status":{"_eq":"active"}}'
       type: query
       disabled: true
     - name: sort
-      value: "-date_created"
+      value: "-last_access"
       type: query
       disabled: true
     - name: limit

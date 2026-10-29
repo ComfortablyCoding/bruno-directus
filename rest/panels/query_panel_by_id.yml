@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/panels/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,type,dashboard,options"
       type: query
       disabled: true
     - name: id

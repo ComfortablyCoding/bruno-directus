@@ -8,15 +8,15 @@ http:
   url: "{{base_url}}/notifications"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,subject,status,recipient,timestamp"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"status":{"_eq":"inbox"}}'
       type: query
       disabled: true
     - name: sort
-      value: "-date_created"
+      value: "-timestamp"
       type: query
       disabled: true
     - name: limit

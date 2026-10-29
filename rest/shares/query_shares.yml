@@ -8,11 +8,11 @@ http:
   url: "{{base_url}}/shares"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,collection,item,times_used,date_created"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"collection":{"_eq":"articles"}}'
       type: query
       disabled: true
     - name: sort

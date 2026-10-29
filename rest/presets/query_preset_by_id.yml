@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/presets/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,collection,layout,bookmark,user"
       type: query
       disabled: true
     - name: id

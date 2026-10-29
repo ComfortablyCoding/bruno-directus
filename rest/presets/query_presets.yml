@@ -8,15 +8,15 @@ http:
   url: "{{base_url}}/presets"
   params:
     - name: fields
-      value: "id,collection,layout"
+      value: "id,collection,layout,bookmark,user"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"collection":{"_eq":"articles"}}'
       type: query
       disabled: true
     - name: sort
-      value: "-date_created"
+      value: "collection"
       type: query
       disabled: true
     - name: limit

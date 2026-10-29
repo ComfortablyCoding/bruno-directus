@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/revisions/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,collection,item,data,delta,activity"
       type: query
       disabled: true
     - name: id

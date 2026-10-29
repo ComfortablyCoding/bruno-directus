@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/policies/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,icon,description,admin_access,app_access"
       type: query
       disabled: true
     - name: id

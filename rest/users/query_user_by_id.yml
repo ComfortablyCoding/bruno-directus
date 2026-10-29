@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/users/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,email,first_name,last_name,role,status"
       type: query
       disabled: true
     - name: id

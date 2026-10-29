@@ -8,11 +8,11 @@ http:
   url: "{{base_url}}/activity"
   params:
     - name: fields
-      value: "id,action,user,timestamp,collection,item"
+      value: "id,action,collection,item,user,timestamp"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"action":{"_eq":"create"}}'
       type: query
       disabled: true
     - name: sort

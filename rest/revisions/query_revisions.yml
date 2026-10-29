@@ -12,11 +12,11 @@ http:
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"collection":{"_eq":"articles"}}'
       type: query
       disabled: true
     - name: sort
-      value: "-date_created"
+      value: "-id"
       type: query
       disabled: true
     - name: limit

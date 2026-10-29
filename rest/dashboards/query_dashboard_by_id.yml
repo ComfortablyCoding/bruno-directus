@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/dashboards/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,icon,note,date_created"
       type: query
       disabled: true
     - name: id

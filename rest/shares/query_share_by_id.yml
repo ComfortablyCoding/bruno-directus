@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/shares/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,collection,item,max_uses,times_used,date_end"
       type: query
       disabled: true
     - name: id

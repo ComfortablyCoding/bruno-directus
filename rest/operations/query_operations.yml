@@ -8,11 +8,11 @@ http:
   url: "{{base_url}}/operations"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,key,type,flow"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"type":{"_eq":"log"}}'
       type: query
       disabled: true
     - name: sort

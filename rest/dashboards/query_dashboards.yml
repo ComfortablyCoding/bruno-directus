@@ -8,11 +8,11 @@ http:
   url: "{{base_url}}/dashboards"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,icon,date_created"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"name":{"_icontains":"analytics"}}'
       type: query
       disabled: true
     - name: sort

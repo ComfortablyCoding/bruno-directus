@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/versions/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,key,name,collection,item,hash"
       type: query
       disabled: true
     - name: id

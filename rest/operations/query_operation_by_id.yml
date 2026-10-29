@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/operations/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,key,type,flow,options"
       type: query
       disabled: true
     - name: id

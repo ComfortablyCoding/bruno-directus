@@ -8,11 +8,11 @@ http:
   url: "{{base_url}}/flows"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,status,trigger,date_created"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"status":{"_eq":"active"}}'
       type: query
       disabled: true
     - name: sort

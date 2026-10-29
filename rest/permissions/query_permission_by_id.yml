@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/permissions/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,collection,action,policy,fields"
       type: query
       disabled: true
     - name: id

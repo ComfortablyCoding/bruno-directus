@@ -8,15 +8,15 @@ http:
   url: "{{base_url}}/folders"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,name,parent"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"parent":{"_null":true}}'
       type: query
       disabled: true
     - name: sort
-      value: "-date_created"
+      value: "name"
       type: query
       disabled: true
     - name: limit

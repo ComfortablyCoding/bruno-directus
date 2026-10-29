@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/translations/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,key,language,value"
       type: query
       disabled: true
     - name: id

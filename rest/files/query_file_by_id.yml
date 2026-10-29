@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/files/:id"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,title,type,filesize,uploaded_on"
       type: query
       disabled: true
     - name: id

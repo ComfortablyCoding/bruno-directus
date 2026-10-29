@@ -8,15 +8,15 @@ http:
   url: "{{base_url}}/translations"
   params:
     - name: fields
-      value: "id,title,date_created"
+      value: "id,key,language,value"
       type: query
       disabled: true
     - name: filter
-      value: '{"status":{"_eq":"published"}}'
+      value: '{"language":{"_eq":"en-US"}}'
       type: query
       disabled: true
     - name: sort
-      value: "-date_created"
+      value: "key"
       type: query
       disabled: true
     - name: limit
