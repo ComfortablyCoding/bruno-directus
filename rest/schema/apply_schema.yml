@@ -6,31 +6,23 @@ info:
 http:
   method: POST
   url: "{{base_url}}/schema/apply"
+  params:
+    - name: force
+      value: "true"
+      type: query
+      disabled: true
   body:
     type: json
     data: |-
-      {
-        "collections": {
-          "create": [],
-          "update": [],
-          "delete": []
-        },
-        "fields": {
-          "create": [],
-          "update": [],
-          "delete": []
-        },
-        "relations": {
-          "create": [],
-          "update": [],
-          "delete": []
-        }
-      }
+      {{schema_diff}}
   auth: inherit
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Apply a schema diff to the current instance. Admin only, destructive operation.
+  Apply a diff from `diff_schema` (sent from the `schema_diff` runtime variable, shaped
+  `{ "hash": "…", "diff": { "collections": [], "fields": [], "relations": [] } }`). The hash
+  must match this instance's current schema; `force` skips that check. Admin only and
+  destructive — in `mirror` mode the diff can drop collections and fields.
   https://directus.com/docs/api/schema

@@ -6,21 +6,39 @@ info:
 http:
   method: POST
   url: "{{base_url}}/schema/diff"
+  params:
+    - name: force
+      value: "true"
+      type: query
+      disabled: true
+    - name: mode
+      value: merge
+      type: query
+      disabled: true
   body:
     type: json
     data: |-
-      {
-        "version": 1,
-        "directus": "11.0.0",
-        "collections": [],
-        "fields": [],
-        "relations": []
-      }
+      {{schema_snapshot}}
   auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // Keep { hash, diff } so apply_schema can send it unchanged. 204 means no differences.
+        const data = res.getBody()?.data;
+        if (res.getStatus() === 200 && data?.diff) bru.setVar('schema_diff', data);
+        else if (res.getStatus() === 204) bru.deleteVar('schema_diff');
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Retrieve the diff between the current schema and a provided snapshot.
+  Compare a snapshot against this instance's schema. Sends the `schema_snapshot` captured by
+  `get_schema_snapshot`, and stores the returned `{ hash, diff }` in `schema_diff` for
+  `apply_schema`. Responds 204 when there is nothing to change. Admin only.
+
+  `force` skips the Directus version / database vendor check between the snapshot and this
+  instance. `mode` is `mirror` (default: also delete what the snapshot lacks) or `merge`
+  (only add and update).
   https://directus.com/docs/api/schema

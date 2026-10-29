@@ -6,11 +6,33 @@ info:
 http:
   method: GET
   url: "{{base_url}}/schema/snapshot"
+  params:
+    - name: includeCollections
+      value: articles,authors
+      type: query
+      disabled: true
+    - name: excludeCollections
+      value: articles
+      type: query
+      disabled: true
   auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // Keep the snapshot so diff_schema can send it — typically to a different instance.
+        const data = res.getBody()?.data;
+        if (res.getStatus() === 200 && data) bru.setVar('schema_snapshot', data);
 
 settings:
   encodeUrl: true
 
 docs: |-
-  Retrieve the current schema snapshot of the Directus instance.
+  Retrieve a snapshot of the instance's schema (collections, fields, relations). Admin only.
+  `includeCollections` / `excludeCollections` (comma-separated, not both) scope it.
+
+  The snapshot is stored in the `schema_snapshot` runtime variable for `diff_schema`. To migrate
+  schema between instances: run this on the source environment, switch to the target
+  environment, then run `diff_schema` and `apply_schema`.
   https://directus.com/docs/api/schema
