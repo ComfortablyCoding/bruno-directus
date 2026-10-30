@@ -29,12 +29,6 @@ http:
             {"title": "Item 1", "status": "draft"},
             {"title": "Item 2", "status": "published"}
           ]
-        },
-        {
-          "collection": "authors",
-          "items": [
-            {"name": "Ada Lovelace"}
-          ]
         }
       ]
   auth: inherit
@@ -43,10 +37,10 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Import items into several collections in one request. The body is an array of
-  `{ "collection": ..., "items": [...] }` objects, so the target collection is named in the
-  payload rather than in the URL. Use `import_data` to upload a JSON or CSV file into a
-  single collection instead.
+  Import items into one or more collections in a single transaction. The body is an array of
+  `{ "collection": ..., "items": [...] }` objects, one per collection, so the target collection
+  is named in the payload rather than in the URL. Use `import_data` to upload a JSON or CSV
+  file into a single collection instead.
 
   Query flags: `mode` is `add` (default, insert only) or `merge` (upsert by primary key);
   `dryRun` runs the import in a transaction that is rolled back, reporting what would change;
