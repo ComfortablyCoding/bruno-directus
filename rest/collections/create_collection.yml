@@ -12,7 +12,7 @@ http:
       {
         "collection": "articles",
         "schema": {},
-        "meta": {"icon": "article"},
+        "meta": {"icon": "article", "versioning": true},
         "fields": [
           {
             "field": "id",
@@ -59,5 +59,6 @@ settings:
 
 docs: |-
   Create a collection with its fields in one request. This creates the `articles` collection
-  (with `id`, `status`, `title`, `body`, `author`, and `date_created`) that the items, fields, and GraphQL examples use.
+  (with `id`, `status`, `title`, `body`, `author`, and `date_created`, and content
+  versioning enabled) that the items, fields, and GraphQL examples use.
   https://directus.com/docs/api/collections
