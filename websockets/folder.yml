@@ -17,7 +17,7 @@ docs:
 
     ## Connection flow
 
-    1. **Connect** to `{{ws_url}}/websocket`
+    1. **Connect** to `{{base_url}}/websocket`
     2. **Authenticate** — send an `auth` message (access token, email/password, or refresh token)
     3. **Subscribe** or send **items** actions
     4. **Keep alive** — reply to each server `ping` with a `pong`
@@ -25,7 +25,7 @@ docs:
 
     ## URL note
 
-    These requests use `{{ws_url}}`, not `{{base_url}}` — the WebSocket protocol needs a `ws://` or `wss://` scheme. Each environment defines both. If you point `base_url` at a different instance, update `ws_url` to match.
+    These requests use `{{base_url}}` like every other request. Bruno's WebSocket client connects to an `http://` URL over `ws://` and to an `https://` URL over `wss://`, so no separate WebSocket URL is needed.
 
     Authentication is the `auth` message (or `connection_init` for GraphQL, or the URL token for logs), not an `Authorization` header, so these requests set no auth.
 

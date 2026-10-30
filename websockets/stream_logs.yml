@@ -4,7 +4,7 @@ info:
   seq: 4
 
 websocket:
-  url: "{{ws_url}}/websocket/logs?access_token={{access_token}}"
+  url: "{{base_url}}/websocket/logs?access_token={{access_token}}"
   message:
     - title: 1. subscribe
       selected: true

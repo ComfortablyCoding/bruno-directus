@@ -4,7 +4,7 @@ info:
   seq: 3
 
 websocket:
-  url: "{{ws_url}}/graphql"
+  url: "{{base_url}}/graphql"
   headers:
     - name: Sec-WebSocket-Protocol
       value: graphql-transport-ws

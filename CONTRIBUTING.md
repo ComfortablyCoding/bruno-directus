@@ -253,7 +253,7 @@ control; `setVar` sets a session-only runtime variable that `{{...}}` still reso
 
 Never mutate a shared variable like `base_url` from a script. It persists across requests and
 will silently break every other request in the collection. Add a purpose-specific variable to
-the environments instead — that is why `ws_url` exists alongside `base_url`.
+the environments instead.
 
 ## Assertions and Tests
 
@@ -300,14 +300,15 @@ specific endpoint rather than a blanket 200.
 ## WebSocket Requests
 
 - `info.type: websocket`, with the URL and messages under `websocket`
-- URL format: `{{ws_url}}/websocket` — `ws_url` is `ws://`/`wss://`, unlike `base_url`
+- URL format: `{{base_url}}/websocket` — Bruno's WebSocket client connects to an `http://`/`https://`
+  URL over `ws://`/`wss://`, so there is no separate WebSocket URL variable
 - **Bruno opens one connection per request file**, so a message sent from one file never reaches
   a connection opened by another. Model each file as a complete session: `websocket.message` as
   an array of titled messages in the order they're sent, starting with authentication.
 
   ```yaml
   websocket:
-    url: "{{ws_url}}/websocket"
+    url: "{{base_url}}/websocket"
     message:
       - title: 1. auth
         selected: true

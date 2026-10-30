@@ -16,8 +16,8 @@ docs:
     ## Getting started
 
     1. Pick an environment from the dropdown (top right): `local` or `production`.
-    2. Set `base_url` to your Directus URL, and `ws_url` to the same host with a `ws://` or
-       `wss://` scheme.
+    2. Set `base_url` to your Directus URL. The WebSocket requests use it too — Bruno connects
+       to an `http://`/`https://` URL over `ws://`/`wss://`.
     3. Run **rest → auth → login_user** with valid credentials.
 
     Everything else is then authenticated automatically.

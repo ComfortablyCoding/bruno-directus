@@ -11,8 +11,8 @@ A comprehensive [Bruno](https://usebruno.com) collection for the [Directus](http
 3. In Bruno, click **Open Collection** (or `Ctrl/Cmd+O`) and select this folder.
 4. In the top-right environment dropdown, pick an environment (see [Environments](#environments)).
 5. Set that environment's variables for your Directus instance:
-   - `base_url` — your Directus URL (e.g. `http://localhost:8055`).
-   - `ws_url` — the same host with a `ws://`/`wss://` scheme, used by the WebSocket requests.
+   - `base_url` — your Directus URL (e.g. `http://localhost:8055`), used by every request — including
+     WebSockets, which Bruno connects over `ws://`/`wss://`.
    - `access_token` — leave empty and log in, or set a static token (see below).
    - `refresh_token` — leave empty; login captures it as a runtime variable.
 6. Run **rest → auth → login_user** with valid credentials to authenticate.
@@ -45,12 +45,11 @@ Both start with an empty `access_token`, which Directus treats as unauthenticate
 
 ### Variables
 
-| Variable        | Description                                                                         |
-| --------------- | ----------------------------------------------------------------------------------- |
-| `base_url`      | Directus instance URL for REST and GraphQL (e.g. `http://localhost:8055`).          |
-| `ws_url`        | Same host with a `ws://`/`wss://` scheme, used by the WebSocket requests.           |
-| `access_token`  | Static fallback token. Empty = no auth. Login overrides it with a runtime variable. |
-| `refresh_token` | Leave blank — captured on login as a runtime variable and rotated on refresh.       |
+| Variable        | Description                                                                             |
+| --------------- | --------------------------------------------------------------------------------------- |
+| `base_url`      | Directus instance URL for REST, GraphQL, and WebSockets (e.g. `http://localhost:8055`). |
+| `access_token`  | Static fallback token. Empty = no auth. Login overrides it with a runtime variable.     |
+| `refresh_token` | Leave blank — captured on login as a runtime variable and rotated on refresh.           |
 
 Some requests also capture runtime variables for the next step of a workflow: `compare_version` → `promote_version` (`main_hash`), `get_schema_snapshot` → `diff_schema` → `apply_schema` (`schema_snapshot`, `schema_diff`), and `create_tus_upload` → `upload_tus_chunk` (`tus_upload_id`).
 

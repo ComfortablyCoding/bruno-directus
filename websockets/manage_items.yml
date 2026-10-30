@@ -4,7 +4,7 @@ info:
   seq: 2
 
 websocket:
-  url: "{{ws_url}}/websocket"
+  url: "{{base_url}}/websocket"
   message:
     - title: 1. auth
       selected: true
