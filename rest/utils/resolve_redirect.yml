@@ -10,7 +10,7 @@ http:
     type: json
     data: |-
       {
-        "redirect": "{{base_url}}/admin/login"
+        "redirect": "/admin/content"
       }
   auth: inherit
 
@@ -18,6 +18,7 @@ settings:
   encodeUrl: true
 
 docs: |-
-  Validate and resolve a post-login redirect URL. `redirect` is required; an
-  optional `provider` (string) scopes the check to a specific auth provider.
+  Validate and resolve a post-login redirect URL. `redirect` is required. Relative paths are
+  always allowed; an absolute URL must match `PUBLIC_URL`, or the optional `provider`'s
+  `AUTH_<PROVIDER>_REDIRECT_ALLOW_LIST`.
   https://directus.com/docs/api/utilities

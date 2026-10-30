@@ -11,7 +11,7 @@ http:
       value: google
       type: path
     - name: redirect
-      value: "{{base_url}}/admin/login"
+      value: /admin/content
       type: query
       disabled: true
 
